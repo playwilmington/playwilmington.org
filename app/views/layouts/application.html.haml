@@ -1,12 +1,32 @@
 !!!
-%html
+%html{ lang: 'en' }
   %head
-    %title Children's Museum of Wilmington
+    %title The Children's Museum of Wilmington
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{ class: controller_name + action_name }
-    - if controller_name == 'sessions' || (controller_name == 'registrations' && action_name != 'edit') || controller_name == 'passwords' || controller_name == 'confirmations' || controller_name == 'unlocks'
+
+    %meta{ charset: 'utf-8' }/
+    %meta{ content: 'IE=edge', 'http-equiv': 'X-UA-Compatible' }/
+    %meta{ content: 'width=device-width, initial-scale=1', name: 'viewport' }/
+    %link{ href: 'https://fonts.googleapis.com/css?family=Indie+Flower', rel: 'stylesheet', type: 'text/css' }/
+    -# Add to homescreen for Chrome on Android
+    %meta{ content: 'yes', name: 'mobile-web-app-capable' }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: 'icon', sizes: '192x192' }/
+    -# Add to homescreen for Safari on iOS
+    %meta{ content: 'yes', name: 'apple-mobile-web-app-capable' }/
+    %meta{ content: '#ff6e40', name: 'apple-mobile-web-app-status-bar-style' }/
+    %meta{ content: "The Children's Museum of Wilmington", name: 'apple-mobile-web-app-title' }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: 'apple-touch-icon-precomposed' }/
+    -# Tile icon for Win8 (144x144 + tile color)
+    %meta{ content: "#{asset_path 'cmowlogo.gif'}", name: 'msapplication-TileImage' }/
+    %meta{ content: '#ff6e40', name: 'msapplication-TileColor' }/
+    -# Add to homescreen for Chrome on Android
+    %meta{ content: 'yes', name: 'mobile-web-app-capable' }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: 'icon', sizes: '192x192' }/
+
+  %body.blue-grey.lighten-4{ class: controller_name }
+    - if controller_name == 'sessions' || controller_name == 'registrations' || controller_name == 'passwords' || controller_name == 'confirmations' || controller_name == 'unlocks'
       .card-panel
         .row.col.s12.center
           %h4= yield :header
@@ -19,25 +39,81 @@
       - if notice
         :coffee
           Materialize.toast("#{notice}", 4000)
-      %header
+      %header.navbar-fixed
         %nav
           .nav-wrapper
+            %a.button-collapse{ href: '#', data: { activates: 'slide-out' } }
+              %i.material-icons menu
             = link_to "The Children's Museum of Wilmington", root_path, class: 'brand-logo'
-            %ul.right.hide-on-med-and-down
+            %ul.side-nav.fixed#slide-out
+              %li
+                .userView.header
+                  .background.center
+                    = image_tag 'cmowlogo.gif'
+              %li
+                .divider
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'home', text: 'Home'
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'map-signs', text: 'Plan Your Visit'
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'calendar', text: 'Events & More'
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'money', text: 'Memberships'
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'paint-brush', text: 'Exhibits'
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'quote-left', text: 'Testimonials'
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'binoculars', text: 'How You Can Help!'
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'heart', text: 'Outreach'
+              %li
+                %a.waves-effect.waves-orange= fa_icon 'book', text: 'About Us'
+              %li
+                .divider
               - if current_user
                 %li
-                  = link_to 'Dashboard', dashboard_index_path, class: 'btn waves-effect waves-light'
+                  %a.subheader Admin Functions
+                - if current_user.admin?
+                  %li
+                    %a.waves-effect.waves-orange Settings
+                %li
+                  = link_to destroy_user_session_path, method: :delete, class: 'waves-effect waves-orange' do
+                    = fa_icon 'sign-out', text: 'Log Out'
               - else
                 %li
-                  = link_to 'Login', new_user_session_path
+                  = link_to new_user_session_path, class: 'waves-effect waves-orange' do
+                    = fa_icon 'sign-in', text: 'Log In'
       %main
         = yield
 
-      %footer.page-footer
+      %footer.page-footer.grey.darken-2.hide-on-print
         .row
-          .col.s12.m4
-            %h5.white-text The Children's Museum of Wimington
-            %p.grey-text.text-lighten-4 A Simple Easy way to track and share you Movies, TV Shows, CDs, and Video Games with everyone
-        .footer-copyright{ style: 'padding-left: 10px; padding-right:10px;' }
-          &copy; 2017 Copyright Entertainment Tracker
-          %a.grey-text.text-lighten-4.right{ href: '#!' } v1.0.0
+          .col.s12.center
+            %h5.white-text The Chrildren's Museum of Wilmington
+          .col.s12.center
+            %a{ href: "http://maps.google.com/maps?saddr=My%20Location&daddr=116%20Orange%20Street,%20Wilmington,%20NC%2028401", target: '_Blank' } 116 Orange Street, Wilmington, NC 28401
+          .col.s12.center
+            %a{ href: 'mailto:info@playwilmington.org', target: '_Blank' } info@playwilmington.org
+          .col.s12.center
+            %a{ href: 'tel:9102543534', target: '_Blank' } (910) 254 3534
+        .row
+          .col.s12.center
+            = link_to 'Donate Now', '#', class: 'btn waves-effect waves-light deep-orange darken-2'
+        .row
+          .col.s12.center
+            %a.btn-floating.waves-effect.waves-light{ href: 'https://www.facebook.com/childrensmuseumwilmington', target: '_Blank' }
+              = fa_icon 'facebook'
+            %a.btn-floating.waves-effect.waves-light{ href: 'https://twitter.com/WilmChildrenMus', target: '_Blank' }
+              = fa_icon 'twitter'
+            %a.btn-floating.waves-effect.waves-light{ href: 'https://www.pinterest.com/playwilmington/', target: '_Blank' }
+              = fa_icon 'pinterest-p'
+            %a.btn-floating.waves-effect.waves-light{ href: 'https://instagram.com/ilm_childrens_museum/', target: '_Blank' }
+              = fa_icon 'instagram'
+        .row
+          .col.s12.center.white-text
+            Designed &amp; Developed by
+            %a{ href: 'http://www.chris-pezza.com' } Christopher Pezza
+        .footer-copyright
+          Copyright &copy; 2016-2017 The Children's Museum of Wilmington All Rights Reserved

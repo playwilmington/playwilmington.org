@@ -6,12 +6,8 @@
     .errors.red
       %span= devise_error_messages!
       %span= alert
-  .col.s12.m6
-    = f.text_field :username, icon: 'account_circle', outer_class: 'margin'
-    = f.text_field :first_name, icon: 'title', outer_class: 'margin'
-    = f.text_field :last_name, icon: 'title', outer_class: 'margin'
-  .col.s12.m6
-    = f.email_field :email, icon: 'email', outer_class: 'margin'
-    = f.password_field :password, icon: 'lock', class: 'tooltipped', data: { delay: '50', position: 'bottom', tooltip: "#{@minimum_password_length} characters minimum" }, outer_class: 'margin'
-    = f.password_field :password_confirmation, icon: 'lock', outer_class: 'margin'
+  = f.text_field :name, icon: 'title', outer_class: 'margin'
+  = f.email_field :email, icon: 'email', outer_class: 'margin'
+  = f.password_field :password, icon: 'lock', class: 'tooltipped', data: { delay: '50', position: 'bottom', tooltip: "#{@minimum_password_length} characters minimum" }, outer_class: 'margin'
+  = f.password_field :password_confirmation, icon: 'lock', outer_class: 'margin'
   = f.submit 'Sign Up Now', class: 'col s12'

@@ -3,7 +3,9 @@ $(document).on 'turbolinks:load', ->
   return
 
 material_initializer =->
-  $('.button-collapse').sideNav()
+  $('.button-collapse').sideNav
+    menuWidth: 240,
+    draggable: true
   $('select').material_select()
   Materialize.updateTextFields()
   $('#about').modal()

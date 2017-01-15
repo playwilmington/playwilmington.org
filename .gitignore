@@ -15,3 +15,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# ignore all coverage and linter files
+/coverage/*
+test/reports/
+rubocop-results.html
+scss-results.txt
