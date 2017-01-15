@@ -1,0 +1,10 @@
+- content_for :header do
+  Resend Confirmation Instructions
+
+= form_for(resource, as: resource_name, url: confirmation_path(resource_name), builder: FormBuilder, html: { method: :post, class: 'login-form row' }) do |f|
+  - if devise_error_messages? || alert
+    .errors.red
+      %span= devise_error_messages!
+      %span= alert
+  = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+  = f.submit 'Resend', class: 'col s12'

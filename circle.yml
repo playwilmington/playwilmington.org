@@ -1,0 +1,33 @@
+machine:
+  timezone: America/New_York
+
+  ruby:
+    version: 2.4.0
+
+dependencies:
+  pre:
+    - npm install coffee-script
+    - npm install -g coffeelint
+    - gem install bundler
+
+test:
+  override:
+    - bundle exec rake test TESTOPTS="--ci-dir=$CIRCLE_TEST_REPORTS/reports":
+        parallel: true
+        files:
+          - test/**/*_test.rb
+  post:
+    - bundle exec rake rubocop
+    - bundle exec rake scss_lint
+    - bundle exec rake haml_lint
+    - coffeelint app/assets/javascripts/ -f coffeelint.json
+
+deployment:
+  development:
+    branch: development
+    commands:
+      - heroku maintenance:on --app platwilmington-development
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - git push git@heroku.com:platwilmington-development.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app platwilmington-development
+      - heroku maintenance:off --app platwilmington-development

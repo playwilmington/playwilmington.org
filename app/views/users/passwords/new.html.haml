@@ -1,0 +1,10 @@
+- content_for :header do
+  Forgot Your Password?
+
+= form_for(resource, as: resource_name, url: password_path(resource_name), builder: FormBuilder, html: { method: :post, class: 'login-form row' }) do |f|
+  - if devise_error_messages? || alert
+    .errors.red
+      %span= devise_error_messages!
+      %span= alert
+  = f.email_field :email, icon: 'email', outer_class: 'margin'
+  = f.submit 'Send Reset Instructions', class: 'col s12'

@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %title Children's Museum of Wilmington
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body{ class: controller_name + action_name }
+    - if controller_name == 'sessions' || (controller_name == 'registrations' && action_name != 'edit') || controller_name == 'passwords' || controller_name == 'confirmations' || controller_name == 'unlocks'
+      .card-panel
+        .row.col.s12.center
+          %h4= yield :header
+        .row
+          .col.s12
+            = yield
+            .col.s12.section.center
+              = render 'users/shared/links'
+    - else
+      - if notice
+        :coffee
+          Materialize.toast("#{notice}", 4000)
+      %header
+        %nav
+          .nav-wrapper
+            = link_to "The Children's Museum of Wilmington", root_path, class: 'brand-logo'
+            %ul.right.hide-on-med-and-down
+              - if current_user
+                %li
+                  = link_to 'Dashboard', dashboard_index_path, class: 'btn waves-effect waves-light'
+              - else
+                %li
+                  = link_to 'Login', new_user_session_path
+      %main
+        = yield
+
+      %footer.page-footer
+        .row
+          .col.s12.m4
+            %h5.white-text The Children's Museum of Wimington
+            %p.grey-text.text-lighten-4 A Simple Easy way to track and share you Movies, TV Shows, CDs, and Video Games with everyone
+        .footer-copyright{ style: 'padding-left: 10px; padding-right:10px;' }
+          &copy; 2017 Copyright Entertainment Tracker
+          %a.grey-text.text-lighten-4.right{ href: '#!' } v1.0.0
