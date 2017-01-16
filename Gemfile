@@ -2,30 +2,31 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
+gem 'aws-sdk'
 gem 'chartkick'
+gem 'ckeditor'
 gem 'cocoon'
 gem 'coffee-rails'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'fullcalendar-rails'
 gem 'haml'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'material_icons'
 gem 'materialize-sass'
+gem 'paperclip'
 gem 'pg'
 gem 'pry-rails'
 gem 'puma'
 gem 'rails'
+gem 'ransack'
 gem 'sass-rails'
 gem 'sendgrid-rails'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'verbs'
-
-group :production do
-  gem 'rails_12factor'
-end
 
 group :test do
   gem 'minitest-ci'
