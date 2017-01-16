@@ -61,7 +61,12 @@ body {
     }
 
     .login-form {
+      padding-right: 20px;
       width: 425px;
+
+      .errors {
+        padding: 5px 10px;
+      }
 
       .login-logo {
         height: 100px;

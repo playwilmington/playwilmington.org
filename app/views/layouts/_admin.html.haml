@@ -1,0 +1,35 @@
+%header
+  %nav
+    .nav-wrapper
+      %a.button-collapse{ href: '#', data: { activates: 'slide-out' } }
+        %i.material-icons menu
+      = link_to "The Children's Museum of Wilmington", admin_root_path, class: 'brand-logo'
+      %ul.side-nav.fixed#slide-out
+        %li
+          .userView.header
+            .background.center
+              = image_tag 'cmowlogo.gif'
+        %li
+          .divider
+        %li
+          %a.subheader Items
+        %li
+          .divider
+        %li
+          %a.subheader Activities
+        %li
+          = link_to root_path, class: 'waves-effect waves-orange' do
+            = fa_icon 'home', text: 'Website Home'
+        %li
+          = link_to admin_root_path, class: 'waves-effect waves-orange' do
+            = fa_icon 'tachometer', text: 'Dashboard'
+        %li
+          = link_to destroy_user_session_path, method: :delete, class: 'waves-effect waves-orange' do
+            = fa_icon 'sign-out', text: 'Log Out'
+%main
+  = yield
+
+%footer.page-footer.grey.darken-2.hide-on-print
+  .footer-copyright
+    Copyright &copy; 2016-2017 The Children's Museum of Wilmington All Rights Reserved
+    %span.right v1.0.0
