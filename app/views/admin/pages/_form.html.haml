@@ -8,7 +8,7 @@
               %p= msg
     = f.text_field :title, length: '25', icon: 'title'
     = f.text_field :name, length: '25', icon: 'title'
-    = f.select :page_type, options_for_select(['Page', 'Tab'], f.object.page_type), prompt: 'Please Select a Page Type'
+    = f.select :page_type, options_for_select(%w(Page Tab), f.object.page_type), prompt: 'Please Select a Page Type'
     = f.select :page_id, options_from_collection_for_select(Page.pages_only, :id, :title, f.object.page_id), prompt: 'Select A Parent Page', outer_class: 'page_hiding hide'
     = f.text_field :icon, icon: 'fingerprint', outer_class: 'page_hiding hide'
     = f.number_field :order, icon: 'format_list_numbered'
