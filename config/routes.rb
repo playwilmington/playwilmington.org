@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     root 'dashboard#index'
+    resources :pages
   end
 
   devise_for :users
   root 'home#index'
+  DynamicRouter.load
 
   # Error Handling
   match '/404', to: 'errors#not_found', via: :all

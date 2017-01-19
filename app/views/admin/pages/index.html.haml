@@ -1,0 +1,43 @@
+.page-wrapper
+  .row
+    .col.s6
+      %h3 Pages
+  .row
+    .col.s12
+      .card-panel
+        .right
+          = page_entries_info @pages, entry_name: 'Page'
+        %table.bordered.highlight.table
+          %thead
+            %th{ scope: 'col' }= sort_link @q, :title
+            %th{ scope: 'col' }= sort_link @q, :name
+            %th{ scope: 'col' }= sort_link @q, :page_type
+            %th{ scope: 'col' }= sort_link @q, :page_id
+            %th{ scope: 'col' }= sort_link @q, :icon
+            %th{ scope: 'col' }= sort_link @q, :order
+            %th{ scope: 'col' }= sort_link @q, :active
+            %th{ scope: 'col', colspan: '2' }
+          %tbody
+            - @pages.each do |page|
+              %tr.table__row{ role: 'link', tabindex: '0', data: { url: admin_page_path(page) } }
+                %td= page.title
+                %td= page.name
+                %td= page.page_type
+                %td= page.page ? page.page.title : ''
+                %td= page.icon
+                %td= page.order
+                %td
+                  - if page.active?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  = link_to 'Edit', edit_admin_page_path(page), class: 'action-edit'
+                %td
+                  = link_to 'Delete', admin_page_path(page), class: 'action-destroy red-text', rel: 'nofollow', data: { method: :delete, confirm: 'Are You Sure?' }
+        .center.section
+          = paginate @pages
+
+  .fixed-action-btn
+    = link_to new_admin_page_path, class: 'btn-floating btn-large waves-effect waves-light' do
+      = material_icon.add

@@ -1,0 +1,14 @@
+.row
+  .col.s12{ style: 'padding:0;' }
+    %ul.tabs.tabs-fixed-width
+      - @page.pages.tabs.each do |tab|
+        %li.tab
+          %a{ href: "##{tab.name}" }= tab.title
+  .container
+    - @page.pages.tabs.each do |tab|
+      .col.s12{ id: "#{tab.name}" }
+        %h4.center= tab.title
+        .row
+          .col.s12
+            .card-panel
+              = tab.content.html_safe

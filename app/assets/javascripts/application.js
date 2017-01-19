@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require cocoon
+//= require ckeditor/init
 //= require_tree ./initializers
 //= require_tree .

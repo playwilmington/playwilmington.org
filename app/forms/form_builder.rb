@@ -89,8 +89,14 @@ class FormBuilder < ActionView::Helpers::FormBuilder
   def select(method, choices = nil, options = {}, html_options = {})
     label_options = {}
     label_options[:text] = options.delete(:label)
+    outer_class = options.delete(:outer_class)
+    row_class = if outer_class
+                  'row ' + outer_class
+                else
+                  'row'
+                end
 
-    content_tag :div, class: 'row' do
+    content_tag :div, class: row_class do
       content_tag(:div, class: 'input-field col s12') do
         super(method, choices, options, html_options) +
           text_field_label(method, label_options)

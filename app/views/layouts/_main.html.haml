@@ -17,22 +17,10 @@
         %li
           = link_to root_path, class: 'waves-effect waves-orange' do
             = fa_icon 'home', text: 'Home'
-        %li
-          %a.waves-effect.waves-orange= fa_icon 'map-signs', text: 'Plan Your Visit'
-        %li
-          %a.waves-effect.waves-orange= fa_icon 'calendar', text: 'Events & More'
-        %li
-          %a.waves-effect.waves-orange= fa_icon 'money', text: 'Memberships'
-        %li
-          %a.waves-effect.waves-orange= fa_icon 'paint-brush', text: 'Exhibits'
-        %li
-          %a.waves-effect.waves-orange= fa_icon 'quote-left', text: 'Testimonials'
-        %li
-          %a.waves-effect.waves-orange= fa_icon 'binoculars', text: 'How You Can Help!'
-        %li
-          %a.waves-effect.waves-orange= fa_icon 'heart', text: 'Outreach'
-        %li
-          %a.waves-effect.waves-orange= fa_icon 'book', text: 'About Us'
+        - @pages.each do |page|
+          %li
+            = link_to send(page.route), class: 'waves-effect waves-orange' do
+              = fa_icon page.icon, text: page.title
         %li
           .divider
         - if current_user

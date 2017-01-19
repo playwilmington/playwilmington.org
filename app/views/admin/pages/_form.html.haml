@@ -1,0 +1,20 @@
+.row
+  = form_for page, url: action_name == 'edit' ? admin_page_path : admin_pages_path, builder: FormBuilder, html: { class: 'col s12' } do |f|
+    .row
+      - page.errors.full_messages.each do |msg|
+        .col.s12
+          .card.red
+            .card-content.white-text
+              %p= msg
+    = f.text_field :title, length: '25', icon: 'title'
+    = f.text_field :name, length: '25', icon: 'title'
+    = f.select :page_type, options_for_select(['Page', 'Tab'], f.object.page_type), prompt: 'Please Select a Page Type'
+    = f.select :page_id, options_from_collection_for_select(Page.pages_only, :id, :title, f.object.page_id), prompt: 'Select A Parent Page', outer_class: 'page_hiding hide'
+    = f.text_field :icon, icon: 'fingerprint', outer_class: 'page_hiding hide'
+    = f.number_field :order, icon: 'format_list_numbered'
+    = f.check_box :active
+    .row
+      .col.s12
+        = f.label :content
+        = f.cktext_area :content
+    = f.submit nil, class: 'right'

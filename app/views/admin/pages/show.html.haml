@@ -1,0 +1,39 @@
+.row
+  .col.s12
+    %h3= @page.title
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      .row
+        .col.s12
+          %dl
+            %dt Type
+            %dd= @page.page_type
+            %dt Name
+            %dd= @page.name
+            %dt Parent Page
+            %dd= @page.page ? @page.page.title : 'N/A'
+            %dt Icon
+            %dd= @page.icon.nil? ? @page.icon : 'N/A'
+            %dt Order
+            %dd= @page.order
+            %dt Active
+            %dd
+              - if @page.active
+                = material_icon.check_box
+              - else
+                = material_icon.check_box_outline_blank
+            %dt Content
+            %dd= @page.content.html_safe
+
+.fixed-action-btn.click-to-toggle
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li
+      = link_to admin_page_path(@page), class: 'btn-floating waves-effect waves-light red' do
+        = material_icon.delete_forever
+    %li
+      = link_to edit_admin_page_path(@page), class: 'btn-floating waves-effect waves-light green' do
+        = material_icon.edit
