@@ -13,10 +13,6 @@ class Page < ApplicationRecord
 
   after_save :reload_routes
 
-  # scope :main, -> { where('page_type = ? AND active = ?', 'Page', true) }
-  # scope :pages_only, -> { where(page_type: 'Page') }
-  # scope :tabs, -> { where(active: true) }
-
   def reload_routes
     DynamicRouter.reload
   end
