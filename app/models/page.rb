@@ -8,8 +8,8 @@ class Page < ApplicationRecord
   validates_format_of :name, with: /\A([a-z_]*)\z/i, message: '%{value} can
                              only contain lowercase letters and underscores'
 
-  belongs_to :page
-  has_many :pages
+  belongs_to :page, class_name: 'Page'
+  has_many :pages, class_name: 'Page', foreign_key: :page_id
 
   after_save :reload_routes
 
