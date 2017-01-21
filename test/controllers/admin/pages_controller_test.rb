@@ -22,7 +22,8 @@ class Admin::PagesControllerTest < ActionController::TestCase
           title: 'Home',
           icon: 'home',
           page_type: 'Page',
-          content: 'Content'
+          content: 'Content',
+          name: 'page_name'
         }
       }
     end
@@ -37,7 +38,8 @@ class Admin::PagesControllerTest < ActionController::TestCase
           title: nil,
           icon: 'home',
           page_type: 'Page',
-          content: 'Content'
+          content: 'Content',
+          name: 'page_name'
         }
       }
     end

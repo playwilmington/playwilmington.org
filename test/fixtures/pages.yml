@@ -2,18 +2,16 @@
 
 one:
   content: MyText
-  title: MyString
+  title: Page One
   icon: MyString
-  page_type: MyString
-  page: one
-  order: 1
-  name: MyString
+  page_type: Page
+  order: 10
+  name: page_one
 
 two:
-  content: MyText
-  title: MyString
-  icon: MyString
-  page_type: MyString
-  page: two
-  order: 1
-  name: MyString
+  content: MyText2
+  title: Page Two
+  icon: icon
+  page_type: Tab
+  order: 11
+  name: page_two
