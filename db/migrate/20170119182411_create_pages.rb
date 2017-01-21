@@ -8,6 +8,7 @@ class CreatePages < ActiveRecord::Migration[5.0]
       t.belongs_to :page
       t.integer :order
       t.string :name, null: false
+      t.boolean :active
 
       t.timestamps
     end
