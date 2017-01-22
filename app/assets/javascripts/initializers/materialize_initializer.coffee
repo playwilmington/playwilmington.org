@@ -15,6 +15,7 @@ material_initializer =->
   $('select').material_select()
   Materialize.updateTextFields()
   $('#about').modal()
+  $('#alert-modal').modal()
   $('.datepicker').pickadate
     selectMonths: true
     selectYears: 15

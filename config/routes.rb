@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     root 'dashboard#index'
-    resources :pages
+    resources :pages, :alerts
   end
 
   devise_for :users

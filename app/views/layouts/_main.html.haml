@@ -38,6 +38,7 @@
             = link_to new_user_session_path, class: 'waves-effect waves-orange' do
               = fa_icon 'sign-in', text: 'Log In'
 %main
+  = render 'layouts/alert'
   = yield
 
 %footer.page-footer.grey.darken-2.hide-on-print

@@ -2,9 +2,16 @@ en:
   activerecord:
     attributes:
       page:
-        page_id: 'Parent Page'
-        title: 'Title'
-        icon: 'Icon'
-        order: 'Order'
-        page_type: 'Page Type'
-        content: 'Page Content'
+        page_id: Parent Page
+        title: Title
+        icon: Icon
+        order: Order
+        page_type: Page Type
+        content: Page Content
+      alert:
+        title: Title
+        name: Name
+        content: Content
+        start_date: Start Date
+        end_date: End Date
+        active: Active
