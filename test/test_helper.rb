@@ -30,7 +30,9 @@ require 'rails/test_help'
 require 'minitest/spec'
 require 'minitest/pride'
 
-class ActiveSupport::TestCase
-  fixtures :all
-  include Devise::Test::ControllerHelpers
+class ActiveSupport
+  class TestCase
+    fixtures :all
+    include Devise::Test::ControllerHelpers
+  end
 end

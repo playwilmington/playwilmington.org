@@ -1,7 +1,8 @@
 # Use this hook to configure ckeditor
 Ckeditor.setup do |config|
   # ==> ORM configuration
-  # Load and configure the ORM. Supports :active_record (default), :mongo_mapper and
+  # Load and configure the ORM. Supports :active_record (default),
+  # :mongo_mapper and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'ckeditor/orm/active_record'
@@ -19,7 +20,8 @@ Ckeditor.setup do |config|
   # Allowed attachment file types for upload.
   # Set to nil or [] (empty array) for all file types
   # By default: %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
-  # config.attachment_file_types = %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
+  # config.attachment_file_types = %w(doc docx xls odt ods pdf rar zip tar
+  # tar.gz swf)
 
   # Setup authorization to be run as a before filter
   # By default: there is no authorization.
@@ -41,10 +43,11 @@ Ckeditor.setup do |config|
   # By default: nil
   config.asset_path = '/assets/ckeditor/'
 
-  # To reduce the asset precompilation time, you can limit plugins and/or languages to those you need:
+  # To reduce the asset precompilation time, you can limit plugins and/or
+  # languages to those you need:
   # By default: nil (no limit)
   config.assets_languages = ['en']
-  config.assets_plugins = ['autogrow', 'uploadimage']
+  config.assets_plugins = %w(autogrow uploadimage)
 
   # CKEditor CDN
   # More info here http://cdn.ckeditor.com/

@@ -23,13 +23,13 @@ class FormBuilder < ActionView::Helpers::FormBuilder
         content_tag :div, class: 'input-field col s12' do
           if icon && help
             text_field_icon(icon) + super(name, options) +
-            text_field_label(name, label_options) + help_text(help)
+              text_field_label(name, label_options) + help_text(help)
           elsif icon && !help
             text_field_icon(icon) + super(name, options) +
-            text_field_label(name, label_options)
+              text_field_label(name, label_options)
           elsif !icon && help
             super(name, options) + text_field_label(name, label_options) +
-            help_text(help)
+              help_text(help)
           else
             super(name, options) + text_field_label(name, label_options)
           end
@@ -49,7 +49,7 @@ class FormBuilder < ActionView::Helpers::FormBuilder
       content_tag :div, class: 'input-field col s12' do
         if icon
           text_field_icon(icon) + super(method, options) +
-          text_field_label(method, label_options)
+            text_field_label(method, label_options)
         else
           super(method, options) + text_field_label(method, label_options)
         end
@@ -66,10 +66,10 @@ class FormBuilder < ActionView::Helpers::FormBuilder
         content_tag(:div, class: 'btn') do
           content_tag(:span) { btn_name } + super(method, options)
         end +
-        content_tag(:div, class: 'file-path-wrapper') do
-          content_tag(:input, nil, type: 'text', class: 'file-path',
-                                   placeholder: placeholder)
-        end
+          content_tag(:div, class: 'file-path-wrapper') do
+            content_tag(:input, nil, type: 'text', class: 'file-path',
+                                     placeholder: placeholder)
+          end
       end
     end
   end
@@ -127,15 +127,15 @@ class FormBuilder < ActionView::Helpers::FormBuilder
 
   private
 
-    def text_field_label(name, label_options)
-      label(name, label_options[:text])
-    end
+  def text_field_label(name, label_options)
+    label(name, label_options[:text])
+  end
 
-    def text_field_icon(icon)
-      content_tag(:i, class: 'material-icons prefix'){ icon.to_s }
-    end
+  def text_field_icon(icon)
+    content_tag(:i, class: 'material-icons prefix') { icon.to_s }
+  end
 
-    def help_text(text)
-      content_tag(:small, class: 'help-text'){ text.to_s }
-    end
+  def help_text(text)
+    content_tag(:small, class: 'help-text') { text.to_s }
+  end
 end

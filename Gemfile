@@ -14,8 +14,8 @@ gem 'haml'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'material_icons'
 gem 'materialize-sass'
+gem 'material_icons'
 gem 'paperclip'
 gem 'pg'
 gem 'pry-rails'
@@ -46,4 +46,5 @@ group :test, :development do
   gem 'haml_lint', require: false
   gem 'rubocop', require: false
   gem 'scss_lint', require: false
+  gem 'yamllint', require: false
 end
