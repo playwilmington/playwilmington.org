@@ -13,7 +13,7 @@
             %dt Name
             %dd= @page.name
             %dt Parent Page
-            %dd= @page.page ? @page.page.title : 'N/A'
+            %dd= @page.page_id ? @page.parent_page : 'N/A'
             %dt Icon
             %dd= @page.icon.nil? ? @page.icon : 'N/A'
             %dt Order

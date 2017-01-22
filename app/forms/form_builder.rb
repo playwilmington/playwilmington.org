@@ -11,17 +11,25 @@ class FormBuilder < ActionView::Helpers::FormBuilder
       icon = options.delete(:icon)
       label_options[:text] = options.delete(:label)
       outer_class = options.delete(:outer_class)
-      row_class = if outer_class
-                    'row ' + outer_class
-                  else
-                    'row'
-                  end
+      help = options.delete(:help_text)
+      row_class =
+        if outer_class
+          'row ' + outer_class
+        else
+          'row'
+        end
 
       content_tag :div, class: row_class do
         content_tag :div, class: 'input-field col s12' do
-          if icon
+          if icon && help
+            text_field_icon(icon) + super(name, options) +
+            text_field_label(name, label_options) + help_text(help)
+          elsif icon && !help
             text_field_icon(icon) + super(name, options) +
             text_field_label(name, label_options)
+          elsif !icon && help
+            super(name, options) + text_field_label(name, label_options) +
+            help_text(help)
           else
             super(name, options) + text_field_label(name, label_options)
           end
@@ -70,11 +78,12 @@ class FormBuilder < ActionView::Helpers::FormBuilder
     label_options = {}
     label_options[:text] = options.delete(:label)
     outer_class = options.delete(:outer_class)
-    row_class = if outer_class
-                  'row ' + outer_class
-                else
-                  'row'
-                end
+    row_class =
+      if outer_class
+        'row ' + outer_class
+      else
+        'row'
+      end
 
     content_tag :div, class: row_class do
       content_tag :div, class: 'col s12' do
@@ -90,11 +99,12 @@ class FormBuilder < ActionView::Helpers::FormBuilder
     label_options = {}
     label_options[:text] = options.delete(:label)
     outer_class = options.delete(:outer_class)
-    row_class = if outer_class
-                  'row ' + outer_class
-                else
-                  'row'
-                end
+    row_class =
+      if outer_class
+        'row ' + outer_class
+      else
+        'row'
+      end
 
     content_tag :div, class: row_class do
       content_tag(:div, class: 'input-field col s12') do
@@ -123,5 +133,9 @@ class FormBuilder < ActionView::Helpers::FormBuilder
 
     def text_field_icon(icon)
       content_tag(:i, class: 'material-icons prefix'){ icon.to_s }
+    end
+
+    def help_text(text)
+      content_tag(:small, class: 'help-text'){ text.to_s }
     end
 end

@@ -1,11 +1,11 @@
 .row
   .col.s12{ style: 'padding:0;' }
     %ul.tabs.tabs-fixed-width
-      - @page.pages.where(active: true).each do |tab|
+      - @page.pages.active.each do |tab|
         %li.tab
           %a{ href: "##{tab.name}" }= tab.title
   .container
-    - @page.pages.where(active: true).each do |tab|
+    - @page.pages.active.each do |tab|
       .col.s12{ id: "#{tab.name}" }
         %h4.center= tab.title
         .row

@@ -5,17 +5,19 @@
   .row
     .col.s12
       .card-panel
-        .right
-          = page_entries_info @pages, entry_name: 'Page'
-        %table.bordered.highlight.table
+        .row
+          .col.s12
+            .right
+              = page_entries_info @pages, entry_name: 'Page'
+        %table.bordered.highlight.table.responsive-table
           %thead
-            %th{ scope: 'col' }= sort_link @q, :title
-            %th{ scope: 'col' }= sort_link @q, :name
-            %th{ scope: 'col' }= sort_link @q, :page_type
-            %th{ scope: 'col' }= sort_link @q, :page_id
-            %th{ scope: 'col' }= sort_link @q, :icon
-            %th{ scope: 'col' }= sort_link @q, :order
-            %th{ scope: 'col' }= sort_link @q, :active
+            %th{ scope: 'col', data: { field: 'Title' } }= sort_link @q, :title
+            %th{ scope: 'col', data: { field: 'Name' } }= sort_link @q, :name
+            %th{ scope: 'col', data: { field: 'Page Type' } }= sort_link @q, :page_type
+            %th{ scope: 'col', data: { field: 'Parent Page' } }= sort_link @q, :page_id
+            %th{ scope: 'col', data: { field: 'Icon' } }= sort_link @q, :icon
+            %th{ scope: 'col', data: { field: 'Order' } }= sort_link @q, :order
+            %th{ scope: 'col', data: { field: 'Active' } }= sort_link @q, :active
             %th{ scope: 'col', colspan: '2' }
           %tbody
             - @pages.each do |page|
@@ -23,7 +25,7 @@
                 %td= page.title
                 %td= page.name
                 %td= page.page_type
-                -# %td= page.page ? page.page.title : ''
+                %td= page.page_id ? page.parent_page : ''
                 %td= page.icon
                 %td= page.order
                 %td

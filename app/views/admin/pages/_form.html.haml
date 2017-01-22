@@ -7,14 +7,14 @@
             .card-content.white-text
               %p= msg
     = f.text_field :title, length: '25', icon: 'title'
-    = f.text_field :name, length: '25', icon: 'title'
+    = f.text_field :name, length: '25', icon: 'subtitles', help_text: 'Name can only have lowercase letters and underscores'
     = f.select :page_type, options_for_select(%w(Page Tab), f.object.page_type), prompt: 'Please Select a Page Type'
     = f.select :page_id, options_from_collection_for_select(Page.where(page_type: 'Page'), :id, :title, f.object.page_id), prompt: 'Select A Parent Page', outer_class: 'page_hiding hide'
     = f.text_field :icon, icon: 'fingerprint', outer_class: 'page_hiding hide'
     = f.number_field :order, icon: 'format_list_numbered'
     = f.check_box :active
     .row
-      .col.s12
+      .col.s12.ckeditor-input
         = f.label :content
         = f.cktext_area :content
     = f.submit nil, class: 'right'

@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   private
 
   def get_nav_links
-    @pages = Page.where('page_type = ? AND active = ?', 'Page', true)
+    @pages = Page.main
   end
 end
