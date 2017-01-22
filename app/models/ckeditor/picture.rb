@@ -1,4 +1,4 @@
-class Ckeditor
+module Ckeditor
   class Picture < Ckeditor::Asset
     has_attached_file :data,
                       url: '/ckeditor_assets/pictures/:id/:style_:basename.:extension',

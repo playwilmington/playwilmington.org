@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin
+module Admin
   class DashboardControllerTest < ActionController::TestCase
     test 'should get index' do
       sign_in users(:one)

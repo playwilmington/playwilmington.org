@@ -1,4 +1,4 @@
-class Admin
+module Admin
   class PagesController < AdminController
     before_action :set_page, except: [:index, :new, :create]
 

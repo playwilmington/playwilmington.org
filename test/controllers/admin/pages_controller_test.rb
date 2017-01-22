@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin
+module Admin
   class PagesControllerTest < ActionController::TestCase
     setup do
       sign_in users(:one)
