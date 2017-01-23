@@ -1,3 +1,10 @@
+class PageUrlConstrainer
+  def matches?(request)
+    name = request.path.delete('/')
+    Page.find_by_name(name)
+  end
+end
+
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
@@ -7,7 +14,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'home#index'
-  DynamicRouter.load
+  constraints(PageUrlConstrainer.new) do
+    get ':name' => 'pages#show'
+  end
 
   # Error Handling
   match '/404', to: 'errors#not_found', via: :all

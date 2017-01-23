@@ -8,22 +8,13 @@ class Page < ApplicationRecord
   validates_format_of :name, with: /\A([a-z_]*)\z/i, message: '%{value} can
                              only contain lowercase letters and underscores'
 
-  after_save :reload_routes
-
   has_many :pages, foreign_key: :page_id
 
   scope :active, -> { where(active: true).order(:order) }
+  scope :available_pages, -> { where(page_type: 'Page').order(:order) }
   scope :main, lambda {
     where('page_type = ? AND active = ?', 'Page', true).order(:order)
   }
-
-  def reload_routes
-    DynamicRouter.reload
-  end
-
-  def route
-    name + '_path'
-  end
 
   def parent_page
     return unless page_id

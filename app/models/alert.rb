@@ -12,8 +12,8 @@ class Alert < ApplicationRecord
   }
 
   def start_date_before_end_date
-    return unless !start_date.nil? && !end_date.nil?
-    return if start_date >= end_date
+    return if end_date.nil? && start_date.nil?
+    return unless end_date < start_date
     errors.add(:start_date, '- Start can not be greater than End Date')
   end
 

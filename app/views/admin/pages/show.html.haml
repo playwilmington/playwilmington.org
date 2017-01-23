@@ -15,7 +15,7 @@
             %dt Parent Page
             %dd= @page.page_id ? @page.parent_page : 'N/A'
             %dt Icon
-            %dd= @page.icon.nil? ? @page.icon : 'N/A'
+            %dd= @page.icon.blank? ? @page.icon : 'N/A'
             %dt Order
             %dd= @page.order
             %dt Active
@@ -32,8 +32,10 @@
     = material_icon.menu
   %ul
     %li
-      = link_to admin_page_path(@page), class: 'btn-floating waves-effect waves-light red' do
+      = link_to admin_page_path(@page),
+        class: 'btn-floating waves-effect waves-light red' do
         = material_icon.delete_forever
     %li
-      = link_to edit_admin_page_path(@page), class: 'btn-floating waves-effect waves-light green' do
+      = link_to edit_admin_page_path(@page),
+        class: 'btn-floating waves-effect waves-light green' do
         = material_icon.edit

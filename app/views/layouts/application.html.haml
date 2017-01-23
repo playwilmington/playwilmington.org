@@ -3,32 +3,39 @@
   %head
     %title The Children's Museum of Wilmington
     = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all',
+      'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
     %meta{ charset: 'utf-8' }/
     %meta{ content: 'IE=edge', 'http-equiv': 'X-UA-Compatible' }/
     %meta{ content: 'width=device-width, initial-scale=1', name: 'viewport' }/
-    %link{ href: 'https://fonts.googleapis.com/css?family=Indie+Flower', rel: 'stylesheet', type: 'text/css' }/
+    %link{ href: 'https://fonts.googleapis.com/css?family=Indie+Flower',
+      rel: 'stylesheet', type: 'text/css' }/
     -# Add to homescreen for Chrome on Android
     %meta{ content: 'yes', name: 'mobile-web-app-capable' }/
-    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: 'icon', sizes: '192x192' }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: 'icon',
+      sizes: '192x192' }/
     -# Add to homescreen for Safari on iOS
     %meta{ content: 'yes', name: 'apple-mobile-web-app-capable' }/
     %meta{ content: '#ff6e40', name: 'apple-mobile-web-app-status-bar-style' }/
-    %meta{ content: "The Children's Museum of Wilmington", name: 'apple-mobile-web-app-title' }/
-    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: 'apple-touch-icon-precomposed' }/
+    %meta{ content: "The Children's Museum of Wilmington",
+      name: 'apple-mobile-web-app-title' }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}",
+      rel: 'apple-touch-icon-precomposed' }/
     -# Tile icon for Win8 (144x144 + tile color)
-    %meta{ content: "#{asset_path 'cmowlogo.gif'}", name: 'msapplication-TileImage' }/
+    %meta{ content: "#{asset_path 'cmowlogo.gif'}",
+      name: 'msapplication-TileImage' }/
     %meta{ content: '#ff6e40', name: 'msapplication-TileColor' }/
     -# Add to homescreen for Chrome on Android
     %meta{ content: 'yes', name: 'mobile-web-app-capable' }/
-    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: 'icon', sizes: '192x192' }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: 'icon',
+      sizes: '192x192' }/
 
   %body.blue-grey.lighten-4{ class: controller_name }
     - if admin?
       = render 'layouts/admin'
-    - elsif controller_name == 'sessions' || controller_name == 'registrations' || controller_name == 'passwords' || controller_name == 'confirmations' || controller_name == 'unlocks'
+    - elsif viewable?
       = render 'layouts/login'
     - else
       = render 'layouts/main'

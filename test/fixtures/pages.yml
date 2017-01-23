@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
   title: Page One
-  icon: MyString
-  page_type: Page
-  order: 10
   name: page_one
+  page_type: Page
+  icon: MyString
+  order: 10
+  content: MyText
+  active: true
 
 two:
-  content: MyText2
   title: Page Two
-  icon: icon
-  page_type: Tab
-  order: 11
   name: page_two
+  page_type: Tab
+  icon: icon
+  order: 11
+  content: MyText2
+  active: true

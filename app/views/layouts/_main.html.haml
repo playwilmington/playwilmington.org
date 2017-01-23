@@ -6,7 +6,8 @@
     .nav-wrapper
       %a.button-collapse{ href: '#', data: { activates: 'slide-out' } }
         %i.material-icons menu
-      = link_to "The Children's Museum of Wilmington", root_path, class: 'brand-logo'
+      = link_to "The Children's Museum of Wilmington", root_path,
+        class: 'brand-logo'
       %ul.side-nav.fixed#slide-out
         %li
           .userView.header
@@ -19,7 +20,7 @@
             = fa_icon 'home', text: 'Home'
         - @pages.each do |page|
           %li
-            = link_to send(page.route), class: 'waves-effect waves-orange' do
+            = link_to "/#{page.name}", class: 'waves-effect waves-orange' do
               = fa_icon page.icon, text: page.title
         %li
           .divider
@@ -31,11 +32,13 @@
               = link_to admin_root_path, class: 'waves-effect waves-orange' do
                 = fa_icon 'tachometer', text: 'Dashboard'
           %li
-            = link_to destroy_user_session_path, method: :delete, class: 'waves-effect waves-orange' do
+            = link_to destroy_user_session_path, method: :delete,
+              class: 'waves-effect waves-orange' do
               = fa_icon 'sign-out', text: 'Log Out'
         - else
           %li
-            = link_to new_user_session_path, class: 'waves-effect waves-orange' do
+            = link_to new_user_session_path,
+              class: 'waves-effect waves-orange' do
               = fa_icon 'sign-in', text: 'Log In'
 %main
   = render 'layouts/alert'

@@ -17,10 +17,13 @@ SimpleCov.start do
   add_filter '/test/'
   add_filter '/tmp/'
   add_filter '/vendor/'
-  add_filter '/app/forms/'
 
+  add_group 'Channels', 'app/channels'
   add_group 'Controllers', 'app/controllers'
+  add_group 'Forms', 'app/forms'
   add_group 'Helpers', 'app/helpers'
+  add_group 'Jobs', 'app/jobs'
+  add_group 'Mailers', 'app/mailers'
   add_group 'Models', 'app/models'
 end
 
@@ -33,6 +36,5 @@ require 'minitest/pride'
 module ActiveSupport
   class TestCase
     fixtures :all
-    include Devise::Test::ControllerHelpers
   end
 end
