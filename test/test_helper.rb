@@ -38,3 +38,9 @@ module ActiveSupport
     fixtures :all
   end
 end
+
+def sample_file(filename = 'test_image.jpg')
+  Rack::Test::UploadedFile.new(
+    Rails.root.join("test/fixtures/files/#{filename}"), 'image/jpg'
+  )
+end

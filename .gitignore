@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+public/system/*
 config/local.yml
 
 # Ignore Byebug command history file.

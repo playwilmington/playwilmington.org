@@ -28,6 +28,7 @@ AllCops:
     - '**/*.yml'
     - '**/*.xml'
     - 'db/schema.rb'
+    - 'test/fixtures/**/*'
   # Default formatter will be used if no `-f/--format` option is given.
   DefaultFormatter: html
   # Cop names are not displayed in offense messages by default. Change behavior

@@ -1,0 +1,52 @@
+.page-wrapper
+  .row
+    .col.s6
+      %h3 Sliders
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @sliders, entry_name: 'Slider'
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: 'col', data: { field: 'Title' } }
+              = sort_link @q, :title
+            %th{ scope: 'col', data: { field: 'Subtitle' } }
+              = sort_link @q, :subtitle
+            %th{ scope: 'col', data: { field: 'Photo File Name' } }
+              = sort_link @q, :photo_file_name
+            %th{ scope: 'col', data: { field: 'Order' } }
+              = sort_link @q, :order
+            %th{ scope: 'col', data: { field: 'Active' } }
+              = sort_link @q, :active
+            %th{ scope: 'col', colspan: '2' }
+          %tbody
+            - @sliders.each do |slider|
+              %tr.table__row{ role: 'link', tabindex: '0',
+                data: { url: admin_slider_path(slider) } }
+                %td
+                  .truncate= slider.title
+                %td
+                  .truncate= slider.subtitle
+                %td= slider.photo_file_name
+                %td= slider.order
+                %td
+                  - if slider.active?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  = link_to 'Edit', edit_admin_slider_path(slider),
+                    class: 'action-edit'
+                %td
+                  = link_to 'Delete', admin_slider_path(slider),
+                    class: 'action-destroy red-text', rel: 'nofollow',
+                    data: { method: :delete, confirm: 'Are You Sure?' }
+        .center.section
+          = paginate @sliders
+
+  .fixed-action-btn
+    = link_to new_admin_slider_path,
+      class: 'btn-floating btn-large waves-effect waves-light' do
+      = material_icon.add

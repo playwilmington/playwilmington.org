@@ -1,0 +1,9 @@
+.slider
+  %ul.slides
+    - @sliders.each do |slider|
+      %li
+        = image_tag slider.photo.url
+        - unless slider.title.blank?
+          .caption{ class: slider.position }
+            %h3= slider.title
+            %h5.light.grey-text.text-lighten-3= slider.subtitle
