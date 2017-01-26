@@ -1,24 +1,24 @@
 .row
   = form_for [:admin, page], builder: FormBuilder,
-                             html: { class: 'col s12' } do |f|
+                             html: { class: "col s12" } do |f|
     .row
       - page.errors.full_messages.each do |msg|
         .col.s12
           .card.red
             .card-content.white-text
               %p= msg
-    = f.text_field :title, length: '25', icon: 'title'
-    = f.text_field :name, length: '25', icon: 'subtitles',
-      help_text: 'Name can only have lowercase letters and underscores'
+    = f.text_field :title, length: "25", icon: "title"
+    = f.text_field :name, length: "25", icon: "subtitles",
+      help_text: "Name can only have lowercase letters and underscores"
     = f.select :page_type, options_page_type(f.object.page_type),
-      prompt: 'Please Select a Page Type'
+      prompt: "Select a Page Type"
     = f.select :page_id, options_available_pages(f.object.page_id),
-      prompt: 'Select A Parent Page', outer_class: 'page_hiding hide'
-    = f.text_field :icon, icon: 'fingerprint', outer_class: 'page_hiding hide'
-    = f.number_field :order, icon: 'format_list_numbered'
+      prompt: "Select a Parent Page", outer_class: "page_hiding hide"
+    = f.text_field :icon, icon: "fingerprint", outer_class: "page_hiding hide"
+    = f.number_field :order, icon: "format_list_numbered"
     = f.check_box :active
     .row
       .col.s12.ckeditor-input
         = f.label :content
         = f.cktext_area :content
-    = f.submit nil, class: 'right'
+    = f.submit nil, class: "right"

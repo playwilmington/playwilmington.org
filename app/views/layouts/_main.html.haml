@@ -4,23 +4,23 @@
 %header.navbar-fixed
   %nav
     .nav-wrapper
-      %a.button-collapse{ href: '#', data: { activates: 'slide-out' } }
+      %a.button-collapse{ href: "#", data: { activates: "slide-out" } }
         %i.material-icons menu
       = link_to "The Children's Museum of Wilmington", root_path,
-        class: 'brand-logo'
+        class: "brand-logo"
       %ul.side-nav.fixed#slide-out
         %li
           .userView.header
             .background.center
-              = image_tag 'cmowlogo.gif'
+              = image_tag "cmowlogo.gif"
         %li
           .divider
         %li
-          = link_to root_path, class: 'waves-effect waves-orange' do
-            = icon 'home', 'Home'
+          = link_to root_path, class: "waves-effect waves-orange" do
+            = icon "home", "Home"
         - @pages.each do |page|
           %li
-            = link_to "/#{page.name}", class: 'waves-effect waves-orange' do
+            = link_to "/#{page.name}", class: "waves-effect waves-orange" do
               = icon page.icon, page.title
         %li
           .divider
@@ -29,19 +29,19 @@
             %a.subheader Admin Functions
           - if current_user.admin?
             %li
-              = link_to admin_root_path, class: 'waves-effect waves-orange' do
-                = icon 'tachometer', 'Dashboard'
+              = link_to admin_root_path, class: "waves-effect waves-orange" do
+                = icon "tachometer", "Dashboard"
           %li
             = link_to destroy_user_session_path, method: :delete,
-              class: 'waves-effect waves-orange' do
-              = icon 'sign-out', 'Log Out'
+              class: "waves-effect waves-orange" do
+              = icon "sign-out", "Log Out"
         - else
           %li
             = link_to new_user_session_path,
-              class: 'waves-effect waves-orange' do
-              = icon 'sign-in', 'Log In'
+              class: "waves-effect waves-orange" do
+              = icon "sign-in", "Log In"
 %main
-  = render 'layouts/alert'
+  = render "layouts/alert"
   = yield
 
 %footer.page-footer.grey.darken-2.hide-on-print
@@ -49,27 +49,27 @@
     .col.s12.center
       %h5.white-text The Chrildren's Museum of Wilmington
     .col.s12.center
-      %a{ href: 'http://maps.google.com/maps?saddr=My%20Location&daddr=116%20Orange%20Street,%20Wilmington,%20NC%2028401', target: '_Blank' } 116 Orange Street, Wilmington, NC 28401
+      %a{ href: "http://maps.google.com/maps?saddr=My%20Location&daddr=116%20Orange%20Street,%20Wilmington,%20NC%2028401", target: "_Blank" } 116 Orange Street, Wilmington, NC 28401
     .col.s12.center
-      %a{ href: 'mailto:info@playwilmington.org', target: '_Blank' } info@playwilmington.org
+      %a{ href: "mailto:info@playwilmington.org", target: "_Blank" } info@playwilmington.org
     .col.s12.center
-      %a{ href: 'tel:9102543534', target: '_Blank' } (910) 254 3534
+      %a{ href: "tel:9102543534", target: "_Blank" } (910) 254 3534
   .row
     .col.s12.center
-      = link_to 'Donate Now', '#', class: 'btn waves-effect waves-light deep-orange darken-2'
+      = link_to "Donate Now", "#", class: "btn waves-effect waves-light deep-orange darken-2"
   .row
     .col.s12.center
-      %a.btn-floating.waves-effect.waves-light{ href: 'https://www.facebook.com/childrensmuseumwilmington', target: '_Blank' }
-        = icon 'facebook'
-      %a.btn-floating.waves-effect.waves-light{ href: 'https://twitter.com/WilmChildrenMus', target: '_Blank' }
-        = icon 'twitter'
-      %a.btn-floating.waves-effect.waves-light{ href: 'https://www.pinterest.com/playwilmington/', target: '_Blank' }
-        = icon 'pinterest-p'
-      %a.btn-floating.waves-effect.waves-light{ href: 'https://instagram.com/ilm_childrens_museum/', target: '_Blank' }
-        = icon 'instagram'
+      %a.btn-floating.waves-effect.waves-light{ href: "https://www.facebook.com/childrensmuseumwilmington", target: "_Blank" }
+        = icon "facebook"
+      %a.btn-floating.waves-effect.waves-light{ href: "https://twitter.com/WilmChildrenMus", target: "_Blank" }
+        = icon "twitter"
+      %a.btn-floating.waves-effect.waves-light{ href: "https://www.pinterest.com/playwilmington/", target: "_Blank" }
+        = icon "pinterest-p"
+      %a.btn-floating.waves-effect.waves-light{ href: "https://instagram.com/ilm_childrens_museum/", target: "_Blank" }
+        = icon "instagram"
   .row
     .col.s12.center.white-text
       Designed &amp; Developed by
-      %a{ href: 'http://www.chris-pezza.com' } Christopher Pezza
+      %a{ href: "http://www.chris-pezza.com" } Christopher Pezza
   .footer-copyright
-    Copyright &copy; 2016-2017 The Children's Museum of Wilmington All Rights Reserved
+    Copyright &copy; 2016-2017 The Children"s Museum of Wilmington All Rights Reserved

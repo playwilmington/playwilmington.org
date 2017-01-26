@@ -7,23 +7,23 @@
       .card-panel
         .row
           .col.s12
-            .right= page_entries_info @alerts, entry_name: 'Alert'
+            .right= page_entries_info @alerts, entry_name: "Alert"
         %table.bordered.highlight.table.responsive-table
           %thead
-            %th{ scope: 'col', data: { field: 'Title' } }
+            %th{ scope: "col", data: { field: "Title" } }
               = sort_link @q, :title
-            %th{ scope: 'col', data: { field: 'Name' } }
+            %th{ scope: "col", data: { field: "Name" } }
               = sort_link @q, :name
-            %th{ scope: 'col', data: { field: 'Start Date' } }
+            %th{ scope: "col", data: { field: "Start Date" } }
               = sort_link @q, :start_date
-            %th{ scope: 'col', data: { field: 'End Date' } }
+            %th{ scope: "col", data: { field: "End Date" } }
               = sort_link @q, :end_date
-            %th{ scope: 'col', data: { field: 'Active' } }
+            %th{ scope: "col", data: { field: "Active" } }
               = sort_link @q, :active
-            %th{ scope: 'col', colspan: '2' }
+            %th{ scope: "col", colspan: "2" }
           %tbody
             - @alerts.each do |alert|
-              %tr.table__row{ role: 'link', tabindex: '0',
+              %tr.table__row{ role: "link", tabindex: "0",
                 data: { url: admin_alert_path(alert) } }
                 %td
                   .truncate= alert.title
@@ -36,16 +36,16 @@
                   - else
                     = material_icon.check_box_outline_blank
                 %td
-                  = link_to 'Edit', edit_admin_alert_path(alert),
-                    class: 'action-edit'
+                  = link_to "Edit", edit_admin_alert_path(alert),
+                    class: "action-edit"
                 %td
-                  = link_to 'Delete', admin_alert_path(alert),
-                    class: 'action-destroy red-text', rel: 'nofollow',
-                    data: { method: :delete, confirm: 'Are You Sure?' }
+                  = link_to "Delete", admin_alert_path(alert),
+                    class: "action-destroy red-text", rel: "nofollow",
+                    data: { method: :delete, confirm: "Are You Sure?" }
         .center.section
           = paginate @alerts
 
   .fixed-action-btn
     = link_to new_admin_alert_path,
-      class: 'btn-floating btn-large waves-effect waves-light' do
+      class: "btn-floating btn-large waves-effect waves-light" do
       = material_icon.add

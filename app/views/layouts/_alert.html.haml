@@ -4,10 +4,10 @@
       .left
         %b.yellow-text NEWS:
         = @alert.title
-      - unless @alert.content == ''
+      - unless @alert.content == ""
         .right
-          %button.btn.deep-orange{ data: { target: 'alert-modal' } } More Info
-- unless @alert.nil? || @alert.content == ''
+          %button.btn.deep-orange{ data: { target: "alert-modal" } } More Info
+- unless @alert.nil? || @alert.content == ""
   .modal#alert-modal
     .modal-content
       %h4

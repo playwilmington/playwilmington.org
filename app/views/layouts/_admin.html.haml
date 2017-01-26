@@ -4,51 +4,51 @@
 %header.navbar-fixed
   %nav
     .nav-wrapper
-      %a.button-collapse{ href: '#', data: { activates: 'slide-out' } }
+      %a.button-collapse{ href: "#", data: { activates: "slide-out" } }
         %i.material-icons menu
       = link_to "The Children's Museum of Wilmington", admin_root_path,
-        class: 'brand-logo'
+        class: "brand-logo"
       %ul.side-nav.fixed#slide-out
         %li
           .userView.header
             .background.center
-              = image_tag 'cmowlogo.gif'
+              = image_tag "cmowlogo.gif"
         %li
           .divider
         %li
           %a.subheader Items
         %li
-          = link_to admin_pages_path, class: 'waves-effect waves-orange' do
-            = icon 'television', 'Pages'
+          = link_to admin_pages_path, class: "waves-effect waves-orange" do
+            = icon "television", "Pages"
         %li
-          = link_to admin_alerts_path, class: 'waves-effect waves-orange' do
-            = icon 'bell-o', 'Alerts'
+          = link_to admin_alerts_path, class: "waves-effect waves-orange" do
+            = icon "bell-o", "Alerts"
         %li
-          = link_to admin_sliders_path, class: 'waves-effect waves-orange' do
-            = icon 'slideshare', 'Sliders'
+          = link_to admin_sliders_path, class: "waves-effect waves-orange" do
+            = icon "slideshare", "Sliders"
         %li
           = link_to admin_collapsibles_path,
-            class: 'waves-effect waves-orange' do
-            = icon 'compress', 'Collapsibles'
+            class: "waves-effect waves-orange" do
+            = icon "compress", "Collapsibles"
         %li
           .divider
         %li
           %a.subheader Activities
         %li
-          = link_to root_path, class: 'waves-effect waves-orange' do
-            = icon 'home', 'Website Home'
+          = link_to root_path, class: "waves-effect waves-orange" do
+            = icon "home", "Website Home"
         %li
-          = link_to admin_root_path, class: 'waves-effect waves-orange' do
-            = icon 'tachometer', 'Dashboard'
+          = link_to admin_root_path, class: "waves-effect waves-orange" do
+            = icon "tachometer", "Dashboard"
         %li
           = link_to destroy_user_session_path, method: :delete,
-            class: 'waves-effect waves-orange' do
-            = icon 'sign-out', 'Log Out'
+            class: "waves-effect waves-orange" do
+            = icon "sign-out", "Log Out"
 %main
   = yield
 
 %footer.page-footer.grey.darken-2.hide-on-print
   .footer-copyright
-    Copyright &copy; 2016-2017 The Children's Museum of Wilmington All Rights
+    Copyright &copy; 2016-2017 The Children"s Museum of Wilmington All Rights
     Reserved
     %span.right v1.0.0

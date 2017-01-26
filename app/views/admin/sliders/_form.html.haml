@@ -1,18 +1,18 @@
 .row
   = form_for [:admin, slider], builder: FormBuilder,
-                              html: { class: 'col s12' } do |f|
+                              html: { class: "col s12" } do |f|
     .row
       - slider.errors.full_messages.each do |msg|
         .col.s12
           .card.red
             .card-content.white-text
               %p= msg
-    = f.text_field :title, length: '75', icon: 'title'
-    = f.text_field :subtitle, length: '125', icon: 'subtitles'
+    = f.text_field :title, length: "75", icon: "title"
+    = f.text_field :subtitle, length: "125", icon: "subtitles"
     = f.select :position, options_positions(f.object.position),
-      prompt: 'Select a Position'
+      prompt: "Select a Position"
     = f.number_field :order
-    = f.file_field :photo, label: 'Select Photo',
-      placeholder: 'Select a photo for the home page slider'
+    = f.file_field :photo, label: "Select Photo",
+      placeholder: "Select a photo for the home page slider"
     = f.check_box :active
-    = f.submit nil, class: 'right'
+    = f.submit nil, class: "right"

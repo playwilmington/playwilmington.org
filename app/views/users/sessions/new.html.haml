@@ -2,12 +2,12 @@
   Log In
 
 = form_for resource, as: resource_name, url: session_path(resource_name),
-  builder: FormBuilder, html: { class: 'login-form row' } do |f|
+  builder: FormBuilder, html: { class: "login-form row" } do |f|
   - if devise_error_messages? || alert
     .errors.red
       %span= devise_error_messages!
       %span= alert
-  = f.email_field :email, icon: 'email', outer_class: 'margin'
-  = f.password_field :password, icon: 'lock', outer_class: 'margin'
+  = f.email_field :email, icon: "email", outer_class: "margin"
+  = f.password_field :password, icon: "lock", outer_class: "margin"
   = f.check_box :remember_me
-  = f.submit 'Log In Now', class: 'col s12'
+  = f.submit "Log In Now", class: "col s12"

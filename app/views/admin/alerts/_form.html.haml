@@ -1,22 +1,22 @@
 .row
   = form_for [:admin, alert], builder: FormBuilder,
-                              html: { class: 'col s12' } do |f|
+                              html: { class: "col s12" } do |f|
     .row
       - alert.errors.full_messages.each do |msg|
         .col.s12
           .card.red
             .card-content.white-text
               %p= msg
-    = f.text_field :title, length: '75', icon: 'title'
-    = f.text_field :name, length: '25', icon: 'subtitles',
-      help_text: 'Name can only have lowercase letters and underscores'
-    = f.date_field :start_date, class: 'datepicker',
+    = f.text_field :title, length: "75", icon: "title"
+    = f.text_field :name, length: "25", icon: "subtitles",
+      help_text: "Name can only have lowercase letters and underscores"
+    = f.date_field :start_date, class: "datepicker",
       value: date_picker(f.object.start_date)
-    = f.date_field :end_date, class: 'datepicker',
+    = f.date_field :end_date, class: "datepicker",
       value: date_picker(f.object.end_date)
     = f.check_box :active
     .row
       .col.s12.ckeditor-input
         = f.label :content
         = f.cktext_area :content
-    = f.submit nil, class: 'right'
+    = f.submit nil, class: "right"

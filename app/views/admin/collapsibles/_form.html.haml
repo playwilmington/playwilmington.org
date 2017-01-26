@@ -1,27 +1,27 @@
 .row
   = form_for [:admin, collapsible], builder: FormBuilder,
-                              html: { class: 'col s12' } do |f|
+                              html: { class: "col s12" } do |f|
     .row
       - collapsible.errors.full_messages.each do |msg|
         .col.s12
           .card.red
             .card-content.white-text
               %p= msg
-    = f.text_field :name, length: '100', icon: 'title'
+    = f.text_field :name, length: "100", icon: "title"
     = f.select :collapse_style, options_col_styles(f.object.collapse_style)
     = f.select :usage_type, options_usage_types(f.object.usage_type),
-      prompt: 'Select A Usage Type'
+      prompt: "Select A Usage Type"
     = f.select :page_id, options_pages(f.object.page_id),
-      prompt: 'Select A Page', outer_class: 'coll_hiding hide'
+      prompt: "Select A Page", outer_class: "coll_hiding hide"
     = f.number_field :order
     = f.check_box :is_popout
     = f.check_box :active
-    %ul.collapsible#collapsible{ data: { collapsible: 'accordion' } }
+    %ul.collapsible#collapsible{ data: { collapsible: "accordion" } }
       = f.fields_for :collapsible_items do |ci|
-        = render 'collapsible_item_fields', f: ci
+        = render "collapsible_item_fields", f: ci
     .center
-      = link_to_add_association 'Add Item', f, :collapsible_items,
-        class: 'btn waves-effect waves-light',
-        data: { 'association-insertion-node': 'ul#collapsible',
-        'association-insertion-method': 'append' }
-    = f.submit nil, class: 'right'
+      = link_to_add_association "Add Item", f, :collapsible_items,
+        class: "btn waves-effect waves-light",
+        data: { "association-insertion-node": "ul#collapsible",
+        "association-insertion-method": "append" }
+    = f.submit nil, class: "right"
