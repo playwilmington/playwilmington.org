@@ -9,7 +9,8 @@
               %p= msg
     = f.text_field :title, length: '75', icon: 'title'
     = f.text_field :subtitle, length: '125', icon: 'subtitles'
-    = f.select :position, options_positions(f.object.position), prompt: 'Select a Position'
+    = f.select :position, options_positions(f.object.position),
+      prompt: 'Select a Position'
     = f.number_field :order
     = f.file_field :photo, label: 'Select Photo',
       placeholder: 'Select a photo for the home page slider'

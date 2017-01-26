@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Admin
   class SlidersController < AdminController
     before_action :set_slider, except: [:index, :new, :create]
@@ -17,7 +18,7 @@ module Admin
       @slider = Slider.new(slider_params)
 
       if @slider.save
-        redirect_to admin_sliders_path, notice: 'Slider Created Successfully!'
+        redirect_to admin_sliders_path, notice: "Slider Created Successfully!"
       else
         render :new
       end
@@ -27,7 +28,7 @@ module Admin
 
     def update
       if @slider.update(slider_params)
-        redirect_to admin_sliders_path, notice: 'Slider Updated Successfully!'
+        redirect_to admin_sliders_path, notice: "Slider Updated Successfully!"
       else
         render :edit
       end
@@ -35,7 +36,7 @@ module Admin
 
     def destroy
       @slider.destroy
-      redirect_to admin_sliders_path, notice: 'Slider Deleted Successfully!'
+      redirect_to admin_sliders_path, notice: "Slider Deleted Successfully!"
     end
 
     private

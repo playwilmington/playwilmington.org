@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123122450) do
+ActiveRecord::Schema.define(version: 20170126211320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,31 @@ ActiveRecord::Schema.define(version: 20170123122450) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
+  end
+
+  create_table "collapsible_items", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "active"
+    t.string   "icon"
+    t.integer  "order"
+    t.integer  "collapsible_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["collapsible_id"], name: "index_collapsible_items_on_collapsible_id", using: :btree
+  end
+
+  create_table "collapsibles", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "active",         default: false
+    t.boolean  "is_popout",      default: false
+    t.string   "collapse_style", default: "accordion"
+    t.string   "usage_type"
+    t.integer  "order"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "page_id"
+    t.index ["page_id"], name: "index_collapsibles_on_page_id", using: :btree
   end
 
   create_table "pages", force: :cascade do |t|

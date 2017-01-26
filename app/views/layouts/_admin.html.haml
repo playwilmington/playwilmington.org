@@ -19,27 +19,31 @@
           %a.subheader Items
         %li
           = link_to admin_pages_path, class: 'waves-effect waves-orange' do
-            = fa_icon 'television', text: 'Pages'
+            = icon 'television', 'Pages'
         %li
           = link_to admin_alerts_path, class: 'waves-effect waves-orange' do
-            = fa_icon 'bell-o', text: 'Alerts'
+            = icon 'bell-o', 'Alerts'
         %li
           = link_to admin_sliders_path, class: 'waves-effect waves-orange' do
-            = fa_icon 'edit', text: 'Sliders'
+            = icon 'slideshare', 'Sliders'
+        %li
+          = link_to admin_collapsibles_path,
+            class: 'waves-effect waves-orange' do
+            = icon 'compress', 'Collapsibles'
         %li
           .divider
         %li
           %a.subheader Activities
         %li
           = link_to root_path, class: 'waves-effect waves-orange' do
-            = fa_icon 'home', text: 'Website Home'
+            = icon 'home', 'Website Home'
         %li
           = link_to admin_root_path, class: 'waves-effect waves-orange' do
-            = fa_icon 'tachometer', text: 'Dashboard'
+            = icon 'tachometer', 'Dashboard'
         %li
           = link_to destroy_user_session_path, method: :delete,
             class: 'waves-effect waves-orange' do
-            = fa_icon 'sign-out', text: 'Log Out'
+            = icon 'sign-out', 'Log Out'
 %main
   = yield
 

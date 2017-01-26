@@ -1,0 +1,18 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  active: true
+  is_popout: false
+  collapse_style: MyString
+  usage_type: Home-Page
+  order: 1
+
+two:
+  name: MyString
+  active: true
+  is_popout: true
+  collapse_style: MyString
+  usage_type: Page/Tab
+  page_id: one
+  order: 2

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Admin
   class AlertsController < AdminController
     before_action :set_alert, except: [:index, :new, :create]
@@ -17,7 +18,7 @@ module Admin
       @alert = Alert.new(alert_params)
 
       if @alert.save
-        redirect_to admin_alerts_path, notice: 'Alert Created Successfully!'
+        redirect_to admin_alerts_path, notice: "Alert Created Successfully!"
       else
         render :new
       end
@@ -27,7 +28,7 @@ module Admin
 
     def update
       if @alert.update(alert_params)
-        redirect_to admin_alerts_path, notice: 'Alert Updated Successfully!'
+        redirect_to admin_alerts_path, notice: "Alert Updated Successfully!"
       else
         render :edit
       end
@@ -35,7 +36,7 @@ module Admin
 
     def destroy
       @alert.destroy
-      redirect_to admin_alerts_path, notice: 'Alert Deleted Successfully!'
+      redirect_to admin_alerts_path, notice: "Alert Deleted Successfully!"
     end
 
     private

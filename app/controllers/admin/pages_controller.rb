@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Admin
   class PagesController < AdminController
     before_action :set_page, except: [:index, :new, :create]
@@ -17,7 +18,7 @@ module Admin
       @page = Page.new(page_params)
 
       if @page.save
-        redirect_to admin_pages_path, notice: 'Page Created Successfully!'
+        redirect_to admin_pages_path, notice: "Page Created Successfully!"
       else
         render :new
       end
@@ -27,7 +28,7 @@ module Admin
 
     def update
       if @page.update(page_params)
-        redirect_to admin_pages_path, notice: 'Page Updated Successfully!'
+        redirect_to admin_pages_path, notice: "Page Updated Successfully!"
       else
         render :edit
       end
@@ -35,7 +36,7 @@ module Admin
 
     def destroy
       @page.destroy
-      redirect_to admin_pages_path, notice: 'Page Deleted Successfully!'
+      redirect_to admin_pages_path, notice: "Page Deleted Successfully!"
     end
 
     private

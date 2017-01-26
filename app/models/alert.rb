@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Alert < ApplicationRecord
   validates :title, :name, :start_date, :end_date, presence: true
   validates :name, uniqueness: true
@@ -14,7 +15,7 @@ class Alert < ApplicationRecord
   def start_date_before_end_date
     return if end_date.nil? && start_date.nil?
     return unless end_date < start_date
-    errors.add(:start_date, '- Start can not be greater than End Date')
+    errors.add(:start_date, "- Start can not be greater than End Date")
   end
 
   def strd_start

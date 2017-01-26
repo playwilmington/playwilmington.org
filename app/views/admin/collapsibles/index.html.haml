@@ -1,0 +1,57 @@
+.page-wrapper
+  .row
+    .col.s6
+      %h3 Alerts
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @collapsibles, entry_name: 'Collapsible'
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: 'col', data: { field: 'Name' } }
+              = sort_link @q, :name
+            %th{ scope: 'col', data: { field: 'Collapsible Style' } }
+              = sort_link @q, :collapse_style
+            %th{ scope: 'col', data: { field: 'Usage Type' } }
+              = sort_link @q, :usage_type
+            %th{ scope: 'col', data: { field: 'Order' } }
+              = sort_link @q, :order
+            %th{ scope: 'col', data: { field: 'Is Popout' } }
+              = sort_link @q, :is_popout
+            %th{ scope: 'col', data: { field: 'Active' } }
+              = sort_link @q, :active
+            %th{ scope: 'col', colspan: '2' }
+          %tbody
+            - @collapsibles.each do |collapsible|
+              %tr.table__row{ role: 'link', tabindex: '0',
+                data: { url: admin_collapsible_path(collapsible) } }
+                %td= collapsible.name
+                %td= collapsible.collapse_style
+                %td= collapsible.usage_type
+                %td= collapsible.order
+                %td
+                  - if collapsible.is_popout?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  - if collapsible.active?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  = link_to 'Edit', edit_admin_collapsible_path(collapsible),
+                    class: 'action-edit'
+                %td
+                  = link_to 'Delete', admin_collapsible_path(collapsible),
+                    class: 'action-destroy red-text', rel: 'nofollow',
+                    data: { method: :delete, confirm: 'Are You Sure?' }
+        .center.section
+          = paginate @collapsibles
+
+  .fixed-action-btn
+    = link_to new_admin_collapsible_path,
+      class: 'btn-floating btn-large waves-effect waves-light' do
+      = material_icon.add

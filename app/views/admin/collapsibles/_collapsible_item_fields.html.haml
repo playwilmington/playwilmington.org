@@ -1,0 +1,17 @@
+%li.nested-fields
+  .collapsible-header
+    #{f.object.title.blank? ? 'New Item' : f.object.title}
+  .collapsible-body.row{ style: 'padding: 20px 0;' }
+    .col.s12
+      = link_to_remove_association "<i class='material-icons'>delete</i>".html_safe, f, data: { confirm: 'Are You Sure?' }, class: 'waves-effect waves-light red-text right'
+    .col.s12.m6
+      = f.text_field :title
+    .col.s12.m6
+      = f.text_field :icon
+    .col.s12.m6
+      = f.number_field :order
+    .col.s12.m6
+      = f.check_box :active
+    .col.s12.ckeditor-input
+      = f.label :body
+      = f.cktext_area :body

@@ -15,3 +15,17 @@ en:
         start_date: Start Date
         end_date: End Date
         active: Active
+      collapsible:
+        name: Name
+        active: Active
+        is_popout: Is Popout
+        collapse_style: Collapse Style
+        usage_type: Usage Type
+        order: Order
+      collapsible_item:
+        title: Title
+        body: Body
+        active: Active
+        icon: Icon
+        order: Order
+        collapsible_id: Collapsible Group

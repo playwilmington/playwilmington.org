@@ -1,4 +1,5 @@
-require 'test_helper'
+# frozen_string_literal: true
+require "test_helper"
 
 module Admin
   class PagesControllerTest < ActionController::TestCase
@@ -10,27 +11,27 @@ module Admin
       @tab = pages(:two)
     end
 
-    test 'should get index' do
+    test "should get index" do
       get :index
       assert_response :success
     end
 
-    test 'should get new' do
+    test "should get new" do
       get :new
       assert_response :success
     end
 
-    test 'should get create' do
-      assert_difference 'Page.count' do
+    test "should get create" do
+      assert_difference "Page.count" do
         post :create, params: {
           page: {
-            title: 'Home',
-            name: 'page_name',
-            page_type: 'Tab',
+            title: "Home",
+            name: "page_name",
+            page_type: "Tab",
             page_id: @page.id,
-            icon: 'home',
+            icon: "home",
             order: 10,
-            content: 'Content'
+            content: "Content"
           }
         }
       end
@@ -38,15 +39,15 @@ module Admin
       assert_redirected_to admin_pages_path
     end
 
-    test 'should not get create' do
-      assert_no_difference 'Page.count' do
+    test "should not get create" do
+      assert_no_difference "Page.count" do
         post :create, params: {
           page: {
             title: nil,
-            name: 'page_name',
-            page_type: 'Tab',
-            icon: 'home',
-            content: '',
+            name: "page_name",
+            page_type: "Tab",
+            icon: "home",
+            content: "",
             order: 10
           }
         }
@@ -55,40 +56,40 @@ module Admin
       assert_response :ok
     end
 
-    test 'should get update' do
+    test "should get update" do
       patch :update, params: {
         id: @page.id,
         page: {
-          title: 'Home',
-          name: 'page_name',
-          page_type: 'Page',
-          icon: 'home',
+          title: "Home",
+          name: "page_name",
+          page_type: "Page",
+          icon: "home",
           order: 10,
-          content: 'Content'
+          content: "Content"
         }
       }
 
       assert_redirected_to admin_pages_path
     end
 
-    test 'should not get update' do
+    test "should not get update" do
       patch :update, params: {
         id: @page.id,
         page: {
           title: nil,
-          name: 'page_name',
-          page_type: 'Page',
-          icon: '',
+          name: "page_name",
+          page_type: "Page",
+          icon: "",
           order: 10,
-          content: 'Content'
+          content: "Content"
         }
       }
 
       assert_response :ok
     end
 
-    test 'should get destroy' do
-      assert_difference('Page.count', -1) do
+    test "should get destroy" do
+      assert_difference("Page.count", -1) do
         delete :destroy, params: { id: @page.id }
       end
 

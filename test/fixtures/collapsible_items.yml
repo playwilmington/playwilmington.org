@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  active: true
+  icon: MyString
+  collapsible: one
+
+two:
+  title: MyString
+  body: MyText
+  active: true
+  icon: MyString
+  collapsible: two

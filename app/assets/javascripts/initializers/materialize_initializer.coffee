@@ -13,6 +13,7 @@ material_initializer =->
     menuWidth: 240,
     draggable: true
   $('select').material_select()
+  $('.collapsible').collapsible()
   Materialize.updateTextFields()
   $('#about').modal()
   $('#alert-modal').modal()

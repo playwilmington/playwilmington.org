@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Rails.application.configure do
   # Settings specified here will take precedence over those in
   # config/application.rb.
@@ -14,12 +15,12 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
+  if Rails.root.join("tmp/caching-dev.txt").exist?
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
+      "Cache-Control" => "public, max-age=172800"
     }
   else
     config.action_controller.perform_caching = false
@@ -31,7 +32,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -54,16 +55,16 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.paperclip_defaults = {
-    storage: :s3,
-    url: '/:attachment/:id/:style/:filename',
-    path: '/:class/:attachment/:id_partition/:style/:filename',
-    s3_host_alias: ENV['HOST_ALIAS'],
-    s3_credentials: {
-      bucket: ENV['S3_BUCKET_NAME'],
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      s3_region: ENV['AWS_REGION']
-    }
-  }
+  # config.paperclip_defaults = {
+  #   storage: :s3,
+  #   url: "/:attachment/:id/:style/:filename",
+  #   path: "/:class/:attachment/:id_partition/:style/:filename",
+  #   s3_host_alias: ENV["HOST_ALIAS"],
+  #   s3_credentials: {
+  #     bucket: ENV["S3_BUCKET_NAME"],
+  #     access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+  #     secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
+  #     s3_region: ENV["AWS_REGION"]
+  #   }
+  # }
 end

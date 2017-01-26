@@ -9,6 +9,10 @@
       .col.s12{ id: "#{tab.name}" }
         %h4.center= tab.title
         .row
-          .col.s12
-            .card-panel
-              = tab.content.html_safe
+          - unless tab.content.blank?
+            .col.s12
+              .card-panel
+                = tab.content.html_safe
+          - unless tab.collapsibles.empty?
+            .col.s12
+              = render tab.page_filtered

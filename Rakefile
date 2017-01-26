@@ -18,7 +18,7 @@ if ENV['RAILS_ENV'] != 'production'
                  end
     RuboCop::RakeTask.new do |t|
       t.options = [
-        '-c', '.rubocop.yml', '-o', outputpath
+        '-c', '.rubocop.yml', '-f', 'html', '-o', outputpath
       ]
       t.fail_on_error = true
     end
