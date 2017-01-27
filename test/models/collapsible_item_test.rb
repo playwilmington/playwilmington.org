@@ -2,7 +2,4 @@
 require "test_helper"
 
 class CollapsibleItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 end
