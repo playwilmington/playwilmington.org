@@ -2,8 +2,7 @@
 class AdminController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin
-  skip_before_action :nav_links
-  skip_before_action :alerts
+  skip_before_action :set_nav_links, :get_alerts
 
   private
 

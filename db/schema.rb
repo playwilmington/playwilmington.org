@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126211320) do
+ActiveRecord::Schema.define(version: 20170126232202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,20 @@ ActiveRecord::Schema.define(version: 20170126211320) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_pages_on_name", unique: true, using: :btree
     t.index ["page_id"], name: "index_pages_on_page_id", using: :btree
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string   "address"
+    t.string   "company_name"
+    t.string   "copyright"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "facebook_handle"
+    t.string   "twitter_handle"
+    t.string   "pinterest_handle"
+    t.string   "instagram_handle"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "sliders", force: :cascade do |t|

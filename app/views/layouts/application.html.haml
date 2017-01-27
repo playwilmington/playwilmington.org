@@ -1,7 +1,7 @@
 !!!
 %html{ lang: "en" }
   %head
-    %title The Children's Museum of Wilmington
+    %title= @settings.company_name
     = csrf_meta_tags
     = stylesheet_link_tag "application", media: "all",
       "data-turbolinks-track": "reload"
@@ -19,7 +19,7 @@
     -# Add to homescreen for Safari on iOS
     %meta{ content: "yes", name: "apple-mobile-web-app-capable" }/
     %meta{ content: "#ff6e40", name: "apple-mobile-web-app-status-bar-style" }/
-    %meta{ content: "The Children's Museum of Wilmington",
+    %meta{ content: "#{@settings.company_name}",
       name: "apple-mobile-web-app-title" }/
     %link{ href: "#{asset_path 'cmowlogo.gif'}",
       rel: "apple-touch-icon-precomposed" }/

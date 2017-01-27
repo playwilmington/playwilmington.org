@@ -1,0 +1,19 @@
+.row
+  = form_for [:admin, setting], builder: FormBuilder,
+                                html: { class: "col s12" } do |f|
+    .row
+      - setting.errors.full_messages.each do |msg|
+        .col.s12
+          .card.red
+            .card-content.white-text
+              %p= msg
+    = f.text_field :company_name, length: "125"
+    = f.text_field :address
+    = f.text_field :copyright
+    = f.email_field :email
+    = f.phone_field :phone
+    = f.text_field :facebook_handle
+    = f.text_field :twitter_handle
+    = f.text_field :pinterest_handle
+    = f.text_field :instagram_handle
+    = f.submit nil, class: "right"

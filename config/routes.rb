@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "dashboard#index"
     resources :pages, :alerts, :sliders, :collapsibles
+    resources :settings, only: [:show, :edit, :update]
   end
 
   devise_for :users

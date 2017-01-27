@@ -6,7 +6,7 @@
     .nav-wrapper
       %a.button-collapse{ href: "#", data: { activates: "slide-out" } }
         %i.material-icons menu
-      = link_to "The Children's Museum of Wilmington", admin_root_path,
+      = link_to @settings.company_name, admin_root_path,
         class: "brand-logo"
       %ul.side-nav.fixed#slide-out
         %li
@@ -17,6 +17,10 @@
           .divider
         %li
           %a.subheader Items
+        %li
+          = link_to admin_setting_path(@settings),
+            class: "waves-effect waves-orange" do
+            = icon "gears", "Settings"
         %li
           = link_to admin_pages_path, class: "waves-effect waves-orange" do
             = icon "television", "Pages"
@@ -49,6 +53,5 @@
 
 %footer.page-footer.grey.darken-2.hide-on-print
   .footer-copyright
-    Copyright &copy; 2016-2017 The Children"s Museum of Wilmington All Rights
-    Reserved
+    = @settings.copyright.html_safe
     %span.right v1.0.0

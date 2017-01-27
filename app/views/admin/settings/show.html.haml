@@ -1,0 +1,33 @@
+.row
+  .col.s12
+    %h3 Settings
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      .row
+        .col.s12
+          %dl
+            %dt Company Name
+            %dd= @setting.company_name
+            %dt Address
+            %dd= @setting.address
+            %dt Copyright
+            %dd= @setting.copyright.html_safe
+            %dt Email
+            %dd= @setting.email
+            %dt Phone
+            %dd= @setting.phone
+            %dt Facbook Handle
+            %dd= @setting.facebook_handle
+            %dt Twitter Handle
+            %dd= @setting.twitter_handle
+            %dt Pinterest Handle
+            %dd= @setting.pinterest_handle
+            %dt Instagram Handle
+            %dd= @setting.instagram_handle
+
+.fixed-action-btn
+  = link_to edit_admin_setting_path(@setting),
+    class: "btn-large btn-floating waves-effect waves-light green" do
+    = material_icon.edit
