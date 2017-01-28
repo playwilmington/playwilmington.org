@@ -52,3 +52,23 @@ en:
         twitter_handle: Twitter Handle
         pinterest_handle: Pinterest Handle
         instagram_handle: Instagram Handle
+      user:
+        email: Email
+        encrypted_password: Encrypted Password
+        reset_password_token: Reset Password Token
+        reset_password_sent_at: Reset Password Sent at
+        remember_created_at: Remember Created at
+        sign_in_count: Sign in Count
+        current_sign_in_at: Current Sign in at
+        last_sign_in_at: Last Sign in at
+        current_sign_in_ip: Current Sign in IP
+        last_sign_in_ip: Last Sign in IP
+        confirmation_token: Confirmation Token
+        confirmed_at: Confirmed At
+        confirmation_sent_at: Confirmation Send At
+        unconfirmed_email: Unclonfirmed Email
+        failed_attempts: Failed Attempts
+        unlock_token: Unlock Token
+        locked_at: Locked At
+        admin: Admin
+        name: Name

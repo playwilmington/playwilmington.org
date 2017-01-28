@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     root "dashboard#index"
     resources :pages, :alerts, :sliders, :collapsibles, :markers
     resources :settings, only: [:show, :edit, :update]
+    resources :users, only: [:index, :destroy, :update]
   end
 
   devise_for :users

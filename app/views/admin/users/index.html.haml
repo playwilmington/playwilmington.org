@@ -1,0 +1,50 @@
+.page-wrapper
+  .row
+    .col.s6
+      %h3 Users
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @users, entry_name: "User"
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: "col", data: { field: "Name" } }
+              = sort_link @q, :name
+            %th{ scope: "col", data: { field: "Email" } }
+              = sort_link @q, :email
+            %th{ scope: "col", data: { field: "Login Count" } }
+              = sort_link @q, :sign_in_count
+            %th{ scope: "col", data: { field: "Last Login" } }
+              = sort_link @q, :last_sign_in_at
+            %th{ scope: "col", data: { field: "Admin" } }
+              = sort_link @q, :admin
+            %th{ scope: "col" }
+          %tbody
+            - @users.each do |user|
+              %tr
+                %td= user.name
+                %td= user.email
+                %td= user.sign_in_count
+                %td= user.last_sign_in_pretty
+                %td
+                  - if current_user == user
+                    - if user.admin?
+                      = material_icon.check_box
+                    - else
+                      = material_icon.check_box_outline_blank
+                  - unless current_user == user
+                    - if user.admin?
+                      = link_to admin_user_path(user, user: { admin: false }), method: :put do
+                        = material_icon.check_box
+                    - else
+                      = link_to admin_user_path(user, user: { admin: true }), method: :put do
+                        = material_icon.check_box_outline_blank
+                %td
+                  - unless current_user == user
+                    = link_to "Delete", admin_user_path(user),
+                      class: "action-destroy red-text", rel: "nofollow",
+                      data: { method: :delete, confirm: "Are You Sure?" }
+        .center.section
+          = paginate @users
