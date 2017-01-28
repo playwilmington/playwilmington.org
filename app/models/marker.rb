@@ -4,10 +4,6 @@ class Marker < ApplicationRecord
 
   belongs_to :page
 
-  scope :museum, -> { where(marker_type: "Museum") }
-  scope :parking, -> { where(marker_type: "Parking") }
-  scope :food, -> { where(marker_type: "Food") }
-
   def address_url
     "http://maps.google.com/?" + { q: address }.to_param
   end

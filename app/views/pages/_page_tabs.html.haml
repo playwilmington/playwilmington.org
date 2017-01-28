@@ -1,21 +1,25 @@
-.row
+.row.page-tab
   .col.s12{ style: "padding:0;" }
     %ul.tabs.tabs-fixed-width
       - @page.pages.active.each do |tab|
         %li.tab
           %a{ href: "##{tab.name}" }= tab.title
   - @page.pages.active.each do |tab|
-    .col.s12{ id: "#{tab.name}" }
+    %div{ id: "#{tab.name}" }
       - if tab.markers.empty?
-        .container
-          %h4.center= tab.title
-          .row
-            - unless tab.content.blank?
-              .col.s12
-                .card-panel
-                  = tab.content.html_safe
-            - unless tab.collapsibles.empty?
-              .col.s12
-                = render tab.collapsibles.page_filtered
+        .col.s12
+          .container
+            %h4.center= tab.title
+            .row
+              - unless tab.content.blank?
+                .col.s12
+                  .card-panel
+                    = tab.content.html_safe
+              - unless tab.collapsibles.empty?
+                .col.s12
+                  = render tab.collapsibles.page_filtered
       - else
-        = render "map", markers: tab.markers
+        .col.s12.fix-padding
+          #map
+          .hide
+            = render tab.markers

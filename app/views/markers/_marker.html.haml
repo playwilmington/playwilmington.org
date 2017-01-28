@@ -1,0 +1,7 @@
+%div{ class: marker.marker_type.downcase }
+  .row
+    .col.s12.address
+      = marker.address
+    .col.s12.content
+      %h6= marker.title
+      = marker.body.html_safe
