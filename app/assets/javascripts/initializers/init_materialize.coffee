@@ -1,12 +1,12 @@
 $(document).on 'turbolinks:load', ->
-  material_initializer()
+  init_materialize()
   return
 
 $(document).on 'page:load', ->
-  material_initializer()
+  init_materialize()
   return
 
-material_initializer =->
+init_materialize =->
   Waves.displayEffect()
   $('ul.tabs').tabs()
   $('.button-collapse').sideNav

@@ -1,8 +1,8 @@
 $(document).on 'turbolinks:load', ->
-  cocoon_initializer()
+  init_cocoon()
   return
 
-cocoon_initializer = ->
+init_cocoon = ->
   $(document).on('cocoon:after-insert', ->
     $('select').material_select()
     Materialize.updateTextFields()

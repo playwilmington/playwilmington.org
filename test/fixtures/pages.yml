@@ -7,6 +7,7 @@ one:
   icon: MyString
   order: 10
   content: MyText
+  show_calendar: false
   active: true
 
 two:
@@ -16,4 +17,5 @@ two:
   icon: icon
   order: 11
   content: MyText2
+  show_calendar: true
   active: true

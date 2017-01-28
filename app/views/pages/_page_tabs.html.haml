@@ -6,7 +6,15 @@
           %a{ href: "##{tab.name}" }= tab.title
   - @page.pages.active.each do |tab|
     %div{ id: "#{tab.name}" }
-      - if tab.markers.empty?
+      - if tab.show_calendar?
+        .col.s12
+          = render "calendar"
+      - elsif !tab.markers.empty?
+        .col.s12.fix-padding
+          #map
+          .hide
+            = render tab.markers
+      - else
         .col.s12
           .container
             %h4.center= tab.title
@@ -18,8 +26,3 @@
               - unless tab.collapsibles.empty?
                 .col.s12
                   = render tab.collapsibles.page_filtered
-      - else
-        .col.s12.fix-padding
-          #map
-          .hide
-            = render tab.markers

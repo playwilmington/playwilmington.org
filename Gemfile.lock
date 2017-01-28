@@ -314,6 +314,7 @@ DEPENDENCIES
   material_icons
   materialize-sass
   minitest-ci
+  momentjs-rails
   paperclip
   pg
   pry-rails

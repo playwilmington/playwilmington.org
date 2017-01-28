@@ -1,0 +1,109 @@
+//Variables
+$color-white: #fff;
+$color-blue: #2196f3;
+$color-grey: #ddd;
+
+#calendar {
+  h2 {
+    font-size: 1.5rem;
+    line-height: 35px;
+    text-transform: uppercase;
+  }
+
+  .fc-day-header {
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+#external-events {
+  padding-top: 50px;
+
+  .fc-event {
+    border: 0;
+    color: $color-white;
+    cursor: all-scroll;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-decoration: none;
+  }
+}
+
+.fc {
+  button {
+    background: $color-white;
+  }
+
+  td {
+    border-width: 0 !important;
+  }
+
+  th {
+    border-width: 0 !important;
+  }
+}
+
+.fc-state-active {
+  color: $color-blue !important;
+}
+
+.fc-state-down {
+  color: $color-blue !important;
+}
+
+.dynamic-color {
+  .red,
+  .pink,
+  .purple,
+  .deep-purple,
+  .indigo,
+  .blue,
+  .light-blue,
+  .cyan,
+  .teal,
+  .green,
+  .light-green,
+  .lime,
+  .yellow,
+  .amber,
+  .orange,
+  .deep-orange,
+  .brown,
+  .grey,
+  .blue-grey {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    height: 55px;
+    line-height: 55px;
+    padding: 0 15px;
+    width: 100%;
+  }
+
+  .col {
+    margin-bottom: 55px;
+  }
+}
+
+tr {
+  &.group {
+    background-color: $color-grey !important;
+  }
+
+  &.group:hover {
+    background-color: $color-grey !important;
+  }
+}
+
+.modal {
+  &.modal-calendar {
+    width: 35% !important;
+  }
+
+  .event-note {
+    font-size: 35px;
+  }
+}

@@ -18,9 +18,15 @@
             %dd= @page.icon.blank? ? @page.icon : "N/A"
             %dt Order
             %dd= @page.order
+            %dt Show Calendar
+            %dd
+              - if @page.show_calendar?
+                = material_icon.check_box
+              - else
+                = material_icon.check_box_outline_blank
             %dt Active
             %dd
-              - if @page.active
+              - if @page.active?
                 = material_icon.check_box
               - else
                 = material_icon.check_box_outline_blank

@@ -31,7 +31,8 @@ module Admin
             page_id: @page.id,
             icon: "home",
             order: 10,
-            content: "Content"
+            content: "Content",
+            show_calendar: false
           }
         }
       end
@@ -48,7 +49,8 @@ module Admin
             page_type: "Tab",
             icon: "home",
             content: "",
-            order: 10
+            order: 10,
+            show_calendar: false
           }
         }
       end
@@ -65,7 +67,8 @@ module Admin
           page_type: "Page",
           icon: "home",
           order: 10,
-          content: "Content"
+          content: "Content",
+          show_calendar: false
         }
       }
 
@@ -81,7 +84,8 @@ module Admin
           page_type: "Page",
           icon: "",
           order: 10,
-          content: "Content"
+          content: "Content",
+          show_calendar: false
         }
       }
 

@@ -47,7 +47,8 @@ module Admin
 
     def page_params
       params.require(:page).permit(
-        :page_type, :title, :content, :icon, :page_id, :order, :name, :active
+        :page_type, :title, :content, :icon, :page_id, :order, :name, :active,
+        :show_calendar
       )
     end
   end

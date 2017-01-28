@@ -1,0 +1,28 @@
+.section
+  #calendar
+  .modal.modal-calendar#calendarModal
+    .modal-content
+      %i.material-icons.left.event-note event_note
+      %h4.left
+        %span#eventDate
+        %span#eventTitle
+      .row.page-tab
+        .col.s12
+          %i.material-icons schedule
+          %span#eventTimeStart
+          %span &nbsp;-&nbsp;
+          %span#eventTimeEnd
+      .row
+        .col.s12
+          %i.material-icons place
+          %span#eventLocation
+      .row.section
+        .col.s12
+          %h5
+            Details:
+          %p#eventDescription
+    .modal-footer
+      %a.modal-action.modal-close.waves-effect.btn-flat.green-text
+        Done
+      %a.modal-action.waves-effect.btn-flat#eventLink{ target: "_Blank" }
+        Read More

@@ -1,21 +1,21 @@
 $(document).on 'turbolinks:load', ->
-  page_form_init()
-  collapsible_form_init()
+  init_page_form()
+  init_collapsible_form()
   return
 
 $(document).on 'page:load', ->
-  page_form_init()
-  collapsible_form_init()
+  init_page_form()
+  init_collapsible_form()
   return
 
-page_form_init =->
+init_page_form =->
   load_data = $('#page_page_type').val()
   page_reload_fields(load_data)
   $('#page_page_type').on 'change', ->
     data = $(this).val()
     page_reload_fields(data)
 
-collapsible_form_init =->
+init_collapsible_form =->
   load_data = $('#collapsible_usage_type').val()
   collapsible_reload_fields(load_data)
   $('#collapsible_usage_type').on 'change', ->

@@ -35,6 +35,8 @@ en:
         order: Order
         page_type: Page Type
         content: Page Content
+        show_calendar: Show Calendar
+        active: Active
       slider:
         title: Title
         subtitle: Subtitle

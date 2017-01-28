@@ -1,12 +1,12 @@
 $(document).on 'turbolinks:load', ->
-  table_int()
+  init_table()
   return
 
 $(document).on 'page:load', ->
-  table_int()
+  init_table()
   return
 
-table_int =->
+init_table =->
   visitDataUrl = (event) ->
     if event.type == 'click' or event.keyCode == '32' or event.keyCode == '13'
       if !event.target.href
