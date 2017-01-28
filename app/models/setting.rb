@@ -10,6 +10,14 @@ class Setting < ApplicationRecord
     "(#{phone[0..2]}) #{phone[3..5]}-#{phone[6..9]}"
   end
 
+  def tel_url
+    "tel:" + phone
+  end
+
+  def email_url
+    "mailto:" + email
+  end
+
   def facebook_url
     "https://www.facebook.com/" + facebook_handle
   end

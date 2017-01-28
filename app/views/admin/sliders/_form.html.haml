@@ -11,7 +11,7 @@
     = f.text_field :subtitle, length: "125", icon: "subtitles"
     = f.select :position, options_positions(f.object.position),
       prompt: "Select a Position"
-    = f.number_field :order
+    = f.number_field :order, icon: "format_list_numbered"
     = f.file_field :photo, label: "Select Photo",
       placeholder: "Select a photo for the home page slider"
     = f.check_box :active

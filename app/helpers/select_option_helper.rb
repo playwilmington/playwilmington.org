@@ -23,4 +23,8 @@ module SelectOptionHelper
   def options_pages(value)
     options_from_collection_for_select(Page.pages_tabs, :id, :title, value)
   end
+
+  def options_marker_types(value)
+    options_for_select(%w(Museum Parking Food), value)
+  end
 end

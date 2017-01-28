@@ -1,0 +1,20 @@
+.row
+  = form_for [:admin, marker], builder: FormBuilder,
+                               html: { class: "col s12" } do |f|
+    .row
+      - marker.errors.full_messages.each do |msg|
+        .col.s12
+          .card.red
+            .card-content.white-text
+              %p= msg
+    = f.text_field :title, icon: "title"
+    = f.text_field :address, icon: "room"
+    = f.select :marker_type, options_marker_types(f.object.marker_type),
+      prompt: "Select a Type"
+    = f.select :page_id, options_pages(f.object.page_id),
+      prompt: "Select a Page"
+    .row
+      .col.s12.ckeditor-input
+        = f.label :body
+        = f.cktext_area :body
+    = f.submit nil, class: "right"

@@ -50,15 +50,13 @@
       %h5.white-text= @settings.company_name
     - unless @settings.address.blank?
       .col.s12.center
-        %a{ href: @settings.map_url, target: "_Blank" }= @settings.address
+        = link_to @settings.address, @settings.map_url, target: "_Blank"
     - unless @settings.email.blank?
       .col.s12.center
-        %a{ href: "mailto:#{@settings.email}", target: "_Blank" }
-          = @settings.email
+        = link_to @settings.email, @settings.email_url, target: "_Blank"
     - unless @settings.phone.blank?
       .col.s12.center
-        %a{ href: "tel:#{@settings.phone}", target: "_Blank" }
-          = @settings.tel_format
+        = link_to @settings.tel_format, @settings.tel_url, target: "_Blank"
   .row
     .col.s12.center
       = link_to "Donate Now", "#",
@@ -66,20 +64,20 @@
   .row
     .col.s12.center
       - unless @settings.facebook_handle.blank?
-        %a.btn-floating.waves-effect.waves-light{ href: @settings.facebook_url,
-          target: "_Blank" }
+        = link_to @settings.facebook_url, target: "_Blank",
+          class: "btn-floating waves-effect waves-light" do
           = icon "facebook"
       - unless @settings.twitter_handle.blank?
-        %a.btn-floating.waves-effect.waves-light{ href: @settings.twitter_url,
-          target: "_Blank" }
+        = link_to @settings.twitter_url, target: "_Blank",
+          class: "btn-floating waves-effect waves-light" do
           = icon "twitter"
       - unless @settings.pinterest_handle.blank?
-        %a.btn-floating.waves-effect.waves-light{ href: @settings.pinterest_url,
-          target: "_Blank" }
+        = link_to @settings.pinterest_url, target: "_Blank",
+          class: "btn-floating waves-effect waves-light" do
           = icon "pinterest-p"
       - unless @settings.instagram_handle.blank?
-        %a.btn-floating.waves-effect.waves-light{ href: @settings.instagram_url,
-          target: "_Blank" }
+        = link_to @settings.instagram_url, target: "_Blank",
+          class: "btn-floating waves-effect waves-light" do
           = icon "instagram"
   .row
     .col.s12.center.white-text

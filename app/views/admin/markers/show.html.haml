@@ -1,0 +1,30 @@
+.row
+  .col.s12
+    %h3= @marker.title
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      .row
+        .col.s12
+          %dl
+            %dt Address
+            %dd
+              = link_to @marker.address, @marker.address_url
+            %dt Type
+            %dd= @marker.marker_type
+            %dt Body
+            %dd= @marker.body.html_safe
+
+.fixed-action-btn.click-to-toggle
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li
+      = link_to admin_marker_path(@marker),
+        class: "btn-floating waves-effect waves-light red" do
+        = material_icon.delete_forever
+    %li
+      = link_to edit_admin_marker_path(@marker),
+        class: "btn-floating waves-effect waves-light green" do
+        = material_icon.edit

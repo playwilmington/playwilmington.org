@@ -1,13 +1,6 @@
 en:
   activerecord:
     attributes:
-      page:
-        page_id: Parent Page
-        title: Title
-        icon: Icon
-        order: Order
-        page_type: Page Type
-        content: Page Content
       alert:
         title: Title
         name: Name
@@ -29,3 +22,33 @@ en:
         icon: Icon
         order: Order
         collapsible_id: Collapsible Group
+      marker:
+        title: Title
+        address: Address
+        body: Body
+        marker_type: Type
+        page_id: Parent Page
+      page:
+        page_id: Parent Page
+        title: Title
+        icon: Icon
+        order: Order
+        page_type: Page Type
+        content: Page Content
+      slider:
+        title: Title
+        subtitle: Subtitle
+        order: Order
+        position: Position
+        photo_file_name: Photo File Name
+        active: Active
+      setting:
+        address: Address
+        company_name: Company Name
+        copyright: Copyright
+        email: Email
+        phone: Phone
+        facebook_handle: Facebook Handle
+        twitter_handle: Twitter Handle
+        pinterest_handle: Pinterest Handle
+        instagram_handle: Instagram Handle

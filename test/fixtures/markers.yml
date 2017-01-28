@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: 116 Orange Street, Wilmington, NC 28411
+  title: The Children's Museum of Wilmington
+  body: Hours
+  marker_type: Museum
+  page: one
+
+two:
+  address: 123 Main Street
+  title: Random
+  body: MyText
+  marker_type: Parking
+  page: one

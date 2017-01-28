@@ -1,0 +1,28 @@
+#map
+.hide
+  - markers.museum.each do |museum|
+    .museum
+      .row
+        .col.s12.address
+          = museum.address
+        .col.s12.content
+          %h6= museum.title
+          = museum.body.html_safe
+
+  - markers.food.each do |food|
+    .food
+      .row
+        .col.s12.address
+          = food.address
+        .col.s12.content
+          %h6= food.title
+          = food.body.html_safe
+
+  - markers.parking.each do |parking|
+    .parking
+      .row
+      .col.s12.address
+        = parking.address
+      .col.s12.content
+        %h6= parking.title
+        = parking.body.html_safe

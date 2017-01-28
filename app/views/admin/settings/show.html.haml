@@ -11,23 +11,30 @@
             %dt Company Name
             %dd= @setting.company_name
             %dt Address
-            %dd= @setting.address
+            %dd
+              = link_to @setting.address, @setting.map_url
             %dt Copyright
             %dd= @setting.copyright.html_safe
             %dt Email
-            %dd= @setting.email
+            %dd
+              = link_to @setting.email, @setting.email_url
             %dt Phone
-            %dd= @setting.phone
+            %dd
+              = link_to @setting.tel_format, @setting.tel_url
             %dt Facbook Handle
-            %dd= @setting.facebook_handle
+            %dd
+              = link_to @setting.facebook_handle, @setting.facebook_url
             %dt Twitter Handle
-            %dd= @setting.twitter_handle
+            %dd
+              = link_to @setting.twitter_handle, @setting.twitter_url
             %dt Pinterest Handle
-            %dd= @setting.pinterest_handle
+            %dd
+              = link_to @setting.pinterest_handle, @setting.pinterest_url
             %dt Instagram Handle
-            %dd= @setting.instagram_handle
+            %dd
+              = link_to @setting.instagram_handle, @setting.instagram_url
 
 .fixed-action-btn
   = link_to edit_admin_setting_path(@setting),
-    class: "btn-large btn-floating waves-effect waves-light green" do
+    class: "btn-large btn-floating waves-effect waves-light" do
     = material_icon.edit

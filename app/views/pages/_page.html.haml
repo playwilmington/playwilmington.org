@@ -7,4 +7,4 @@
           = @page.content.html_safe
     - unless @page.collapsibles.empty?
       .col.s12
-        = render @page.page_filtered
+        = render @page.collapsibles.page_filtered

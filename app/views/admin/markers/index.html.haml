@@ -1,0 +1,40 @@
+.page-wrapper
+  .row
+    .col.s6
+      %h3 Markers
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @markers, entry_name: "Marker"
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: "col", data: { field: "Title" } }
+              = sort_link @q, :title
+            %th{ scope: "col", data: { field: "Address" } }
+              = sort_link @q, :address
+            %th{ scope: "col", data: { field: "Type" } }
+              = sort_link @q, :marker_type
+            %th{ scope: "col", colspan: "2" }
+          %tbody
+            - @markers.each do |marker|
+              %tr.table__row{ role: "link", tabindex: "0",
+                data: { url: admin_marker_path(marker) } }
+                %td= marker.title
+                %td= marker.address
+                %td= marker.marker_type
+                %td
+                  = link_to "Edit", edit_admin_marker_path(marker),
+                    class: "action-edit"
+                %td
+                  = link_to "Delete", admin_marker_path(marker),
+                    class: "action-destroy red-text", rel: "nofollow",
+                    data: { method: :delete, confirm: "Are You Sure?" }
+        .center.section
+          = paginate @markers
+
+  .fixed-action-btn
+    = link_to new_admin_marker_path,
+      class: "btn-floating btn-large waves-effect waves-light" do
+      = material_icon.add

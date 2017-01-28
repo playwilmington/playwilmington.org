@@ -13,7 +13,7 @@
       prompt: "Select A Usage Type"
     = f.select :page_id, options_pages(f.object.page_id),
       prompt: "Select A Page", outer_class: "coll_hiding hide"
-    = f.number_field :order
+    = f.number_field :order, icon: "format_list_numbered"
     = f.check_box :is_popout
     = f.check_box :active
     %ul.collapsible#collapsible{ data: { collapsible: "accordion" } }

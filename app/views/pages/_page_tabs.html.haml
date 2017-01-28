@@ -4,15 +4,18 @@
       - @page.pages.active.each do |tab|
         %li.tab
           %a{ href: "##{tab.name}" }= tab.title
-  .container
-    - @page.pages.active.each do |tab|
-      .col.s12{ id: "#{tab.name}" }
-        %h4.center= tab.title
-        .row
-          - unless tab.content.blank?
-            .col.s12
-              .card-panel
-                = tab.content.html_safe
-          - unless tab.collapsibles.empty?
-            .col.s12
-              = render tab.page_filtered
+  - @page.pages.active.each do |tab|
+    .col.s12{ id: "#{tab.name}" }
+      - if tab.markers.empty?
+        .container
+          %h4.center= tab.title
+          .row
+            - unless tab.content.blank?
+              .col.s12
+                .card-panel
+                  = tab.content.html_safe
+            - unless tab.collapsibles.empty?
+              .col.s12
+                = render tab.collapsibles.page_filtered
+      - else
+        = render "map", markers: tab.markers

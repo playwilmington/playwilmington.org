@@ -11,9 +11,9 @@
     = f.text_field :name, length: "25", icon: "subtitles",
       help_text: "Name can only have lowercase letters and underscores"
     = f.date_field :start_date, class: "datepicker",
-      value: date_picker(f.object.start_date)
+      value: date_picker(f.object.start_date), icon: "event_available"
     = f.date_field :end_date, class: "datepicker",
-      value: date_picker(f.object.end_date)
+      value: date_picker(f.object.end_date), icon: "event_busy"
     = f.check_box :active
     .row
       .col.s12.ckeditor-input

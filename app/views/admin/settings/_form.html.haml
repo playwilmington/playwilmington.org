@@ -7,13 +7,13 @@
           .card.red
             .card-content.white-text
               %p= msg
-    = f.text_field :company_name, length: "125"
-    = f.text_field :address
-    = f.text_field :copyright
-    = f.email_field :email
-    = f.phone_field :phone
-    = f.text_field :facebook_handle
-    = f.text_field :twitter_handle
-    = f.text_field :pinterest_handle
-    = f.text_field :instagram_handle
+    = f.text_field :company_name, length: "125", icon: "title"
+    = f.text_field :address, icon: "room"
+    = f.text_field :copyright, icon: "copyright"
+    = f.email_field :email, icon: "email"
+    = f.phone_field :phone, icon: "phone"
+    = f.text_field :facebook_handle, icon: "share"
+    = f.text_field :twitter_handle, icon: "share"
+    = f.text_field :pinterest_handle, icon: "share"
+    = f.text_field :instagram_handle, icon: "share"
     = f.submit nil, class: "right"

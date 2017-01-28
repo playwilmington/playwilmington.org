@@ -11,6 +11,7 @@ class Page < ApplicationRecord
 
   has_many :pages, foreign_key: :page_id
   has_many :collapsibles
+  has_many :markers
 
   scope :active, -> { where(active: true).order(:order) }
   scope :available_pages, -> { where(page_type: "Page").order(:order) }
