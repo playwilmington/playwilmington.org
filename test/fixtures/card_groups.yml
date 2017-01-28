@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  page: one
+  grid: s12 m6 l4
+  active: true
+  order: 1
+
+two:
+  page: two
+  grid: s12 m6 l4
+  active: false
+  order: 1

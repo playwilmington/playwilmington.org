@@ -8,6 +8,25 @@ en:
         start_date: Start Date
         end_date: End Date
         active: Active
+      card_group:
+        page_id: Parent Page
+        grid: Grid
+        active: Active
+        order: Order
+      card:
+        title: Title
+        card_content: Card Content
+        card_reveal: Card Reveal
+        order: Order
+        active: Active
+        size: Size
+        sticky_links: Sticky Links
+        btn_one_name: Button Name (1)
+        btn_one_url: Button URL (1)
+        btn_two_name: Button Name (2)
+        btn_two_url: Button URL (2)
+        card_group_id: Card Group
+        card_image_file_name: Card Image File Name
       collapsible:
         name: Name
         active: Active

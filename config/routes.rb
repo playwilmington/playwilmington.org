@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
   namespace :admin do
     root "dashboard#index"
-    resources :pages, :alerts, :sliders, :collapsibles, :markers
+    resources :pages, :alerts, :sliders, :collapsibles, :markers, :card_groups
     resources :settings, only: [:show, :edit, :update]
     resources :users, only: [:index, :destroy, :update]
   end

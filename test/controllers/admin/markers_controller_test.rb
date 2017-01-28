@@ -58,6 +58,11 @@ module Admin
       assert_response :ok
     end
 
+    test "should get edit" do
+      get :edit, params: { id: @marker.id }
+      assert_response :success
+    end
+
     test "should get update" do
       patch :update, params: {
         id: @marker.id,

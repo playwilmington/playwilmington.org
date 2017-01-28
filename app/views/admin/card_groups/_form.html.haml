@@ -1,0 +1,29 @@
+.row
+  = form_for [:admin, card_group], builder: FormBuilder,
+                                   html: { class: "col s12" } do |f|
+    .row
+      - card_group.errors.full_messages.each do |msg|
+        .col.s12
+          .card.red
+            .card-content.white-text
+              %p= msg
+    .col.s12.m6
+      = f.select :page_id, options_pages(f.object.page_id),
+        prompt: "Select a Page/Tab"
+    .col.s12.m6
+      = f.select :grid, options_grid(f.object.grid), prompt: "Select a Grid"
+    .col.s12.m6
+      = f.number_field :order, icon: "format_list_numbered"
+    .col.s12.m6
+      = f.check_box :active
+    .row
+      .col.s12
+        %ul.collapsible#collapsible{ data: { collapsible: "accordion" } }
+          = f.fields_for :cards do |card|
+            = render "card_fields", f: card
+        .center
+          = link_to_add_association "Add Card", f, :cards,
+            class: "btn waves-effect waves-light",
+            data: { "association-insertion-node": "ul#collapsible",
+            "association-insertion-method": "append" }
+    = f.submit nil, class: "right"

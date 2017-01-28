@@ -1,0 +1,47 @@
+.page-wrapper
+  .row
+    .col.s6
+      %h3 Card Groups
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @card_groups, entry_name: "Card Group"
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: "col", data: { field: "Parent Page" } }
+              = sort_link @q, :page_id
+            %th{ scope: "col", data: { field: "Grid" } }
+              = sort_link @q, :grid
+            %th{ scope: "col", data: { field: "Order" } }
+              = sort_link @q, :order
+            %th{ scope: "col", data: { field: "Active" } }
+              = sort_link @q, :active
+            %th{ scope: "col", colspan: "2" }
+          %tbody
+            - @card_groups.each do |card_group|
+              %tr.table__row{ role: "link", tabindex: "0",
+                data: { url: admin_card_group_path(card_group) } }
+                %td= card_group.page_name
+                %td= card_group.grid
+                %td= card_group.order
+                %td
+                  - if card_group.active?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  = link_to "Edit", edit_admin_card_group_path(card_group),
+                    class: "action-edit"
+                %td
+                  = link_to "Delete", admin_card_group_path(card_group),
+                    class: "action-destroy red-text", rel: "nofollow",
+                    data: { method: :delete, confirm: "Are You Sure?" }
+        .center.section
+          = paginate @card_groups
+
+  .fixed-action-btn
+    = link_to new_admin_card_group_path,
+      class: "btn-floating btn-large waves-effect waves-light" do
+      = material_icon.add

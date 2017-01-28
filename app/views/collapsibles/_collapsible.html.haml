@@ -1,6 +1,6 @@
 %ul{ class: class_def(collapsible.is_popout),
      data: { collapsible: collapsible.collapse_style } }
-  - collapsible.collapsible_items.only_active.each do |item|
+  - collapsible.collapsible_items.is_active.each do |item|
     %li
       .collapsible-header
         - if item.icon.blank?

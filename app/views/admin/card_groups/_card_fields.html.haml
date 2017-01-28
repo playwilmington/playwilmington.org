@@ -1,0 +1,32 @@
+%li.nested-fields
+  .collapsible-header
+    #{f.object.title.blank? ? 'New Card' : f.object.title}
+  .collapsible-body.row{ style: "padding: 20px 0;" }
+    .col.s12
+      = link_to_remove_association "<i class='material-icons'>delete</i>".html_safe, f, data: { confirm: "Are You Sure?" }, class: "waves-effect waves-light red-text right"
+    .col.s12.m6
+      = f.text_field :title, icon: "title"
+    .col.s12.m6
+      = f.number_field :order, icon: "format_list_numbered"
+    .col.s12.m6
+      = f.text_field :btn_one_name, icon: "exit_to_app"
+    .col.s12.m6
+      = f.text_field :btn_one_url, icon: "link"
+    .col.s12.m6
+      = f.text_field :btn_two_name, icon: "exit_to_app"
+    .col.s12.m6
+      = f.text_field :btn_two_url, icon: "link"
+    .col.s12.m6
+      = f.select :size, options_size(f.object.size), prompt: "Select a Size"
+    .col.s12.m3
+      = f.check_box :sticky_links
+    .col.s12.m3
+      = f.check_box :active
+    .row
+      .col.s12.ckeditor-input
+        = f.label :card_content
+        = f.cktext_area :card_content
+    .row
+      .col.s12.ckeditor-input
+        = f.label :card_reveal
+        = f.cktext_area :card_reveal

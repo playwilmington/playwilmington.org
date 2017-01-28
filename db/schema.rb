@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128134540) do
+ActiveRecord::Schema.define(version: 20170128195139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,38 @@ ActiveRecord::Schema.define(version: 20170128134540) do
     t.boolean  "active"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "card_groups", force: :cascade do |t|
+    t.integer  "page_id"
+    t.string   "grid"
+    t.boolean  "active"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_card_groups_on_page_id", using: :btree
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string   "title"
+    t.text     "card_content"
+    t.text     "card_reveal"
+    t.integer  "order"
+    t.boolean  "active"
+    t.string   "size"
+    t.boolean  "sticky_links"
+    t.string   "btn_one_name"
+    t.string   "btn_one_url"
+    t.string   "btn_two_name"
+    t.string   "btn_two_url"
+    t.integer  "card_group_id"
+    t.string   "card_image_file_name"
+    t.string   "card_image_content_type"
+    t.integer  "card_image_file_size"
+    t.datetime "card_image_updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["card_group_id"], name: "index_cards_on_card_group_id", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -87,6 +119,7 @@ ActiveRecord::Schema.define(version: 20170128134540) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.boolean  "show_calendar"
+    t.boolean  "hide_title"
     t.index ["name"], name: "index_pages_on_name", unique: true, using: :btree
     t.index ["page_id"], name: "index_pages_on_page_id", using: :btree
   end

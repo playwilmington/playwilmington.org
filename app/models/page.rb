@@ -2,7 +2,7 @@
 class Page < ApplicationRecord
   validates :title, :page_type, presence: true
   validates :name, uniqueness: true
-  validate :tab_content_check, :tab_page_check, :page_check
+  validate :tab_page_check, :page_check
   validates_inclusion_of :page_type,
                          in: %w(Page Tab),
                          message: "Page Type %{value} is not an option"
@@ -12,6 +12,7 @@ class Page < ApplicationRecord
   has_many :pages, foreign_key: :page_id
   has_many :collapsibles
   has_many :markers
+  has_many :card_groups
 
   scope :active, -> { where(active: true).order(:order) }
   scope :available_pages, -> { where(page_type: "Page").order(:order) }
@@ -23,11 +24,6 @@ class Page < ApplicationRecord
   def parent_page
     return unless page_id
     Page.find(page_id).title
-  end
-
-  def tab_content_check
-    return unless page_type == "Tab" && (content.nil? || content == "")
-    errors.add(:content, "Content is Required for Tabs")
   end
 
   def tab_page_check

@@ -27,4 +27,18 @@ module SelectOptionHelper
   def options_marker_types(value)
     options_for_select(%w(Museum Parking Food), value)
   end
+
+  def options_grid(value)
+    options_for_select(grids, value)
+  end
+
+  def options_size(value)
+    options_for_select(%w(none small medium large), value)
+  end
+
+  private
+
+  def grids
+    [["s12 m12 l12"], ["s12 m6 l4"], ["s12 m6"], ["s12 m4"]]
+  end
 end

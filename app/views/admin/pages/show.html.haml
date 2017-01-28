@@ -24,6 +24,12 @@
                 = material_icon.check_box
               - else
                 = material_icon.check_box_outline_blank
+            %dt Hide Title
+            %dd
+              - if @page.hide_title?
+                = material_icon.check_box
+              - else
+                = material_icon.check_box_outline_blank
             %dt Active
             %dd
               - if @page.active?

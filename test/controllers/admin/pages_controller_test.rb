@@ -21,6 +21,11 @@ module Admin
       assert_response :success
     end
 
+    test "should get show" do
+      get :show, params: { id: @page.id }
+      assert_response :success
+    end
+
     test "should get create" do
       assert_difference "Page.count" do
         post :create, params: {
@@ -56,6 +61,11 @@ module Admin
       end
 
       assert_response :ok
+    end
+
+    test "should get edit" do
+      get :edit, params: { id: @page.id }
+      assert_response :success
     end
 
     test "should get update" do

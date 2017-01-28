@@ -1,0 +1,35 @@
+.row
+  .col.s12
+    %h3 Card Group
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      .row
+        .col.s12
+          %dl
+            %dt Parent Page
+            %dd= @card_group.page_name
+            %dt Grid
+            %dd= @card_group.grid
+            %dt Order
+            %dd= @card_group.order
+            %dt Active
+            %dd
+              - if @card_group.active
+                = material_icon.check_box
+              - else
+                = material_icon.check_box_outline_blank
+
+.fixed-action-btn.click-to-toggle
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li
+      = link_to admin_card_group_path(@card_group),
+        class: "btn-floating waves-effect waves-light red" do
+        = material_icon.delete_forever
+    %li
+      = link_to edit_admin_card_group_path(@card_group),
+        class: "btn-floating waves-effect waves-light green" do
+        = material_icon.edit

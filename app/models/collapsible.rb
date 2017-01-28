@@ -12,5 +12,5 @@ class Collapsible < ApplicationRecord
     where("usage_type = ? AND active = ?", usage, true).order(:order)
   }
 
-  scope :page_filtered, -> { where(active: true).order(:order) }
+  scope :is_active, -> { where(active: true).order(:order) }
 end

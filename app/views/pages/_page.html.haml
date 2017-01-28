@@ -1,5 +1,6 @@
 .container
-  %h4.center= @page.title
+  - unless @page.hide_title
+    %h4.center= @page.title
   .row
     - if @page.show_calendar?
       = render "calendar"
@@ -8,6 +9,9 @@
         .col.s12
           .card-panel
             = @page.content.html_safe
-      - unless @page.collapsibles.empty?
+      - unless @page.collapsibles.is_active.empty?
         .col.s12
-          = render @page.collapsibles.page_filtered
+          = render @page.collapsibles.is_active
+      - unless @page.card_groups.is_active.empty?
+        - @page.card_groups.is_active.each do |card_group|
+          = render card_group.cards.is_active

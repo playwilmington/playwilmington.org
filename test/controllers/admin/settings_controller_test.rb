@@ -10,6 +10,16 @@ module Admin
       @setting = settings(:one)
     end
 
+    test "should get show" do
+      get :show, params: { id: @setting.id }
+      assert_response :success
+    end
+
+    test "should get edit" do
+      get :edit, params: { id: @setting.id }
+      assert_response :success
+    end
+
     test "should get update" do
       patch :update, params: {
         id: @setting.id,

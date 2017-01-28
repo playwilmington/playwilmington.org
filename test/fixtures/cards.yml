@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: The Title
+  card_content: MyText
+  card_reveal: MyText
+  order: 1
+  active: true
+  size: small
+  sticky_links: false
+  btn_one_name: MyString
+  btn_one_url: MyString
+  btn_two_name: MyString
+  btn_two_url: MyString
+  card_group: one
+
+two:
+  title: The Title
+  card_content: MyText
+  card_reveal: MyText
+  order: 1
+  active: false
+  size: medium
+  sticky_links: false
+  btn_one_name: MyString
+  btn_one_url: MyString
+  btn_two_name: MyString
+  btn_two_url: MyString
+  card_group: two

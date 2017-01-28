@@ -17,12 +17,16 @@
       - else
         .col.s12
           .container
-            %h4.center= tab.title
+            - unless tab.hide_title
+              %h4.center= tab.title
             .row
               - unless tab.content.blank?
                 .col.s12
                   .card-panel
                     = tab.content.html_safe
-              - unless tab.collapsibles.empty?
+              - unless tab.collapsibles.is_active.empty?
                 .col.s12
-                  = render tab.collapsibles.page_filtered
+                  = render tab.collapsibles.is_active
+              - unless tab.card_groups.is_active.empty?
+                - tab.card_groups.is_active.each do |card_group|
+                  = render card_group.cards.is_active
