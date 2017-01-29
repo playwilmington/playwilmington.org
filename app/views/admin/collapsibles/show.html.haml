@@ -1,27 +1,57 @@
 .row
   .col.s12
-    %h3= @collapsible.name
+    %h3 Collapsible Group
 
 .row
   .col.s12.offset-m1.m10
-    .card-panel
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Name:
+          = @collapsible.name
+        .col.s12.m6.grid
+          %span.label Collapse Style:
+          = @collapsible.collapse_style
+        .col.s12.m6.grid
+          %span.label Usage Type:
+          = @collapsible.usage_type
+        .col.s12.m6.grid
+          %span.label Order:
+          = @collapsible.order
+        .col.s12.m6
+          %span.label Is Popout:
+          %span.icon
+            - if @collapsible.is_popout?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @collapsible.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
       .row
         .col.s12
-          %dl
-            %dt Collapse Style
-            %dd= @collapsible.collapse_style
-            %dt Usage Type
-            %dd= @collapsible.usage_type
-            %dt Is Popout
-            %dd= @collapsible.is_popout
-            %dt Active
-            %dd
-              - if @collapsible.active
-                = material_icon.check_box
-              - else
-                = material_icon.check_box_outline_blank
-            %dt Order
-            %dd= @collapsible.order
+          %h5 Collapsible Items
+          %table.bordered.highlight
+            %thead
+              %th Title
+              %th Icon
+              %th Order
+              %th Active
+            %tbody
+              - @collapsible.collapsible_items.order(:order).each do |item|
+                %tr
+                  %td= item.title
+                  %td= item.icon
+                  %td= item.order
+                  %td
+                    - if item.active
+                      = material_icon.check_box
+                    - else
+                      = material_icon.check_box_outline_blank
 
 .fixed-action-btn.click-to-toggle
   %a.btn-floating.btn-large.waves-effect.waves-light

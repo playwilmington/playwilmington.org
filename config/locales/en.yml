@@ -55,6 +55,7 @@ en:
         page_type: Page Type
         content: Page Content
         show_calendar: Show Calendar
+        hide_title: Hide Title
         active: Active
       slider:
         title: Title

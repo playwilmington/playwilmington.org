@@ -1,27 +1,34 @@
 .row
   .col.s12
-    %h3= @alert.title
+    %h3 Alert
 
 .row
   .col.s12.offset-m1.m10
-    .card-panel
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @alert.title
+        .col.s12.m6.grid
+          %span.label Name:
+          = @alert.name
+        .col.s12.m6.grid
+          %span.label Start Date:
+          = @alert.strd_start
+        .col.s12.m6.grid
+          %span.label End Date:
+          = @alert.strd_end
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @alert.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
       .row
         .col.s12
-          %dl
-            %dt Name
-            %dd= @alert.name
-            %dt Start Date
-            %dd= @alert.strd_start
-            %dt End Date
-            %dd= @alert.strd_end
-            %dt Active
-            %dd
-              - if @alert.active
-                = material_icon.check_box
-              - else
-                = material_icon.check_box_outline_blank
-            %dt Content
-            %dd= @alert.content.html_safe
+          %span.label Content:
+          = @alert.content.html_safe
 
 .fixed-action-btn.click-to-toggle
   %a.btn-floating.btn-large.waves-effect.waves-light

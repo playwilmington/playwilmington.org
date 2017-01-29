@@ -1,29 +1,33 @@
 .row
   .col.s12
-    %h3= @slider.title
+    %h3 Slider
 
 .row
   .col.s12.offset-m1.m10
-    .card-panel
+    .card-panel.main-view
       .row
-        .col.s12
-          %dl
-            %dt Subtitle
-            %dd= @slider.subtitle
-            %dt Position
-            %dd= @slider.position
-            %dt Order
-            %dd= @slider.order
-            %dt Photo File Name
-            %dd= @slider.photo_file_name
-            %dt Photo File Size
-            %dd= @slider.photo_file_size
-            %dt Active
-            %dd
-              - if @slider.active
-                = material_icon.check_box
-              - else
-                = material_icon.check_box_outline_blank
+        .col.s12.m6.grid
+          %span.label Title:
+          = @slider.title
+        .col.s12.m6.grid
+          %span.label Subtitle:
+          = @slider.subtitle
+        .col.s12.m6.grid
+          %span.label Position:
+          = @slider.position
+        .col.s12.m6.grid
+          %span.label Order:
+          = @slider.order
+        .col.s12.m6.grid
+          %span.label Photo File Name:
+          = @slider.photo_file_name
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @slider.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
 
 .fixed-action-btn.click-to-toggle
   %a.btn-floating.btn-large.waves-effect.waves-light

@@ -1,20 +1,23 @@
 .row
   .col.s12
-    %h3= @marker.title
+    %h3 Marker
 
 .row
   .col.s12.offset-m1.m10
-    .card-panel
+    .card-panel.main-view
       .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @marker.title
+        .col.s12.m6.grid
+          %span.label Address:
+          = link_to @marker.address, @marker.address_url
+        .col.s12.m6.grid
+          %span.label Marker Type:
+          = @marker.marker_type
         .col.s12
-          %dl
-            %dt Address
-            %dd
-              = link_to @marker.address, @marker.address_url
-            %dt Type
-            %dd= @marker.marker_type
-            %dt Body
-            %dd= @marker.body.html_safe
+          %span.label Body:
+          = @marker.body.html_safe
 
 .fixed-action-btn.click-to-toggle
   %a.btn-floating.btn-large.waves-effect.waves-light

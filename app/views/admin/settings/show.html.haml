@@ -4,35 +4,35 @@
 
 .row
   .col.s12.offset-m1.m10
-    .card-panel
+    .card-panel.main-view
       .row
-        .col.s12
-          %dl
-            %dt Company Name
-            %dd= @setting.company_name
-            %dt Address
-            %dd
-              = link_to @setting.address, @setting.map_url
-            %dt Copyright
-            %dd= @setting.copyright.html_safe
-            %dt Email
-            %dd
-              = link_to @setting.email, @setting.email_url
-            %dt Phone
-            %dd
-              = link_to @setting.tel_format, @setting.tel_url
-            %dt Facbook Handle
-            %dd
-              = link_to @setting.facebook_handle, @setting.facebook_url
-            %dt Twitter Handle
-            %dd
-              = link_to @setting.twitter_handle, @setting.twitter_url
-            %dt Pinterest Handle
-            %dd
-              = link_to @setting.pinterest_handle, @setting.pinterest_url
-            %dt Instagram Handle
-            %dd
-              = link_to @setting.instagram_handle, @setting.instagram_url
+        .col.s12.m6.grid
+          %span.label Company Name:
+          = @setting.company_name
+        .col.s12.m6.grid
+          %span.label Address:
+          = link_to @setting.address, @setting.map_url
+        .col.s12.m6.grid
+          %span.label Copyright:
+          = @setting.copyright.html_safe
+        .col.s12.m6.grid
+          %span.label Email:
+          = link_to @setting.email, @setting.email_url
+        .col.s12.m6.grid
+          %span.label Phone:
+          = link_to @setting.tel_format, @setting.tel_url
+        .col.s12.m6.grid
+          %span.label Facebook Handle:
+          = link_to @setting.facebook_handle, @setting.facebook_url
+        .col.s12.m6.grid
+          %span.label Twiiter Handle:
+          = link_to @setting.twitter_handle, @setting.twitter_url
+        .col.s12.m6.grid
+          %span.label Pinterest Handle:
+          = link_to @setting.pinterest_handle, @setting.pinterest_url
+        .col.s12.m6.grid
+          %span.label Instagram Handle:
+          = link_to @setting.instagram_handle, @setting.instagram_url
 
 .fixed-action-btn
   = link_to edit_admin_setting_path(@setting),

@@ -4,22 +4,52 @@
 
 .row
   .col.s12.offset-m1.m10
-    .card-panel
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Parent Page:
+          = @card_group.page_name
+        .col.s12.m6.grid
+          %span.label Grid:
+          = @card_group.grid
+        .col.s12.m6.grid
+          %span.label Order:
+          = @card_group.order
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @card_group.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
       .row
         .col.s12
-          %dl
-            %dt Parent Page
-            %dd= @card_group.page_name
-            %dt Grid
-            %dd= @card_group.grid
-            %dt Order
-            %dd= @card_group.order
-            %dt Active
-            %dd
-              - if @card_group.active
-                = material_icon.check_box
-              - else
-                = material_icon.check_box_outline_blank
+          %h5 Cards
+          %table.bordered.highlight
+            %thead
+              %th Title
+              %th Size
+              %th File Name
+              %th Order
+              %th Sticky Links
+              %th Active
+            %tbody
+              - @card_group.cards.order(:order).each do |card|
+                %tr
+                  %td= card.title
+                  %td= card.size
+                  %td= card.card_image_file_name
+                  %td= card.order
+                  %td
+                    - if card.sticky_links?
+                      = material_icon.check_box
+                    - else
+                      = material_icon.check_box_outline_blank
+                  %td
+                    - if card.active?
+                      = material_icon.check_box
+                    - else
+                      = material_icon.check_box_outline_blank
 
 .fixed-action-btn.click-to-toggle
   %a.btn-floating.btn-large.waves-effect.waves-light

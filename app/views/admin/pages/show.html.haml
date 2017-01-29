@@ -1,43 +1,87 @@
 .row
   .col.s12
-    %h3= @page.title
+    %h3 Page
 
 .row
   .col.s12.offset-m1.m10
-    .card-panel
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @page.title
+        .col.s12.m6.grid
+          %span.label Name:
+          = @page.name
+        .col.s12.m6.grid
+          %span.label Type:
+          = @page.page_type
+        .col.s12.m6.grid
+          %span.label Parent Page:
+          = @page.page_id ? @page.parent_page : "N/A"
+        .col.s12.m6.grid
+          %span.label Icon:
+          = @page.icon.blank? ? @page.icon : "N/A"
+        .col.s12.m6.grid
+          %span.label Order:
+          = @page.order
+        .col.s12.m6.grid
+          %span.label Show Calendar:
+          %span.icon
+            - if @page.show_calendar?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6.grid
+          %span.label Show Calendar:
+          %span.icon
+            - if @page.hide_title?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @page.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
       .row
         .col.s12
-          %dl
-            %dt Type
-            %dd= @page.page_type
-            %dt Name
-            %dd= @page.name
-            %dt Parent Page
-            %dd= @page.page_id ? @page.parent_page : "N/A"
-            %dt Icon
-            %dd= @page.icon.blank? ? @page.icon : "N/A"
-            %dt Order
-            %dd= @page.order
-            %dt Show Calendar
-            %dd
-              - if @page.show_calendar?
-                = material_icon.check_box
-              - else
-                = material_icon.check_box_outline_blank
-            %dt Hide Title
-            %dd
-              - if @page.hide_title?
-                = material_icon.check_box
-              - else
-                = material_icon.check_box_outline_blank
-            %dt Active
-            %dd
-              - if @page.active?
-                = material_icon.check_box
-              - else
-                = material_icon.check_box_outline_blank
-            %dt Content
-            %dd= @page.content.html_safe
+          %span.label Content:
+          = @page.content.html_safe
+      - unless @page.pages.empty?
+        .row
+          .col.s12
+            %h5 Tabs
+            %table.bordered.highlight
+              %thead
+                %th Title
+                %th Name
+                %th Order
+                %th Show Calendar
+                %th Hide Title
+                %th Active
+              %tbody
+                - @page.pages.order(:order).each do |tab|
+                  %tr
+                    %td= tab.title
+                    %td= tab.name
+                    %td= tab.order
+                    %td
+                      - if tab.show_calendar?
+                        = material_icon.check_box
+                      - else
+                        = material_icon.check_box_outline_blank
+                    %td
+                      - if tab.hide_title?
+                        = material_icon.check_box
+                      - else
+                        = material_icon.check_box_outline_blank
+                    %td
+                      - if tab.active?
+                        = material_icon.check_box
+                      - else
+                        = material_icon.check_box_outline_blank
 
 .fixed-action-btn.click-to-toggle
   %a.btn-floating.btn-large.waves-effect.waves-light
