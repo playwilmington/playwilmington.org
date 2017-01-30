@@ -1,0 +1,40 @@
+.row
+  .col.s12
+    %h3 Contact Email
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @contact_email.title
+        .col.s12.m6.grid
+          %span.label Email Address:
+          = @contact_email.email_address
+        .col.s12.m6.grid
+          %span.label Parent Page:
+          = @contact_email.page_name
+        .col.s12.m6.grid
+          %span.label Order:
+          = @contact_email.order
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @contact_email.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+
+.fixed-action-btn.click-to-toggle
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li
+      = link_to admin_contact_email_path(@contact_email),
+        class: "btn-floating waves-effect waves-light red" do
+        = material_icon.delete_forever
+    %li
+      = link_to edit_admin_contact_email_path(@contact_email),
+        class: "btn-floating waves-effect waves-light green" do
+        = material_icon.edit

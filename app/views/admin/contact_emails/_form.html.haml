@@ -1,0 +1,16 @@
+.row
+  = form_for [:admin, contact_email], builder: FormBuilder,
+                                      html: { class: "col s12" } do |f|
+    .row
+      - contact_email.errors.full_messages.each do |msg|
+        .col.s12
+          .card.red
+            .card-content.white-text
+              %p= msg
+    = f.text_field :title, length: "75", icon: "title"
+    = f.email_field :email_address, icon: "email"
+    = f.select :page_id, options_pages(f.object.page_id),
+      prompt: "Select a Page"
+    = f.number_field :order, icon: "format_list_numbered"
+    = f.check_box :active
+    = f.submit nil, class: "right"

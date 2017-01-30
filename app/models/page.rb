@@ -13,6 +13,7 @@ class Page < ApplicationRecord
   has_many :collapsibles
   has_many :markers
   has_many :card_groups
+  has_many :contact_emails
 
   scope :active, -> { where(active: true).order(:order) }
   scope :available_pages, -> { where(page_type: "Page").order(:order) }

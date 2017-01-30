@@ -1,0 +1,18 @@
+.card-panel
+  = form_for @message, url: create_message_path,
+    builder: FormBuilder, html: { class: 'row' } do |f|
+    - unless @message.errors.full_messages.empty?
+      .col.s12
+        .card.red
+          .card-content.white-text
+            %ul
+              - @message.errors.full_messages.each do |msg|
+                %li= msg
+    = f.select :email_to,
+      options_from_collection_for_select(tab.contact_emails.is_active,
+      :email_address, :title, f.object.email_to),
+      prompt: "Select a Email"
+    = f.text_field :name
+    = f.email_field :email
+    = f.text_area :message
+    = f.submit 'Send', class: 'right'

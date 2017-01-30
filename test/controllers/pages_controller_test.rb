@@ -10,4 +10,26 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get "/#{@page.name}"
     assert_response :success
   end
+
+  test "should post Create Message" do
+    post create_message_path, params: {
+      message: {
+        name: "Test Name",
+        email: "no-reply@playwilmington.org",
+        email_to: "test@playwilmington.org",
+        message: "Test Message"
+      }
+    }
+  end
+
+  test "should not post Create Message" do
+    post create_message_path, params: {
+      message: {
+        name: nil,
+        email: "no-reply@playwilmington.org",
+        email_to: "test@playwilmington.org",
+        message: "Test Message"
+      }
+    }
+  end
 end

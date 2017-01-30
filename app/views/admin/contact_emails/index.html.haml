@@ -1,0 +1,51 @@
+.page-wrapper
+  .row
+    .col.s6
+      %h3 Contact Emails
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right
+              = page_entries_info @contact_emails, entry_name: "Contact Email"
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: "col", data: { field: "Title" } }
+              = sort_link @q, :title
+            %th{ scope: "col", data: { field: "Email Address" } }
+              = sort_link @q, :email_address
+            %th{ scope: "col", data: { field: "Parent Page" } }
+              = sort_link @q, :page_id
+            %th{ scope: "col", data: { field: "Order" } }
+              = sort_link @q, :order
+            %th{ scope: "col", data: { field: "Active" } }
+              = sort_link @q, :active
+            %th{ scope: "col", colspan: "2" }
+          %tbody
+            - @contact_emails.each do |contact_email|
+              %tr.table__row{ role: "link", tabindex: "0",
+                data: { url: admin_contact_email_path(contact_email) } }
+                %td= contact_email.title
+                %td= contact_email.email_address
+                %td= contact_email.page_name
+                %td= contact_email.order
+                %td
+                  - if contact_email.active?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  = link_to "Edit", edit_admin_contact_email_path(contact_email),
+                    class: "action-edit"
+                %td
+                  = link_to "Delete", admin_contact_email_path(contact_email),
+                    class: "action-destroy red-text", rel: "nofollow",
+                    data: { method: :delete, confirm: "Are You Sure?" }
+        .center.section
+          = paginate @contact_emails
+
+  .fixed-action-btn
+    = link_to new_admin_contact_email_path,
+      class: "btn-floating btn-large waves-effect waves-light" do
+      = material_icon.add

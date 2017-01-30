@@ -16,11 +16,14 @@
       prompt: "Select a Parent Page", outer_class: "page_hiding hide"
     = f.text_field :icon, icon: "fingerprint", outer_class: "page_hiding hide"
     = f.number_field :order, icon: "format_list_numbered"
-    .col.s6
+    .col.s12.m3
       = f.check_box :show_calendar
-    .col.s6
+    .col.s12.m3
+      = f.check_box :show_contact
+    .col.s12.m3
       = f.check_box :hide_title
-    = f.check_box :active
+    .col.s12.m3
+      = f.check_box :active
     .row
       .col.s12.ckeditor-input
         = f.label :content

@@ -8,6 +8,8 @@ one:
   order: 10
   content: MyText
   show_calendar: false
+  show_contact: false
+  hide_title: false
   active: true
 
 two:
@@ -18,4 +20,18 @@ two:
   order: 11
   content: MyText2
   show_calendar: true
+  show_contact: false
+  hide_title: false
+  active: true
+
+three:
+  title: Page Three
+  name: page_three
+  page_type: Tab
+  icon: icon
+  order: 12
+  content: MyText2
+  show_calendar: false
+  show_contact: true
+  hide_title: false
   active: true

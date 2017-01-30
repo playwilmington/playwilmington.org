@@ -9,11 +9,16 @@
       - if tab.show_calendar?
         .col.s12
           = render "calendar"
-      - elsif !tab.markers.empty?
+      - elsif tab.markers.empty?
         .col.s12.fix-padding
-          #map
+          .map#map
           .hide
             = render tab.markers
+      - elsif tab.show_contact?
+        .col.s12.fix-padding
+          %iframe{ class: "contact-map", src: "//www.google.com/maps/embed/v1/place?q=#{@settings.company_name.to_param}&zoom=13&attribution_source=Google+Maps+Embed+API&attribution_web_url=https://developers.google.com/maps/documentation/embed/&key=#{ENV['CALENDAR_API_KEY']}", allowfullscreen: true }
+        .col.s12.offset-m2.m8
+          = render "message_form", tab: tab
       - else
         .col.s12
           .container

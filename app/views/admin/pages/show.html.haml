@@ -32,9 +32,16 @@
             - else
               = material_icon.check_box_outline_blank
         .col.s12.m6.grid
-          %span.label Show Calendar:
+          %span.label Hide Title:
           %span.icon
             - if @page.hide_title?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6.grid
+          %span.label Show Contact:
+          %span.icon
+            - if @page.show_contact?
               = material_icon.check_box
             - else
               = material_icon.check_box_outline_blank

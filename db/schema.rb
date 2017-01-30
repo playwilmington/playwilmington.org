@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128195139) do
+ActiveRecord::Schema.define(version: 20170129020643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,17 @@ ActiveRecord::Schema.define(version: 20170128195139) do
     t.index ["page_id"], name: "index_collapsibles_on_page_id", using: :btree
   end
 
+  create_table "contact_emails", force: :cascade do |t|
+    t.integer  "page_id"
+    t.string   "title"
+    t.string   "email_address"
+    t.boolean  "active"
+    t.integer  "order"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["page_id"], name: "index_contact_emails_on_page_id", using: :btree
+  end
+
   create_table "markers", force: :cascade do |t|
     t.string   "address"
     t.string   "title"
@@ -120,6 +131,7 @@ ActiveRecord::Schema.define(version: 20170128195139) do
     t.datetime "updated_at",    null: false
     t.boolean  "show_calendar"
     t.boolean  "hide_title"
+    t.boolean  "show_contact"
     t.index ["name"], name: "index_pages_on_name", unique: true, using: :btree
     t.index ["page_id"], name: "index_pages_on_page_id", using: :btree
   end

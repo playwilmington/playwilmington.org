@@ -10,13 +10,15 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
   namespace :admin do
     root "dashboard#index"
-    resources :pages, :alerts, :sliders, :collapsibles, :markers, :card_groups
+    resources :pages, :alerts, :sliders, :collapsibles, :markers, :card_groups,
+              :contact_emails
     resources :settings, only: [:show, :edit, :update]
     resources :users, only: [:index, :destroy, :update]
   end
 
   devise_for :users
   root "home#index"
+  post "pages/create_message", as: "create_message"
   constraints(PageUrlConstrainer.new) do
     get ":name" => "pages#show"
   end

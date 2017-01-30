@@ -32,24 +32,17 @@ class FormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  # def text_area(method, options = {})
-  #   label_options = {}
-  #   icon = options.delete(:icon)
-  #   label_options[:text] = options.delete(:label)
-  #   options[:class] ||= ""
-  #   options[:class] += " materialize-textarea"
-  #
-  #   content_tag :div, class: "row" do
-  #     content_tag :div, class: "input-field col s12" do
-  #       if icon
-  #         text_field_icon(icon) + super(method, options) +
-  #           text_field_label(method, label_options)
-  #       else
-  #         super(method, options) + text_field_label(method, label_options)
-  #       end
-  #     end
-  #   end
-  # end
+  def text_area(method, options = {})
+    label_options = {}
+    label_options[:text] = options.delete(:label)
+    options[:class] ||= "materialize-textarea"
+
+    content_tag :div, class: "row" do
+      content_tag :div, class: "input-field col s12" do
+        super(method, options) + text_field_label(method, label_options)
+      end
+    end
+  end
 
   def file_field(method, options = {})
     content_tag :div, class: "row" do
