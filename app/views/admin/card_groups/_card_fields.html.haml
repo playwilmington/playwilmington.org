@@ -22,6 +22,8 @@
       = f.check_box :sticky_links
     .col.s12.m3
       = f.check_box :active
+    = f.file_field :card_image, label: "Card Image",
+      placeholder: "Upload an Image for the Card Image"
     .row
       .col.s12.ckeditor-input
         = f.label :card_content
