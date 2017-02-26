@@ -3,11 +3,10 @@ module DeviseHelper
   def devise_error_messages!
     return "" unless devise_error_messages?
 
-    messages =
-      resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
+    err = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
 
     html = <<-HTML
-      <ul class='browser-default'>#{messages}</ul>
+    <ul>#{err}</ul>
     HTML
 
     html.html_safe

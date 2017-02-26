@@ -12,12 +12,7 @@ init_materialize =->
   $('.button-collapse').sideNav
     menuWidth: 240,
     draggable: true
-  $('select').material_select()
   $('.collapsible').collapsible()
-  Materialize.updateTextFields()
   $('#about').modal()
   $('#alert-modal').modal()
   $('.slider').slider()
-  $('.datepicker').pickadate
-    selectMonths: true
-    selectYears: 15
