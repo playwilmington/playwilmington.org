@@ -64,6 +64,14 @@ en:
         hide_title: Hide Title
         show_contact: Show Contact
         active: Active
+      photo_album:
+        title: Title
+        page_id: Parent Page
+        order: Order
+        active: Active
+      Photo:
+        photo_album: Photo Album
+        photo_file_name: Photo File Name
       slider:
         title: Title
         subtitle: Subtitle

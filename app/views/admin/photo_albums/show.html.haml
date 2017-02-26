@@ -1,0 +1,44 @@
+.row
+  .col.s12
+    %h3 Photo Album
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @photo_album.title
+        .col.s12.m6.grid
+          %span.label Parent Page:
+          = @photo_album.page_name
+        .col.s12.m6.grid
+          %span.label Order:
+          = @photo_album.order
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @photo_album.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+  .col.s12.offset-m1.m10
+    - @photo_album.photos.each do |photo|
+      .col.s12.m4.l2
+        .card
+          .card-image
+            = image_tag photo.image.url
+
+
+.fixed-action-btn.click-to-toggle
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li
+      = link_to admin_photo_album_path(@photo_album),
+        class: "btn-floating waves-effect waves-light red" do
+        = material_icon.delete_forever
+    %li
+      = link_to edit_admin_photo_album_path(@photo_album),
+        class: "btn-floating waves-effect waves-light green" do
+        = material_icon.edit

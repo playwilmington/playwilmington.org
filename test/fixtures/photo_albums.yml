@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  page_id: one
+  order: 1
+  active: true
+
+two:
+  title: MyString
+  page_id: two
+  order: 1
+  active: false

@@ -1,0 +1,19 @@
+.row
+  = form_for [:admin, photo_album], builder: FormBuilder,
+                              html: { class: "col s12" } do |f|
+    .row
+      - photo_album.errors.full_messages.each do |msg|
+        .col.s12
+          .card.red
+            .card-content.white-text
+              %p= msg
+    .col.s12.m6
+      = f.text_field :title, length: "75", icon: "title"
+    .col.s12.m6
+      = f.select :page_id, options_pages(f.object.page_id),
+        prompt: "Select a Page"
+    .col.s12.m6
+      = f.number_field :order, icon: "format_list_numbered"
+    .col.s12.m6
+      = f.check_box :active
+    = f.submit nil, class: "right"

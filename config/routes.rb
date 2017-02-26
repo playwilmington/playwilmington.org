@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     root "dashboard#index"
     resources :pages, :alerts, :sliders, :collapsibles, :markers, :card_groups,
               :contact_emails
+    resources :photo_albums do
+      resource :photos, only: [:new, :create]
+    end
     resources :settings, only: [:show, :edit, :update]
     resources :users, only: [:index, :destroy, :update]
   end

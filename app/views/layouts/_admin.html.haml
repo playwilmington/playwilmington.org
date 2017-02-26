@@ -46,6 +46,10 @@
             class: "waves-effect waves-orange" do
             = icon "envelope", "Contact Emails"
         %li
+          = link_to admin_photo_albums_path,
+            class: "waves-effect waves-orange" do
+            = icon "camera", "Photo Albums"
+        %li
           = link_to admin_users_path, class: "waves-effect waves-orange" do
             = icon "users", "Users"
         %li
