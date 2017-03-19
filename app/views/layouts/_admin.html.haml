@@ -2,7 +2,7 @@
   :coffee
     Materialize.toast("#{notice}", 4000)
 %header.navbar-fixed
-  %nav
+  %nav.nav-extended
     .nav-wrapper
       %a.button-collapse{ href: "#", data: { activates: "slide-out" } }
         %i.material-icons menu
@@ -66,7 +66,11 @@
           = link_to destroy_user_session_path, method: :delete,
             class: "waves-effect waves-orange" do
             = icon "sign-out", "Log Out"
-%main
+    .nav-content
+      %span.nav-title
+        = yield :page_title
+      = yield :page_button
+%main.admin
   = yield
 
 %footer.page-footer.blue-grey

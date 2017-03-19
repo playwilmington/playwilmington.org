@@ -1,6 +1,5 @@
 .row
-  = form_for [:admin, alert], builder: FormBuilder,
-                              html: { class: "col s12" } do |f|
+  = simple_form [:admin, alert], html: { class: "col s12" } do |f|
     .row
       - alert.errors.full_messages.each do |msg|
         .col.s12

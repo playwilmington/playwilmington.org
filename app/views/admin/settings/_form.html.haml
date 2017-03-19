@@ -1,19 +1,18 @@
-.row
-  = form_for [:admin, setting], builder: FormBuilder,
-                                html: { class: "col s12" } do |f|
-    .row
-      - setting.errors.full_messages.each do |msg|
-        .col.s12
-          .card.red
-            .card-content.white-text
-              %p= msg
-    = f.text_field :company_name, length: "125", icon: "title"
-    = f.text_field :address, icon: "room"
-    = f.text_field :copyright, icon: "copyright"
-    = f.email_field :email, icon: "email"
-    = f.phone_field :phone, icon: "phone"
-    = f.text_field :facebook_handle, icon: "share"
-    = f.text_field :twitter_handle, icon: "share"
-    = f.text_field :pinterest_handle, icon: "share"
-    = f.text_field :instagram_handle, icon: "share"
-    = f.submit nil, class: "right"
+.row.main-form
+  = simple_form_for [:admin, setting], html: { class: "col s12" } do |f|
+    .col.s12
+      - unless setting.errors.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - setting.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :company_name, maxlength: "125", icon: "title"
+    = f.input :address, icon: "room"
+    = f.input :copyright, icon: "copyright"
+    = f.input :email, icon: "email"
+    = f.input :phone, icon: "phone"
+    = f.input :facebook_handle, icon: "share"
+    = f.input :twitter_handle, icon: "share"
+    = f.input :pinterest_handle, icon: "share"
+    = f.input :instagram_handle, icon: "share"
+    = f.button :submit, class: "right"

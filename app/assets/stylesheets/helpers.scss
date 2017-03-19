@@ -24,17 +24,17 @@
   margin-bottom: 0 !important;
 }
 
-.grid {
-  line-height: 35px;
-}
-
 .icon {
   vertical-align: sub;
 }
 
 .main-view {
-  .label {
-    font-size: 18px;
-    font-weight: 500;
+  .grid {
+    line-height: 35px;
+
+    .label {
+      font-size: 18px;
+      font-weight: 500;
+    }
   }
 }

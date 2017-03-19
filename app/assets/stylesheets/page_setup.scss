@@ -9,8 +9,12 @@ body {
     padding-left: 240px;
   }
 
-  .nav-wrapper {
-    padding-left: 10px;
+  .nav-extended {
+    .nav-wrapper,
+    .nav-content {
+      margin-right: 240px;
+      padding-left: 10px;
+    }
   }
 
   .footer-copyright {
@@ -24,6 +28,13 @@ body {
       padding-left: 0;
     }
 
+    .nav-extended {
+      .nav-wrapper,
+      .nav-content {
+        margin-right: 0;
+      }
+    }
+
     .footer-copyright {
       padding: 0;
     }
@@ -32,6 +43,10 @@ body {
 
 main {
   flex: 1 0 auto;
+
+  &.admin {
+    margin-top: 115px;
+  }
 }
 
 footer {

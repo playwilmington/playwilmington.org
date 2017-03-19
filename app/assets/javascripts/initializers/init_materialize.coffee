@@ -7,6 +7,7 @@ $(document).on 'page:load', ->
   return
 
 init_materialize =->
+  Materialize.updateTextFields()
   Waves.displayEffect()
   $('ul.tabs').tabs()
   $('.button-collapse').sideNav

@@ -1,0 +1,18 @@
+$color-red: #f00;
+
+.main-form {
+  .form-errors {
+    margin-bottom: 10px;
+    padding: 15px;
+
+    ul {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  abbr {
+    border-bottom: 0 !important;
+    color: $color-red;
+  }
+}
