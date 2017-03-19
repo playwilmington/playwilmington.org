@@ -1,5 +1,6 @@
 .row.main-form
-  = simple_form_for [:admin, slider], html: { class: "col s12" } do |f|
+  = simple_form_for [:admin, slider],
+    html: { class: "col s12", multipart: true } do |f|
     .col.s12
       - unless slider.errors.empty?
         .form-errors.red.lighten-1
