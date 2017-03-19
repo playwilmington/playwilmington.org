@@ -1,18 +1,16 @@
-.row
-  = form_for [:admin, slider], builder: FormBuilder,
-                              html: { class: "col s12" } do |f|
-    .row
-      - slider.errors.full_messages.each do |msg|
-        .col.s12
-          .card.red
-            .card-content.white-text
-              %p= msg
-    = f.text_field :title, length: "75", icon: "title"
-    = f.text_field :subtitle, length: "125", icon: "subtitles"
-    = f.select :position, options_positions(f.object.position),
+.row.main-form
+  = simple_form_for [:admin, slider], html: { class: "col s12" } do |f|
+    .col.s12
+      - unless slider.errors.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - slider.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :title, maxlength: "75", icon: "title"
+    = f.input :subtitle, maxlength: "125", icon: "subtitles"
+    = f.input :position, collection: %w(center-align right-align left-align),
       prompt: "Select a Position"
-    = f.number_field :order, icon: "format_list_numbered"
-    = f.file_field :photo, label: "Select Photo",
-      placeholder: "Select a photo for the home page slider"
-    = f.check_box :active
-    = f.submit nil, class: "right"
+    = f.input :order, icon: "format_list_numbered"
+    = f.input :photo
+    = f.input :active
+    = f.button :submit, class: "right"
