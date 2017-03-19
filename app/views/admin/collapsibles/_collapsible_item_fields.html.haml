@@ -5,13 +5,13 @@
     .col.s12
       = link_to_remove_association "<i class='material-icons'>delete</i>".html_safe, f, data: { confirm: "Are You Sure?" }, class: "waves-effect waves-light red-text right"
     .col.s12.m6
-      = f.text_field :title, icon: "title"
+      = f.input :title, icon: "title"
     .col.s12.m6
-      = f.text_field :icon, icon: "fingerprint"
+      = f.input :icon, icon: "fingerprint"
     .col.s12.m6
-      = f.number_field :order, icon: "format_list_numbered"
+      = f.input :order, icon: "format_list_numbered"
     .col.s12.m6
-      = f.check_box :active
+      = f.input :active
     .col.s12.ckeditor-input
       = f.label :body
       = f.cktext_area :body

@@ -1,6 +1,5 @@
-.row
-  .col.s12
-    %h3 Collapsible Group
+- content_for :page_title do
+  Collapsible Group
 
 .row
   .col.s12.offset-m1.m10
@@ -53,15 +52,13 @@
                     - else
                       = material_icon.check_box_outline_blank
 
-.fixed-action-btn.click-to-toggle
+.fixed-action-btn.click-to-toggle.toolbar
   %a.btn-floating.btn-large.waves-effect.waves-light
     = material_icon.menu
   %ul
-    %li
-      = link_to admin_collapsible_path(@collapsible),
-        class: "btn-floating waves-effect waves-light red" do
+    %li.waves-effect.waves-light
+      = link_to admin_collapsible_path(@collapsible), class: "red" do
         = material_icon.delete_forever
-    %li
-      = link_to edit_admin_collapsible_path(@collapsible),
-        class: "btn-floating waves-effect waves-light green" do
+    %li.waves-effect.waves-light
+      = link_to edit_admin_collapsible_path(@collapsible), class: "green" do
         = material_icon.edit
