@@ -1,7 +1,12 @@
+- content_for :page_title do
+  Pages
+
+- content_for :page_button do
+  = link_to new_admin_page_path,
+    class: "btn-floating btn-large halfway-fab waves-effect waves-light" do
+    = material_icon.add
+
 .page-wrapper
-  .row
-    .col.s6
-      %h3 Pages
   .row
     .col.s12
       .card-panel
@@ -49,8 +54,3 @@
                     data: { method: :delete, confirm: "Are You Sure?" }
         .center.section
           = paginate @pages
-
-  .fixed-action-btn
-    = link_to new_admin_page_path,
-      class: "btn-floating btn-large waves-effect waves-light" do
-      = material_icon.add

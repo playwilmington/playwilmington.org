@@ -19,7 +19,7 @@ SimpleForm.setup do |config|
     b.optional :icon
 
     # Form Components
-    b.use :input, class: "validate", error_class: "invalid"
+    b.use :input, error_class: "invalid"
     b.use :label
     b.use :hint, wrap_with: { tag: "span", class: "help-text" }
   end
@@ -37,7 +37,7 @@ SimpleForm.setup do |config|
     b.optional :icon
 
     # Form Components
-    b.use :input, class: "validate", error_class: "invalid"
+    b.use :input, error_class: "invalid"
     b.use :label
     b.use :hint, wrap_with: { tag: "span", class: "help-text" }
   end
@@ -55,7 +55,7 @@ SimpleForm.setup do |config|
     b.use :icon
 
     # Form Components
-    b.use :input, class: "validate", error_class: "invalid"
+    b.use :input, error_class: "invalid"
     b.use :label
     b.use :hint, wrap_with: { tag: "span", class: "help-text" }
   end
@@ -73,7 +73,7 @@ SimpleForm.setup do |config|
     b.use :icon
 
     # Form Components
-    b.use :input, class: "validate", error_class: "invalid"
+    b.use :input, error_class: "invalid"
     b.use :label
     b.use :hint, wrap_with: { tag: "span", class: "help-text" }
   end
@@ -91,7 +91,7 @@ SimpleForm.setup do |config|
     b.use :icon
 
     # Form Components
-    b.use :input, class: "validate", error_class: "invalid"
+    b.use :input, error_class: "invalid"
     b.use :label
     b.use :hint, wrap_with: { tag: "span", class: "help-text" }
   end
@@ -106,7 +106,7 @@ SimpleForm.setup do |config|
     b.use :icon
 
     # Form Components
-    b.use :input, class: "datepicker validate", error_class: "invalid"
+    b.use :input, class: "datepicker", error_class: "invalid"
     b.use :label
     b.use :hint, wrap_with: { tag: "span", class: "help-text" }
   end
@@ -124,7 +124,7 @@ SimpleForm.setup do |config|
     b.optional :icon
 
     # Form Components
-    b.use :input, class: "materialize-textarea validate", error_class: "invalid"
+    b.use :input, class: "materialize-textarea", error_class: "invalid"
     b.use :label
     b.use :hint, wrap_with: { tag: "span", class: "help-text" }
   end
@@ -196,7 +196,7 @@ SimpleForm.setup do |config|
       ba.use :input
     end
     b.wrapper tag: :div, class: "file-path-wrapper" do |ba|
-      ba.use :tag, tag: :input, class: "file-path validate", type: "text",
+      ba.use :tag, tag: :input, class: "file-path", type: "text",
                    placeholder: "Browse...", error_class: "invalid"
     end
     b.use :hint, wrap_with: { tag: "span", class: "help-text" }
@@ -214,7 +214,7 @@ SimpleForm.setup do |config|
       ba.use :input, multiple: true
     end
     b.wrapper tag: :div, class: "file-path-wrapper" do |ba|
-      ba.use :tag, tag: :input, class: "file-path validate", type: "text",
+      ba.use :tag, tag: :input, class: "file-path", type: "text",
                    placeholder: "Upload one or more files",
                    error_class: "invalid"
     end

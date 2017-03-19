@@ -1,31 +1,30 @@
-.row
-  = form_for [:admin, page], builder: FormBuilder,
-                             html: { class: "col s12" } do |f|
-    .row
-      - page.errors.full_messages.each do |msg|
-        .col.s12
-          .card.red
-            .card-content.white-text
-              %p= msg
-    = f.text_field :title, length: "25", icon: "title"
-    = f.text_field :name, length: "25", icon: "subtitles",
-      help_text: "Name can only have lowercase letters and underscores"
-    = f.select :page_type, options_page_type(f.object.page_type),
-      prompt: "Select a Page Type"
-    = f.select :page_id, options_available_pages(f.object.page_id),
-      prompt: "Select a Parent Page", outer_class: "page_hiding hide"
-    = f.text_field :icon, icon: "fingerprint", outer_class: "page_hiding hide"
-    = f.number_field :order, icon: "format_list_numbered"
+.row.main-form
+  = simple_form_for [:admin, page], html: { class: "col s12" } do |f|
+    .col.s12
+      - unless page.errors.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - page.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :title, length: "25", icon: "title"
+    = f.input :name, length: "25", icon: "subtitles",
+      hint: "Name can only have lowercase letters and underscores"
+    = f.input :page_type, collection: %w(Page Tab), prompt: "Select Page Type"
+    = f.input :page_id, collection: Page.available_pages.map{ |p| [p.title, p.id] },
+      prompt: "Select a Parent Page", wrapper_html: { class: "page_hiding hide" }
+    = f.input :icon, icon: "fingerprint",
+      wrapper_html: { class: "page_hiding hide" }
+    = f.input :order, icon: "format_list_numbered"
     .col.s12.m3
-      = f.check_box :show_calendar
+      = f.input :show_calendar
     .col.s12.m3
-      = f.check_box :show_contact
+      = f.input :show_contact
     .col.s12.m3
-      = f.check_box :hide_title
+      = f.input :hide_title
     .col.s12.m3
-      = f.check_box :active
+      = f.input :active
     .row
       .col.s12.ckeditor-input
         = f.label :content
         = f.cktext_area :content
-    = f.submit nil, class: "right"
+    = f.button :submit, class: "right"
