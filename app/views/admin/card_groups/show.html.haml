@@ -1,6 +1,5 @@
-.row
-  .col.s12
-    %h3 Card Group
+- content_for :page_title do
+  Card Group
 
 .row
   .col.s12.offset-m1.m10
@@ -51,15 +50,13 @@
                     - else
                       = material_icon.check_box_outline_blank
 
-.fixed-action-btn.click-to-toggle
+.fixed-action-btn.click-to-toggle.toolbar
   %a.btn-floating.btn-large.waves-effect.waves-light
     = material_icon.menu
   %ul
-    %li
-      = link_to admin_card_group_path(@card_group),
-        class: "btn-floating waves-effect waves-light red" do
+    %li.waves-effect.waves-light
+      = link_to admin_card_group_path(@card_group), class: "red" do
         = material_icon.delete_forever
-    %li
-      = link_to edit_admin_card_group_path(@card_group),
-        class: "btn-floating waves-effect waves-light green" do
+    %li.waves-effect.waves-light
+      = link_to edit_admin_card_group_path(@card_group), class: "green" do
         = material_icon.edit

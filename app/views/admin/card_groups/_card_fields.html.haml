@@ -4,26 +4,18 @@
   .collapsible-body.row{ style: "padding: 20px 0;" }
     .col.s12
       = link_to_remove_association "<i class='material-icons'>delete</i>".html_safe, f, data: { confirm: "Are You Sure?" }, class: "waves-effect waves-light red-text right"
-    .col.s12.m6
-      = f.text_field :title, icon: "title"
-    .col.s12.m6
-      = f.number_field :order, icon: "format_list_numbered"
-    .col.s12.m6
-      = f.text_field :btn_one_name, icon: "exit_to_app"
-    .col.s12.m6
-      = f.text_field :btn_one_url, icon: "link"
-    .col.s12.m6
-      = f.text_field :btn_two_name, icon: "exit_to_app"
-    .col.s12.m6
-      = f.text_field :btn_two_url, icon: "link"
-    .col.s12.m6
-      = f.select :size, options_size(f.object.size), prompt: "Select a Size"
-    .col.s12.m3
-      = f.check_box :sticky_links
-    .col.s12.m3
-      = f.check_box :active
-    = f.file_field :card_image, label: "Card Image",
-      placeholder: "Upload an Image for the Card Image"
+    = f.input :title, icon: "title", wrapper_html: { class: "m6 s12" }
+    = f.input :order, icon: "format_list_numbered", wrapper_html: { class: "m6 s12" }
+    = f.input :btn_one_name, icon: "exit_to_app", wrapper_html: { class: "m6 s12" }
+    = f.input :btn_one_url, icon: "link", wrapper_html: { class: "m6 s12" }
+    = f.input :btn_two_name, icon: "exit_to_app", wrapper_html: { class: "m6 s12" }
+    = f.input :btn_two_url, icon: "link", wrapper_html: { class: "m6 s12" }
+    = f.input :size, collection: %w(small medium large),
+      prompt: "Select a Size", wrapper_html: { class: "m6 s12" }
+    = f.input :sticky_links, wrapper_html: { class: "m3 s12" }
+    = f.input :active, wrapper_html: { class: "m3 s12" }
+    = f.input :card_image, placeholder: "Upload an Image for the Card Image",
+      wrapper_html: { class: "s12" }
     .row
       .col.s12.ckeditor-input
         = f.label :card_content

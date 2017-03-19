@@ -1,29 +1,25 @@
-.row
-  = form_for [:admin, card_group], builder: FormBuilder,
-                                   html: { class: "col s12" } do |f|
-    .row
-      - card_group.errors.full_messages.each do |msg|
-        .col.s12
-          .card.red
-            .card-content.white-text
-              %p= msg
-    .col.s12.m6
-      = f.select :page_id, options_pages(f.object.page_id),
-        prompt: "Select a Page/Tab"
-    .col.s12.m6
-      = f.select :grid, options_grid(f.object.grid), prompt: "Select a Grid"
-    .col.s12.m6
-      = f.number_field :order, icon: "format_list_numbered"
-    .col.s12.m6
-      = f.check_box :active
-    .row
-      .col.s12
-        %ul.collapsible#collapsible{ data: { collapsible: "accordion" } }
-          = f.fields_for :cards do |card|
-            = render "card_fields", f: card
-        .center
-          = link_to_add_association "Add Card", f, :cards,
-            class: "btn waves-effect waves-light",
-            data: { "association-insertion-node": "ul#collapsible",
-            "association-insertion-method": "append" }
-    = f.submit nil, class: "right"
+.row.main-form
+  = simple_form_for [:admin, card_group], html: { class: "col s12" } do |f|
+    .col.s12
+      - unless card_group.errors.empty?
+        .form-errors.red-lighten-1
+          %ul
+            - card_group.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :page_id, collection: Page.pages_tabs.map{ |p| [p.title, p.id] },
+        prompt: "Select a Page/Tab", wrapper_html: { class: "m6 s12" }
+    = f.input :grid, prompt: "Select a Grid", wrapper_html: { class: "m6 s12" },
+      collection: [["s12 m12 l12"], ["s12 m6 l4"], ["s12 m6"], ["s12 m4"]]
+    = f.input :order, icon: "format_list_numbered",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :active, wrapper_html: { class: "m6 s12" }
+    .col.s12
+      %ul.collapsible#collapsible{ data: { collapsible: "accordion" } }
+        = f.simple_fields_for :cards do |card|
+          = render "card_fields", f: card
+    .col.s12.center
+      = link_to_add_association "Add Card", f, :cards,
+        class: "btn waves-effect waves-light",
+        data: { "association-insertion-node": "ul#collapsible",
+        "association-insertion-method": "append" }
+    = f.button :submit, class: "right"
