@@ -1,6 +1,6 @@
 .card-panel
   = form_for @message, url: create_message_path,
-    builder: FormBuilder, html: { class: 'row' } do |f|
+    builder: FormBuilder, html: { class: "row" } do |f|
     - unless @message.errors.full_messages.empty?
       .col.s12
         .card.red
@@ -15,4 +15,4 @@
     = f.text_field :name
     = f.email_field :email
     = f.text_area :message
-    = f.submit 'Send', class: 'right'
+    = f.submit "Send", class: "right"

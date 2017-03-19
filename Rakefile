@@ -47,6 +47,7 @@ if ENV['RAILS_ENV'] != 'production'
     end
   end
 
+  desc 'yaml lint task'
   YamlLint::RakeTask.new do |t|
     t.paths = %w(
       config/**/*.yml .haml-lint.yml .rubocop.yml .scss-lint.yml circle.yml

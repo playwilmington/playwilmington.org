@@ -8,8 +8,11 @@
 skip_frontmatter: false
 
 linters:
-  AltText:
+  AlignmentTabs:
     enabled: true
+
+  AltText:
+    enabled: false
 
   ClassAttributeWithStaticValue:
     enabled: true
@@ -37,8 +40,19 @@ linters:
   HtmlAttributes:
     enabled: true
 
+  IdNames:
+    enabled: false
+    style: lisp_case
+
   ImplicitDiv:
     enabled: true
+
+  InstanceVariables:
+    enabled: false
+    file_types: partials
+    matchers:
+      all: .*
+      partials: \A_.*\.haml\z
 
   LeadingCommentSpace:
     enabled: true
@@ -56,6 +70,10 @@ linters:
   ObjectReferenceAttributes:
     enabled: true
 
+  RepeatedId:
+    enabled: true
+    severity: error
+
   RuboCop:
     enabled: true
     # These cops are incredibly noisy when it comes to HAML templates, so we
@@ -69,6 +87,7 @@ linters:
       - Style/AlignParameters
       - Style/BlockNesting
       - Style/ElseAlignment
+      - Style/EndOfLine
       - Style/FileName
       - Style/FinalNewline
       - Style/FrozenStringLiteralComment

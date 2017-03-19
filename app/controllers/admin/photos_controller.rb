@@ -26,7 +26,9 @@ module Admin
     end
 
     def photo_params
-      params.require(:photo).permit(:image).merge(photo_album_id: @photo_album.id)
+      params.require(:photo).permit(:image).merge(
+        photo_album_id: @photo_album.id
+      )
     end
   end
 end
