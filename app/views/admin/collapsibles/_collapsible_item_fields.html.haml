@@ -4,14 +4,11 @@
   .collapsible-body.row{ style: "padding: 20px 0;" }
     .col.s12
       = link_to_remove_association "<i class='material-icons'>delete</i>".html_safe, f, data: { confirm: "Are You Sure?" }, class: "waves-effect waves-light red-text right"
-    .col.s12.m6
-      = f.input :title, icon: "title"
-    .col.s12.m6
-      = f.input :icon, icon: "fingerprint"
-    .col.s12.m6
-      = f.input :order, icon: "format_list_numbered"
-    .col.s12.m6
-      = f.input :active
+    = f.input :title, icon: "title", wrapper_html: { class: "m6 s12" }
+    = f.input :icon, icon: "fingerprint", wrapper_html: { class: "m6 s12" }
+    = f.input :order, icon: "format_list_numbered",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :active, wrapper_html: { class: "m6 s12" }
     .col.s12.ckeditor-input
       = f.label :body
       = f.cktext_area :body

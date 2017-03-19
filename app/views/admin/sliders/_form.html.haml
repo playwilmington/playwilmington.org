@@ -6,11 +6,14 @@
           %ul
             - slider.errors.full_messages.each do |msg|
               %li= msg
-    = f.input :title, maxlength: "75", icon: "title"
-    = f.input :subtitle, maxlength: "125", icon: "subtitles"
+    = f.input :title, maxlength: "75", icon: "title",
+      wrapper_html: { class: "s12" }
+    = f.input :subtitle, maxlength: "125", icon: "subtitles",
+      wrapper_html: { class: "s12" }
     = f.input :position, collection: %w(center-align right-align left-align),
-      prompt: "Select a Position"
-    = f.input :order, icon: "format_list_numbered"
-    = f.input :photo
-    = f.input :active
+      prompt: "Select a Position", wrapper_html: { class: "m6 s12" }
+    = f.input :order, icon: "format_list_numbered",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :photo, wrapper_html: { class: "m6 s12" }
+    = f.input :active, wrapper_html: { class: "m6 s12" }
     = f.button :submit, class: "right"

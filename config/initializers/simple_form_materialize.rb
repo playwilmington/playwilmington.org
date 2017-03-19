@@ -2,13 +2,13 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   config.error_notification_class = "alert alert-danger"
-  config.button_class = "btn waves-effect"
+  config.button_class = "btn waves-effect waves-light"
   config.boolean_label_class = nil
   config.boolean_style = :inline
 
   # Form Initialization
   config.wrappers :materialize_form,
-                  tag: "div", class: "input-field col s12" do |b|
+                  tag: "div", class: "input-field col" do |b|
     # Form Extensions
     b.use :html5
     b.use :placeholder
@@ -26,7 +26,7 @@ SimpleForm.setup do |config|
 
   # String Input
   config.wrappers :materialize_string,
-                  tag: "div", class: "input-field col s12" do |b|
+                  tag: "div", class: "input-field col" do |b|
     # Form Extensions
     b.use :html5
     b.use :placeholder
@@ -44,7 +44,7 @@ SimpleForm.setup do |config|
 
   # Email Input
   config.wrappers :materialize_email,
-                  tag: "div", class: "input-field col s12", icon: "email" do |b|
+                  tag: "div", class: "input-field col", icon: "email" do |b|
     # Form Extensions
     b.use :html5
     b.use :placeholder
@@ -62,7 +62,7 @@ SimpleForm.setup do |config|
 
   # URL Input
   config.wrappers :materialize_url,
-                  tag: "div", class: "input-field col s12", icon: "link" do |b|
+                  tag: "div", class: "input-field col", icon: "link" do |b|
     # Form Extensions
     b.use :html5
     b.use :placeholder
@@ -80,7 +80,7 @@ SimpleForm.setup do |config|
 
   # Telephone Input
   config.wrappers :materialize_tel,
-                  tag: "div", class: "input-field col s12", icon: "phone" do |b|
+                  tag: "div", class: "input-field col", icon: "phone" do |b|
     # Form Extensions
     b.use :html5
     b.use :placeholder
@@ -98,7 +98,7 @@ SimpleForm.setup do |config|
 
   # Date Picker Input
   config.wrappers :materialize_date,
-                  tag: "div", class: "input-field col s12", icon: "event" do |b|
+                  tag: "div", class: "input-field col", icon: "event" do |b|
     # Form Extensions
     b.use :html5
     b.use :placeholder
@@ -113,7 +113,7 @@ SimpleForm.setup do |config|
 
   # Textarea Input Field
   config.wrappers :materialize_text_area,
-                  tag: "div", class: "input-field col s12" do |b|
+                  tag: "div", class: "input-field col" do |b|
     # Form Extensions
     b.use :html5
     b.use :placeholder
@@ -130,7 +130,7 @@ SimpleForm.setup do |config|
   end
 
   # Boolean Type
-  config.wrappers :materialize_boolean, tag: "p", class: "col s12" do |b|
+  config.wrappers :materialize_boolean, tag: "p", class: "col" do |b|
     # Form Extensions
     b.use :html5
     b.optional :readonly
@@ -143,7 +143,7 @@ SimpleForm.setup do |config|
 
   # Toggle Input Type
   config.wrappers :materialize_switch,
-                  tag: "p", class: "col s12 switch" do |b|
+                  tag: "p", class: "col switch" do |b|
     # Form Extensions
     b.use :html5
     b.optional :readonly
@@ -173,7 +173,7 @@ SimpleForm.setup do |config|
 
   # Radio & Checkbox Input Collections
   config.wrappers :materialize_radio_and_checkboxes,
-                  tag: "div", class: "col s12" do |b|
+                  tag: "div", class: "col" do |b|
     # Form Extensions
     b.use :html5
     b.optional :readonly
@@ -186,7 +186,7 @@ SimpleForm.setup do |config|
 
   # File Upload
   config.wrappers :materialize_file_input,
-                  tag: "div", class: "file-field input-field col s12" do |b|
+                  tag: "div", class: "file-field input-field col" do |b|
     # Form Extensions
     b.use :html5
 
@@ -205,7 +205,7 @@ SimpleForm.setup do |config|
 
   # Multiple File Upload
   config.wrappers :materialize_multiple_file_input,
-                  tag: "div", class: "file-field input-field col s12" do |b|
+                  tag: "div", class: "file-field input-field col" do |b|
     # Form Extensions
     b.use :html5
 

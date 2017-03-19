@@ -6,23 +6,22 @@
           %ul
             - page.errors.full_messages.each do |msg|
               %li= msg
-    = f.input :title, length: "25", icon: "title"
+    = f.input :title, length: "25", icon: "title", wrapper_html: { class: "m6 s12" }
     = f.input :name, length: "25", icon: "subtitles",
-      hint: "Name can only have lowercase letters and underscores"
-    = f.input :page_type, collection: %w(Page Tab), prompt: "Select Page Type"
+      hint: "Name can only have lowercase letters and underscores",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :page_type, collection: %w(Page Tab), prompt: "Select Page Type",
+      wrapper_html: { class: "s12" }
     = f.input :page_id, collection: Page.available_pages.map{ |p| [p.title, p.id] },
-      prompt: "Select a Parent Page", wrapper_html: { class: "page_hiding hide" }
+      prompt: "Select a Parent Page", wrapper_html: { class: "page_hiding hide s12" }
     = f.input :icon, icon: "fingerprint",
-      wrapper_html: { class: "page_hiding hide" }
-    = f.input :order, icon: "format_list_numbered"
-    .col.s12.m3
-      = f.input :show_calendar
-    .col.s12.m3
-      = f.input :show_contact
-    .col.s12.m3
-      = f.input :hide_title
-    .col.s12.m3
-      = f.input :active
+      wrapper_html: { class: "page_hiding hide s12" }
+    = f.input :order, icon: "format_list_numbered",
+      wrapper_html: { class: "s12" }
+    = f.input :show_calendar, wrapper_html: { class: "m3 s12" }
+    = f.input :show_contact, wrapper_html: { class: "m3 s12" }
+    = f.input :hide_title, wrapper_html: { class: "m3 s12" }
+    = f.input :active, wrapper_html: { class: "m3 s12" }
     .row
       .col.s12.ckeditor-input
         = f.label :content

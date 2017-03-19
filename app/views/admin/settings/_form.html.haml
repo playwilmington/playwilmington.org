@@ -6,13 +6,16 @@
           %ul
             - setting.errors.full_messages.each do |msg|
               %li= msg
-    = f.input :company_name, maxlength: "125", icon: "title"
-    = f.input :address, icon: "room"
-    = f.input :copyright, icon: "copyright"
-    = f.input :email, icon: "email"
-    = f.input :phone, icon: "phone"
-    = f.input :facebook_handle, icon: "share"
-    = f.input :twitter_handle, icon: "share"
-    = f.input :pinterest_handle, icon: "share"
-    = f.input :instagram_handle, icon: "share"
+    = f.input :company_name, maxlength: "125", icon: "title",
+      wrapper_html: { class: "s12" }
+    = f.input :address, icon: "room", wrapper_html: { class: "s12" }
+    = f.input :copyright, icon: "copyright", wrapper_html: { class: "s12" }
+    = f.input :email, icon: "email", wrapper_html: { class: "m6 s12" }
+    = f.input :phone, icon: "phone", wrapper_html: { class: "m6 s12" }
+    = f.input :facebook_handle, icon: "share", wrapper_html: { class: "m6 s12" }
+    = f.input :twitter_handle, icon: "share", wrapper_html: { class: "m6 s12" }
+    = f.input :pinterest_handle, icon: "share",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :instagram_handle, icon: "share",
+      wrapper_html: { class: "m6 s12" }
     = f.button :submit, class: "right"

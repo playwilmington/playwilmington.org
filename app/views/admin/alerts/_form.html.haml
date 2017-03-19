@@ -6,16 +6,20 @@
           %ul
             - alert.errors.full_messages.each do |msg|
               %li= msg
-    = f.input :title, maxlength: "75", icon: "title"
+    = f.input :title, maxlength: "75", icon: "title",
+      wrapper_html: { class: "s12" }
     = f.input :name, maxlength: "25", icon: "subtitles",
-      help_text: "Name can only have lowercase letters and underscores"
+      help_text: "Name can only have lowercase letters and underscores",
+      wrapper_html: { class: "s12" }
     = f.input :start_date, icon: "event_available", as: :string,
+      wrapper_html: { class: "m6 s12" },
       input_html: { class: "datepicker",
                     value: date_picker(f.object.start_date) }
     = f.input :end_date, icon: "event_busy", as: :string,
+      wrapper_html: { class: "m6 s12" },
       input_html: { class: "datepicker",
                     value: date_picker(f.object.end_date) }
-    = f.input :active
+    = f.input :active, wrapper_html: { class: "s12" }
     .row
       .col.s12.ckeditor-input
         = f.label :content
