@@ -1,20 +1,19 @@
-.row
-  = form_for [:admin, marker], builder: FormBuilder,
-                               html: { class: "col s12" } do |f|
-    .row
-      - marker.errors.full_messages.each do |msg|
-        .col.s12
-          .card.red
-            .card-content.white-text
-              %p= msg
-    = f.text_field :title, icon: "title"
-    = f.text_field :address, icon: "room"
-    = f.select :marker_type, options_marker_types(f.object.marker_type),
-      prompt: "Select a Type"
-    = f.select :page_id, options_pages(f.object.page_id),
-      prompt: "Select a Page"
+.row.main-form
+  = simple_form_for [:admin, marker], html: { class: "col s12" } do |f|
+    .col.s12
+      - unless marker.errors.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - marker.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :title, icon: "title", wrapper_html: { class: "s12" }
+    = f.input :address, icon: "room", wrapper_html: { class: "s12" }
+    = f.input :marker_type, collection: %w(Museum Parking Food),
+      prompt: "Select a Type", wrapper_html: { class: "m6 s12" }
+    = f.input :page_id, collection: Page.pages_tabs.map { |p| [p.title, p.id] },
+      prompt: "Select a Page", wrapper_html: { class: "m6 s12" }
     .row
       .col.s12.ckeditor-input
         = f.label :body
         = f.cktext_area :body
-    = f.submit nil, class: "right"
+    = f.button :submit, class: "right"
