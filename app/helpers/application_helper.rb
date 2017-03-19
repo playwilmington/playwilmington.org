@@ -6,7 +6,6 @@ module ApplicationHelper
 
   def date_picker(field)
     return if field.blank?
-
     field.to_formatted_s(:date_picker)
   end
 
