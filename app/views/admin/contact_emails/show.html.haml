@@ -1,6 +1,5 @@
-.row
-  .col.s12
-    %h3 Contact Email
+- content_for :page_title do
+  Contact Email
 
 .row
   .col.s12.offset-m1.m10
@@ -26,15 +25,13 @@
             - else
               = material_icon.check_box_outline_blank
 
-.fixed-action-btn.click-to-toggle
+.fixed-action-btn.click-to-toggle.toolbar
   %a.btn-floating.btn-large.waves-effect.waves-light
     = material_icon.menu
   %ul
-    %li
-      = link_to admin_contact_email_path(@contact_email),
-        class: "btn-floating waves-effect waves-light red" do
+    %li.waves-effect.waves-light
+      = link_to admin_contact_email_path(@contact_email), class: "red" do
         = material_icon.delete_forever
-    %li
-      = link_to edit_admin_contact_email_path(@contact_email),
-        class: "btn-floating waves-effect waves-light green" do
+    %li.waves-effect.waves-light
+      = link_to edit_admin_contact_email_path(@contact_email), class: "green" do
         = material_icon.edit
