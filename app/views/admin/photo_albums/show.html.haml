@@ -1,6 +1,5 @@
-.row
-  .col.s12
-    %h3 Photo Album
+- content_for :page_title do
+  Photo Album
 
 .row
   .col.s12.offset-m1.m10
@@ -30,15 +29,13 @@
             = image_tag photo.image.url
 
 
-.fixed-action-btn.click-to-toggle
+.fixed-action-btn.click-to-toggle.toolbar
   %a.btn-floating.btn-large.waves-effect.waves-light
     = material_icon.menu
   %ul
-    %li
-      = link_to admin_photo_album_path(@photo_album),
-        class: "btn-floating waves-effect waves-light red" do
+    %li.waves-effect.waves-light
+      = link_to admin_photo_album_path(@photo_album), class: "red" do
         = material_icon.delete_forever
-    %li
-      = link_to edit_admin_photo_album_path(@photo_album),
-        class: "btn-floating waves-effect waves-light green" do
+    %li.waves-effect.waves-light
+      = link_to edit_admin_photo_album_path(@photo_album), class: "green" do
         = material_icon.edit

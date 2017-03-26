@@ -15,6 +15,6 @@
       prompt: "Select a Position", wrapper_html: { class: "m6 s12" }
     = f.input :order, icon: "format_list_numbered",
       wrapper_html: { class: "m6 s12" }
-    = f.input :photo, wrapper_html: { class: "m6 s12" }
+    = f.input :photo, wrapper_html: { class: "m6 s12" }, as: :file
     = f.input :active, wrapper_html: { class: "m6 s12" }
     = f.button :submit, class: "right"

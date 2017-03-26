@@ -49,7 +49,10 @@ module Admin
     end
 
     def photo_album_params
-      params.require(:photo_album).permit(:title, :order, :page_id, :active)
+      params.require(:photo_album).permit(
+        :title, :order, :page_id, :active,
+        photos_attributes: [:id, :photo_album_id, :image, :_destroy]
+      )
     end
   end
 end

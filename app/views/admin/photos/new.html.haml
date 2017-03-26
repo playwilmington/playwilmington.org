@@ -1,15 +1,17 @@
+- content_for :page_title do
+  New Photo Album
+
 .row
   .col.s12.offset-m1.m10
-    %h3.center New Photo Album
-    .card-panel.row
-      = form_for [:admin, @photo_album, @photo], builder: FormBuilder,
-                                   html: { class: "col s12" } do |f|
-        - unless @photo.errors.empty?
+    .card-panel
+      .row.main_form
+        = form_for [:admin, @photo_album, @photo],
+          html: { multipart: true, class: "col s12" } do |f|
           .col.s12
-            .card.red
-              .card-content.white-text
-                - @photo.errors.full_messages.each do |msg|
-                  %p= msg
-        = f.file_field :image, label: "Photo Files", multiple: true,
-          placeholder: "Select Photo(s) to Upload"
-        = f.submit nil, class: "right"
+            - unless @photo.errors.empty?
+              .form-errors.red.lighten-1
+                %ul
+                  - @photo.errors.full_messages.each do |msg|
+                    %li= msg
+          = f.file_field :image
+          = f.submit nil, class: "btn waves-effect waves-light right"
