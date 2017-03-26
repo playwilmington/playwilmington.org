@@ -13,5 +13,11 @@
                 %ul
                   - @photo.errors.full_messages.each do |msg|
                     %li= msg
-          = f.file_field :image
+          .file-field.input-field
+            .btn
+              %span Photo
+              = f.file_field :image
+            .file-path-wrapper
+              %input.file-path{ type: "text",
+                placeholder: "Upload A Photo for the Album" }
           = f.submit nil, class: "btn waves-effect waves-light right"
