@@ -6,6 +6,8 @@ AllCops:
   - Gemfile.lock
   - Rakefile
   TargetRubyVersion: 2.4
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
 Lint/AmbiguousOperator:
   Description: Checks for ambiguous operators in the first argument of a method invocation
     without parentheses.
