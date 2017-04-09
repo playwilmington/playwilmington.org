@@ -1,18 +1,16 @@
-.card-panel
-  = form_for @message, url: create_message_path,
-    builder: FormBuilder, html: { class: "row" } do |f|
-    - unless @message.errors.full_messages.empty?
-      .col.s12
-        .card.red
-          .card-content.white-text
-            %ul
-              - @message.errors.full_messages.each do |msg|
-                %li= msg
-    = f.select :email_to,
-      options_from_collection_for_select(tab.contact_emails.is_active,
-      :email_address, :title, f.object.email_to),
-      prompt: "Select a Email"
-    = f.text_field :name
-    = f.email_field :email
-    = f.text_area :message
-    = f.submit "Send", class: "right"
+.card-panel.main-form
+  = simple_form_for @message, url: create_message_path,
+    html: { class: "row" } do |f|
+    .col.s12
+      - unless @message.errors.full_messages.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - @message.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :email_to, prompt: "Select an Email",
+      wrapper_html: { class: "s12" },
+      collection: tab.contact_emails.is_active.map{ |p| [p.title, p.email_address] }
+    = f.input :name, wrapper_html: { class: "m6 s12" }
+    = f.input :email, wrapper_html: { class: "m6 s12" }
+    = f.input :message, wrapper_html: { class: "s12" }, as: :text
+    = f.button :submit, class: "right"

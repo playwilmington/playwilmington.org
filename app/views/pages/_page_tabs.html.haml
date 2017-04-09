@@ -9,7 +9,7 @@
       - if tab.show_calendar?
         .col.s12
           = render "calendar"
-      - elsif tab.markers.empty?
+      - elsif !tab.markers.empty?
         .col.s12.fix-padding
           .map#map
           .hide
