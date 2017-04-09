@@ -3,6 +3,7 @@ $color-black: #000;
 
 .main-form {
   .form-errors {
+    background-color: $color-red;
     margin-bottom: 10px;
     padding: 15px;
 
@@ -10,6 +11,11 @@ $color-black: #000;
       margin-bottom: 0;
       margin-top: 0;
     }
+  }
+
+  .isrequired::before {
+    color: $color-red;
+    content: '* ';
   }
 
   abbr {
@@ -24,9 +30,4 @@ $color-black: #000;
       opacity: 1;
     }
   }
-
-  // .required::before {
-  //   color: $color-red;
-  //   content: '* ';
-  // }
 }

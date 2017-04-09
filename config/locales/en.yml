@@ -27,6 +27,7 @@ en:
         btn_two_url: Button URL (2)
         card_group_id: Card Group
         card_image_file_name: Card Image File Name
+        toggle_title: Show Title Outside Image
       collapsible:
         name: Name
         active: Active
