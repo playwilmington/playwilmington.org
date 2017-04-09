@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class MarkersController < AdminController
-    before_action :set_marker, except: [:index, :new, :create]
+    before_action :set_marker, except: %i[index new create]
 
     def index
       @q = Marker.search(params[:q])

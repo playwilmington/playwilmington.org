@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 class Page < ApplicationRecord
   validates :title, :page_type, presence: true
   validates :name, uniqueness: true
   validate :tab_page_check, :page_check
   validates_inclusion_of :page_type,
-                         in: %w(Page Tab),
+                         in: %w[Page Tab],
                          message: "Page Type %{value} is not an option"
   validates_format_of :name, with: /\A([a-z_]*)\z/i, message: '%{value} can
                              only contain lowercase letters and underscores'

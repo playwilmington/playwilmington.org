@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class CollapsiblesController < AdminController
-    before_action :set_collapsible, except: [:index, :new, :create]
+    before_action :set_collapsible, except: %i[index new create]
 
     def index
       @q = Collapsible.search(params[:q])
@@ -51,9 +52,9 @@ module Admin
     def collapsible_params
       params.require(:collapsible).permit(
         :name, :active, :is_popout, :collapse_style, :usage_type, :order,
-        :page_id, collapsible_items_attributes: [
-          :id, :title, :body, :active, :icon, :order, :collapsible_id, :_destroy
-        ]
+        :page_id, collapsible_items_attributes: %i[
+id title body active icon order collapsible_id _destroy
+]
       )
     end
   end

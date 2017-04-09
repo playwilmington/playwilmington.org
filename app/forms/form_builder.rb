@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 class FormBuilder < ActionView::Helpers::FormBuilder
   delegate :content_tag, :tag, to: :@template
   delegate :errors, to: :@object
 
-  FIELDTYPES = %w(text_field email_field number_field password_field url_field
-                  phone_field date_field).freeze
+  FIELDTYPES = %w[text_field email_field number_field password_field url_field
+                  phone_field date_field].freeze
 
   FIELDTYPES.each do |method_name|
     define_method(method_name) do |name, options = {}|

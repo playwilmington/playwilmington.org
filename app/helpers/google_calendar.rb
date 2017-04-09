@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module GoogleCalendar
   module_function
 

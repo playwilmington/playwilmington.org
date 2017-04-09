@@ -1,15 +1,16 @@
 # frozen_string_literal: true
+
 module SelectOptionHelper
   def options_page_type(value)
-    options_for_select(%w(Page Tab), value)
+    options_for_select(%w[Page Tab], value)
   end
 
   def options_positions(value)
-    options_for_select(%w(center-align right-align left-align), value)
+    options_for_select(%w[center-align right-align left-align], value)
   end
 
   def options_col_styles(value)
-    options_for_select(%w(accordion expandable), value)
+    options_for_select(%w[accordion expandable], value)
   end
 
   def options_available_pages(value)
@@ -17,7 +18,7 @@ module SelectOptionHelper
   end
 
   def options_usage_types(value)
-    options_for_select(%w(Home-Page Page/Tab), value)
+    options_for_select(%w[Home-Page Page/Tab], value)
   end
 
   def options_pages(value)
@@ -25,7 +26,7 @@ module SelectOptionHelper
   end
 
   def options_marker_types(value)
-    options_for_select(%w(Museum Parking Food), value)
+    options_for_select(%w[Museum Parking Food], value)
   end
 
   def options_grid(value)
@@ -33,7 +34,7 @@ module SelectOptionHelper
   end
 
   def options_size(value)
-    options_for_select(%w(none small medium large), value)
+    options_for_select(%w[none small medium large], value)
   end
 
   private

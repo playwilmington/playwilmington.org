@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Admin
   class SettingsController < AdminController
     before_action :set_setting

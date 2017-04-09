@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class CardGroupsController < AdminController
-    before_action :set_card_group, except: [:index, :new, :create]
+    before_action :set_card_group, except: %i[index new create]
 
     def index
       @q = CardGroup.search(params[:q])
@@ -51,11 +52,11 @@ module Admin
     def card_group_params
       params.require(:card_group).permit(
         :page_id, :grid, :active, :order,
-        cards_attributes: [
-          :id, :title, :card_content, :card_reveal, :order, :active, :size,
-          :sticky_links, :btn_one_name, :btn_one_url, :btn_two_name,
-          :btn_two_url, :card_group_id, :card_image, :_destroy
-        ]
+        cards_attributes: %i[
+id title card_content card_reveal order active size 
+sticky_links btn_one_name btn_one_url btn_two_name 
+btn_two_url card_group_id card_image _destroy
+]
       )
     end
   end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CardGroup < ApplicationRecord
   validates :page_id, :grid, :order, presence: true
 

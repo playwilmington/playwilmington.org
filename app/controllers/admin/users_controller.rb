@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class UsersController < AdminController
-    before_action :set_user, only: [:update, :destroy]
+    before_action :set_user, only: %i[update destroy]
 
     def index
       @q = User.search(params[:q])

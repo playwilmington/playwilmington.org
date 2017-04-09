@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Collapsible < ApplicationRecord
   validates :name, :collapse_style, :usage_type, :order, presence: true
 

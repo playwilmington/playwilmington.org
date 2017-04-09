@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Paperclip::Attachment.default_options.merge!(
   storage: :s3,
   url: "/:attachment/:id/:style/:filename",

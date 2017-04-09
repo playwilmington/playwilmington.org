@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ContactEmail < ApplicationRecord
   validates :title, :email_address, :page_id, :order, presence: true
 

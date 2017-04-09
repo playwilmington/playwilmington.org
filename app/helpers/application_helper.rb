@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ApplicationHelper
   def admin?
     controller.class.name.split("::").first == "Admin"
@@ -10,14 +11,14 @@ module ApplicationHelper
   end
 
   def viewable?
-    %w(
+    %w[
       sessions registrations passwords confirmations unlocks
-    ).include? controller_name
+    ].include? controller_name
   end
 
   def forgot_password?
     devise_mapping.recoverable? &&
-    !(%w(passwords registrations).include? controller_name)
+    !(%w[passwords registrations].include? controller_name)
   end
 
   def unlock?

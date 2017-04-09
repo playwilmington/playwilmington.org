@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class SlidersController < AdminController
-    before_action :set_slider, except: [:index, :new, :create]
+    before_action :set_slider, except: %i[index new create]
 
     def index
       @q = Slider.search(params[:q])

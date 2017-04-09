@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Photo < ApplicationRecord
   has_attached_file :image
   validates_attachment :image, presence: true, content_type: {

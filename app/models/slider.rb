@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Slider < ApplicationRecord
   has_attached_file :photo
   validates_attachment :photo, presence: true, content_type: {

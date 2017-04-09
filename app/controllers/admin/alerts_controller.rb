@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class AlertsController < AdminController
-    before_action :set_alert, except: [:index, :new, :create]
+    before_action :set_alert, except: %i[index new create]
 
     def index
       @q = Alert.search(params[:q])

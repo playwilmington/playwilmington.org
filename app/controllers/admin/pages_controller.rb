@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class PagesController < AdminController
-    before_action :set_page, except: [:index, :new, :create]
+    before_action :set_page, except: %i[index new create]
 
     def index
       @q = Page.search(params[:q])

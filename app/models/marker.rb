@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Marker < ApplicationRecord
   validates :title, :address, :marker_type, :page_id, presence: true
 

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class ContactEmailsController < AdminController
-    before_action :set_contact_email, except: [:index, :new, :create]
+    before_action :set_contact_email, except: %i[index new create]
 
     def index
       @q = ContactEmail.search(params[:q])

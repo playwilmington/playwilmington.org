@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class MessageMailer < ActionMailer::Base
 
   def new_message(message)

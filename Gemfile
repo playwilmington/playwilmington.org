@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 source "https://rubygems.org"
 
 ruby "2.4.0"
@@ -15,8 +16,8 @@ gem "haml"
 gem "jbuilder"
 gem "jquery-rails"
 gem "kaminari"
-gem "materialize-sass"
 gem "material_icons"
+gem "materialize-sass"
 gem "momentjs-rails"
 gem "paperclip"
 gem "pg"

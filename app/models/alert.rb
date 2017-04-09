@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Alert < ApplicationRecord
   validates :title, :name, :start_date, :end_date, presence: true
   validates :name, uniqueness: true

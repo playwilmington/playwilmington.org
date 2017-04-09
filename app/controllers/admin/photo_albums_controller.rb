@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Admin
   class PhotoAlbumsController < AdminController
-    before_action :set_photo_album, except: [:index, :new, :create]
+    before_action :set_photo_album, except: %i[index new create]
 
     def index
       @q = PhotoAlbum.search(params[:q])
@@ -51,7 +52,7 @@ module Admin
     def photo_album_params
       params.require(:photo_album).permit(
         :title, :order, :page_id, :active,
-        photos_attributes: [:id, :photo_album_id, :image, :_destroy]
+        photos_attributes: %i[id photo_album_id image _destroy]
       )
     end
   end

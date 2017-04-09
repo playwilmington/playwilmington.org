@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class PageUrlConstrainer
   def matches?(request)
     name = request.path.delete("/")
@@ -13,10 +14,10 @@ Rails.application.routes.draw do
     resources :pages, :alerts, :sliders, :collapsibles, :markers, :card_groups,
               :contact_emails
     resources :photo_albums do
-      resource :photos, only: [:new, :create]
+      resource :photos, only: %i[new create]
     end
-    resources :settings, only: [:show, :edit, :update]
-    resources :users, only: [:index, :destroy, :update]
+    resources :settings, only: %i[show edit update]
+    resources :users, only: %i[index destroy update]
   end
 
   devise_for :users

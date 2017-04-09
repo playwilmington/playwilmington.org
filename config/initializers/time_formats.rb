@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Time::DATE_FORMATS[:pretty] = "%b %e, %Y at %l:%M%P"
 Time::DATE_FORMATS[:month_and_year] = "%B %Y"
 Time::DATE_FORMATS[:bday_when] = "%A %d, %B %Y - %H:%M %P"
