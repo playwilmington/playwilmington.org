@@ -9,6 +9,7 @@ $(document).on 'page:load', ->
 init_materialize =->
   Materialize.updateTextFields()
   Waves.displayEffect()
+  $('.materialboxed').materialbox()
   $('select').material_select()
   $('ul.tabs').tabs()
   $('.button-collapse').sideNav

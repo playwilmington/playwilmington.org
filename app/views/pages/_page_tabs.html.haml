@@ -19,6 +19,8 @@
           %iframe.contact-map{ src: "//www.google.com/maps/embed/v1/place?q=#{@settings.company_name.to_param}&zoom=13&attribution_source=Google+Maps+Embed+API&attribution_web_url=https://developers.google.com/maps/documentation/embed/&key=#{ENV['CALENDAR_API_KEY']}", allowfullscreen: true }
         .col.s12.offset-m2.m8
           = render "message_form", tab: tab
+      - elsif !tab.photo_albums.empty?
+        = render tab.photo_albums
       - else
         .col.s12
           .container

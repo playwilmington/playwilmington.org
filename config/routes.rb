@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "home#index"
   post "pages/create_message", as: "create_message"
+  resources :photo_albums, only: :show
   constraints(PageUrlConstrainer.new) do
     get ":name" => "pages#show"
   end
