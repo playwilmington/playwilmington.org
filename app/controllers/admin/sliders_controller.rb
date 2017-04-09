@@ -48,7 +48,7 @@ module Admin
 
     def slider_params
       params.require(:slider).permit(
-        :subtitle, :title, :position, :photo, :active, :order
+        :subtitle, :title, :position, :photo, :active, :order, :color
       )
     end
   end

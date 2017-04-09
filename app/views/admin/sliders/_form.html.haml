@@ -10,10 +10,13 @@
       %i.material-icons.prefix title
       = f.text_field :title, maxlength: "75"
       = f.label :title
-    .input-field.col.s12
+    .input-field.col.m6.s12
       %i.material-icons.prefix subtitles
       = f.text_field :subtitle, maxlength: "125"
       = f.label :subtitle
+    .input-field.col.m6.s12
+      = f.select :color, %w(white black blue light-blue green)
+      = f.label :color
     .input-field.col.m6.s12
       = f.select :position, %w(center-align right-align left-align),
       prompt: "Select a Position"
