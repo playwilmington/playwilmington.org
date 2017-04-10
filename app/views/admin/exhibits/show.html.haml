@@ -1,0 +1,41 @@
+- content_for :page_title do
+  Exhibit
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @exhibit.title
+        .col.s12.m6.grid
+          %span.label Icon:
+          = @exhibit.icon
+        .col.s12.m6.grid
+          %span.label Page Name:
+          = @exhibit.page_name
+        .col.s12.m6.grid
+          %span.label Order:
+          = @exhibit.order
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @exhibit.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+      .row
+        .col.s12
+          %span.label Description:
+          = @exhibit.description
+
+.fixed-action-btn.click-to-toggle.toolbar
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li.waves-effect.waves-light
+      = link_to admin_exhibit_path(@exhibit), class: "red" do
+        = material_icon.delete_forever
+    %li.waves-effect.waves-light
+      = link_to edit_admin_exhibit_path(@exhibit), class: "green" do
+        = material_icon.edit

@@ -1,0 +1,18 @@
+.row.main-form
+  = simple_form_for [:admin, exhibit], html: { class: "col s12" } do |f|
+    .col.s12
+      - unless exhibit.errors.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - exhibit.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :title, maxlength: "75", icon: "title",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :icon, icon: "fingerprint", wrapper_html: { class: "m6 s12" }
+    = f.input :description, wrapper_html: { class: "s12" }, as: :text
+    = f.input :page_id, collection: Page.pages_tabs.map{ |p| [p.title, p.id] },
+      prompt: "Select a Page", wrapper_html: { class: "m6 s12" }
+    = f.input :order, icon: "format_list_numbered",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :active, wrapper_html: { class: "s12" }
+    = f.button :submit, class: "right"

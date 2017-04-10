@@ -4,7 +4,9 @@
   .row
     - if @page.show_calendar?
       = render "calendar"
-    - unless @page.show_calendar?
+    - elsif !@page.exhibits.is_active.empty?
+      = render @page.exhibits.is_active
+    - else
       - unless @page.content.blank?
         .col.s12
           .card-panel

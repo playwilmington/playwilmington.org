@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "dashboard#index"
     resources :pages, :alerts, :sliders, :collapsibles, :markers, :card_groups,
-              :contact_emails
+              :contact_emails, :exhibits
     resources :photo_albums do
       resource :photos, only: %i[new create]
     end

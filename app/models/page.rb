@@ -16,6 +16,7 @@ class Page < ApplicationRecord
   has_many :card_groups
   has_many :contact_emails
   has_many :photo_albums
+  has_many :exhibits
 
   scope :active, -> { where(active: true).order(:order) }
   scope :available_pages, -> { where(page_type: "Page").order(:order) }
