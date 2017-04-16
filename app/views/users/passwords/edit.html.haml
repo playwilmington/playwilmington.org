@@ -13,9 +13,10 @@
           .form-inputs.row
             = f.hidden_field :reset_password_token
             = f.input :password, autofocus: true, required: true, autocomplete: false,
-              hint: "#{@minimum_password_length} Characters Minimum"
+              hint: "#{@minimum_password_length} Characters Minimum",
+              wrapper_html: { class: "s12" }
             = f.input :password_confirmation, autofocus: true, required: true,
-              autocomplete: false
+              autocomplete: false, wrapper_html: { class: "s12" }
           .form-actions.center
             = f.button :submit, "Change my Password"
       .card-action

@@ -11,7 +11,8 @@
               = devise_error_messages!
               = alert
           .form-inputs.row
-            = f.input :email, autofocus: true, required: true
+            = f.input :email, autofocus: true, required: true,
+              wrapper_html: { class: "s12" }
           .form-actions.center
             = f.button :submit, "Send Me Reset Instructions"
       .card-action

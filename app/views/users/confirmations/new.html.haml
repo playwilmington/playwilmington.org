@@ -12,6 +12,7 @@
               = alert
           .form-inputs.row
             = f.input :email, autofocus: true, required: true,
+              wrapper_html: { class: "s12" },
               value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
           .form-actions.center
             = f.button :submit, "Resend Confirmation Instructions"

@@ -15,14 +15,17 @@
               Currently waiting confirmation for:
               = resource.unconfirmed_email
           .form-inputs.row
-            = f.input :email, autofocus: true
+            = f.input :email, autofocus: true, wrapper_html: { class: "s12" }
             = f.input :password,
               label: "Password (Leave Blank if you don't want to change it)",
               autocomplete: "off",
-              hint: "#{@minimum_password_length} Characters Minimum"
-            = f.input :password_confirmation, autocomplete: "off"
+              hint: "#{@minimum_password_length} Characters Minimum",
+              wrapper_html: { class: "s12" }
+            = f.input :password_confirmation, autocomplete: "off",
+              wrapper_html: { class: "s12" }
             = f.input :current_password, autocomplete: "off",
-              hint: "we need your current password to confirm your changes"
+              hint: "we need your current password to confirm your changes",
+              wrapper_html: { class: "s12" }
           .form-actions.center
             = f.button :submit, "Update"
       .card-action.center
