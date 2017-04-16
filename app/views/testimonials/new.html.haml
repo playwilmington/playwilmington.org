@@ -1,0 +1,18 @@
+- content_for :tabs do
+  .nav-content
+    %span.nav-title New Testimonial
+
+.row{ style: "margin-top: 125px;" }
+  .col.s12.offset-m1.m10
+    .card-panel
+      .row.main-form
+        = simple_form_for @testimonial, html: { class: "col s12" } do |f|
+          .col.s12
+            - unless @testimonial.errors.empty?
+              .form-errors.red.lighten-1
+                %ul
+                  - @testimonial.errors.full_messages.each do |msg|
+                    %li= msg
+          = f.input :name, icon: "person", wrapper_html: { class: "s12" }
+          = f.input :quote, icon: "format_quote", wrapper_html: { class: "s12" }
+          = f.button :submit, class: "right"

@@ -10,6 +10,8 @@ init_materialize =->
   Materialize.updateTextFields()
   Waves.displayEffect()
   $('.materialboxed').materialbox()
+  $('input, textarea').characterCounter()
+  $('textarea').trigger('autoresize')
   $('select').material_select()
   $('ul.tabs').tabs()
   $('.button-collapse').sideNav
@@ -19,6 +21,9 @@ init_materialize =->
   $('#about').modal()
   $('#alert-modal').modal()
   $('.slider').slider()
+  $('.datepicker').pickadate
+    selectMonths: true
+    selectYears: 15
   $('span.help-text').each ->
     $value = $(this)[0].innerHTML
     $(this).addClass 'hide'

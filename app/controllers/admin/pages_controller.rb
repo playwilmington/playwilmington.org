@@ -49,7 +49,7 @@ module Admin
     def page_params
       params.require(:page).permit(
         :page_type, :title, :content, :icon, :page_id, :order, :name, :active,
-        :show_calendar, :hide_title, :show_contact
+        :show_calendar, :hide_title, :show_contact, :show_testimonials
       )
     end
   end

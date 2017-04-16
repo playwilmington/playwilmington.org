@@ -1,0 +1,52 @@
+- content_for :page_title do
+  Testimonials
+
+- content_for :page_button do
+  = link_to new_admin_testimonial_path,
+    class: "btn-floating btn-large halfway-fab waves-effect waves-light" do
+    = material_icon.add
+
+.page-wrapper
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @testimonials, entry_name: "Testimonial"
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: "col", data: { field: "Name" } }
+              = sort_link @q, :name
+            %th{ scope: "col", data: { field: "Quote" } }
+              = sort_link @q, :quote
+            %th{ scope: "col", data: { field: "Status" } }
+              = sort_link @q, :status
+            %th{ scope: "col", colspan: "3" }
+          %tbody
+            - @testimonials.each do |testimonial|
+              %tr.table__row{ role: "link", tabindex: "0",
+                data: { url: admin_testimonial_path(testimonial) } }
+                %td
+                  = testimonial.name
+                %td
+                  .truncate= testimonial.quote
+                %td= testimonial.status
+                %td
+                  = link_to "Edit", edit_admin_testimonial_path(testimonial),
+                    class: "action-edit"
+                %td
+                  = link_to "Delete", admin_testimonial_path(testimonial),
+                    class: "action-destroy red-text", rel: "nofollow",
+                    data: { method: :delete, confirm: "Are You Sure?" }
+                %td
+                  - unless testimonial.status == "Approved"
+                    = link_to admin_testimonial_path(testimonial, { testimonial: { status: "Approved" } }),
+                      method: :put, class: "action-edit green-text" do
+                      = material_icon.check
+                  - unless testimonial.status == "Rejected"
+                    = link_to admin_testimonial_path(testimonial, { testimonial: { status: "Rejected" } }),
+                      method: :put, class: "action-edit red-text" do
+                      = material_icon.close
+
+        .center.section
+          = paginate @testimonials

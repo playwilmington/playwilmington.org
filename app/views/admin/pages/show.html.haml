@@ -44,6 +44,13 @@
               = material_icon.check_box
             - else
               = material_icon.check_box_outline_blank
+        .col.s12.m6.grid
+          %span.label Show Testimonials:
+          %span.icon
+            - if @page.show_testimonials?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
         .col.s12.m6
           %span.label Active:
           %span.icon

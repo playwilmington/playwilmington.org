@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "dashboard#index"
     resources :pages, :alerts, :sliders, :collapsibles, :markers, :card_groups,
-              :contact_emails, :exhibits
+              :contact_emails, :exhibits, :testimonials
     resources :photo_albums do
       resource :photos, only: %i[new create]
     end
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   root "home#index"
   post "pages/create_message", as: "create_message"
   resources :photo_albums, only: :show
+  resources :testimonials, only: %i[new create]
   constraints(PageUrlConstrainer.new) do
     get ":name" => "pages#show"
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416184036) do
+ActiveRecord::Schema.define(version: 20170416205624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,18 +133,19 @@ ActiveRecord::Schema.define(version: 20170416184036) do
 
   create_table "pages", force: :cascade do |t|
     t.text     "content"
-    t.string   "title",         null: false
+    t.string   "title",                             null: false
     t.string   "icon"
     t.string   "page_type"
     t.integer  "page_id"
     t.integer  "order"
-    t.string   "name",          null: false
+    t.string   "name",                              null: false
     t.boolean  "active"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.boolean  "show_calendar"
     t.boolean  "hide_title"
     t.boolean  "show_contact"
+    t.boolean  "show_testimonials", default: false
     t.index ["name"], name: "index_pages_on_name", unique: true, using: :btree
     t.index ["page_id"], name: "index_pages_on_page_id", using: :btree
   end
@@ -198,6 +199,14 @@ ActiveRecord::Schema.define(version: 20170416184036) do
     t.datetime "photo_updated_at"
     t.boolean  "active"
     t.string   "color",              default: "white"
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string   "name"
+    t.text     "quote"
+    t.string   "status",     default: "New"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|
