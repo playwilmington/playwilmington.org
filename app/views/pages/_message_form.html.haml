@@ -10,7 +10,8 @@
     = f.input :email_to, prompt: "Select an Email",
       wrapper_html: { class: "s12" },
       collection: tab.contact_emails.is_active.map{ |p| [p.title, p.email_address] }
-    = f.input :name, wrapper_html: { class: "m6 s12" }
+    = f.input :name, icon: "title", wrapper_html: { class: "m6 s12" }
     = f.input :email, wrapper_html: { class: "m6 s12" }
-    = f.input :message, wrapper_html: { class: "s12" }, as: :text
+    = f.input :message, icon: "message", wrapper_html: { class: "s12" },
+      as: :text
     = f.button :submit, class: "right"

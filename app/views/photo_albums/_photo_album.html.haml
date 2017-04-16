@@ -5,8 +5,10 @@
         .card-image
           %img{ src: photo_album.photos.first.image.url }
           = link_to photo_album,
-            class: "btn-floating halfway-fab waves-effect waves-light red" do
-            %i.material-icons add
+            class: "btn-floating halfway-fab waves-effect waves-light red tooltipped",
+            data: { position: "left", delay: "50",
+                    tooltip: "Click to View Photos" } do
+            %i.material-icons photo_library
         .card-content
           %span.card-title
             = photo_album.title

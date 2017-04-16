@@ -20,56 +20,56 @@
         %li
           = link_to admin_setting_path(@settings),
             class: "waves-effect waves-orange" do
-            = icon "gears", "Settings"
+            = icon "gears", "Settings", class: "fa-lg"
         %li
           = link_to admin_pages_path, class: "waves-effect waves-orange" do
-            = icon "television", "Pages"
+            = icon "television", "Pages", class: "fa-lg"
         %li
           = link_to admin_alerts_path, class: "waves-effect waves-orange" do
-            = icon "bell-o", "Alerts"
+            = icon "bell-o", "Alerts", class: "fa-lg"
         %li
           = link_to admin_sliders_path, class: "waves-effect waves-orange" do
-            = icon "slideshare", "Sliders"
+            = icon "slideshare", "Sliders", class: "fa-lg"
         %li
           = link_to admin_collapsibles_path,
             class: "waves-effect waves-orange" do
-            = icon "compress", "Collapsibles"
+            = icon "compress", "Collapsibles", class: "fa-lg"
         %li
           = link_to admin_markers_path, class: "waves-effect waves-orange" do
-            = icon "map-marker", "Markers"
+            = icon "map-marker", "Markers", class: "fa-lg"
         %li
           = link_to admin_card_groups_path,
             class: "waves-effect waves-orange" do
-            = icon "object-group", "Card Groups"
+            = icon "object-group", "Card Groups", class: "fa-lg"
         %li
           = link_to admin_contact_emails_path,
             class: "waves-effect waves-orange" do
-            = icon "envelope", "Contact Emails"
+            = icon "envelope", "Contact Emails", class: "fa-lg"
         %li
           = link_to admin_photo_albums_path,
             class: "waves-effect waves-orange" do
-            = icon "camera", "Photo Albums"
+            = icon "camera", "Photo Albums", class: "fa-lg"
         %li
           = link_to admin_exhibits_path,
             class: "waves-effect waves-orange" do
-            = icon "paint-brush", "Exhibits"
+            = icon "paint-brush", "Exhibits", class: "fa-lg"
         %li
           = link_to admin_users_path, class: "waves-effect waves-orange" do
-            = icon "users", "Users"
+            = icon "users", "Users", class: "fa-lg"
         %li
           .divider
         %li
           %a.subheader Activities
         %li
           = link_to root_path, class: "waves-effect waves-orange" do
-            = icon "home", "Website Home"
+            = icon "home", "Website Home", class: "fa-lg"
         %li
           = link_to admin_root_path, class: "waves-effect waves-orange" do
-            = icon "tachometer", "Dashboard"
+            = icon "tachometer", "Dashboard", class: "fa-lg"
         %li
           = link_to destroy_user_session_path, method: :delete,
             class: "waves-effect waves-orange" do
-            = icon "sign-out", "Log Out"
+            = icon "sign-out", "Log Out", class: "fa-lg"
     .nav-content
       %span.nav-title
         = yield :page_title

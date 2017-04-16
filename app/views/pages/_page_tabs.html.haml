@@ -1,9 +1,10 @@
 .row.page-tab
-  .col.s12{ style: "padding:0;" }
-    %ul.tabs.tabs-fixed-width
-      - @page.pages.active.each do |tab|
-        %li.tab
-          %a{ href: "##{tab.name}" }= tab.title
+  - content_for :tabs do
+    .nav-content
+      %ul.tabs.tabs-transparent
+        - @page.pages.active.each do |tab|
+          %li.tab
+            %a{ href: "##{tab.name}" }= tab.title
   - @page.pages.active.each do |tab|
     %div{ id: "#{tab.name}" }
       - if tab.show_calendar?

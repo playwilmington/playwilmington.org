@@ -47,6 +47,10 @@ main {
   &.admin {
     margin-top: 125px;
   }
+
+  .main-page-tab {
+    margin-top: 50px;
+  }
 }
 
 footer {
@@ -61,8 +65,8 @@ footer {
 
   li {
     a {
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 17px !important;
+      font-weight: 900 !important;
     }
 
     .header {

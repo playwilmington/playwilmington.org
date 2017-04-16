@@ -2,7 +2,7 @@
   :coffee
     Materialize.toast("#{notice}", 4000)
 %header.navbar-fixed
-  %nav
+  %nav.nav-extended
     .nav-wrapper
       %a.button-collapse{ href: "#", data: { activates: "slide-out" } }
         %i.material-icons menu
@@ -17,11 +17,11 @@
           .divider
         %li
           = link_to root_path, class: "waves-effect waves-orange" do
-            = icon "home", "Home"
+            = icon "home", "Home", class: "fa-lg"
         - @pages.each do |page|
           %li
             = link_to "/#{page.name}", class: "waves-effect waves-orange" do
-              = icon page.icon, page.title
+              = icon page.icon, page.title, class: "fa-lg"
         %li
           .divider
         - if current_user
@@ -30,16 +30,17 @@
           - if current_user.admin?
             %li
               = link_to admin_root_path, class: "waves-effect waves-orange" do
-                = icon "tachometer", "Dashboard"
+                = icon "tachometer", "Dashboard", class: "fa-lg"
           %li
             = link_to destroy_user_session_path, method: :delete,
               class: "waves-effect waves-orange" do
-              = icon "sign-out", "Log Out"
+              = icon "sign-out", "Log Out", class: "fa-lg"
         - else
           %li
             = link_to new_user_session_path,
               class: "waves-effect waves-orange" do
-              = icon "sign-in", "Log In"
+              = icon "sign-in", "Log In", class: "fa-lg"
+    = yield :tabs
 %main
   = render "layouts/alert"
   = yield

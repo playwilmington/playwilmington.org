@@ -1,4 +1,5 @@
 - if @page.pages.size.zero?
   = render "page"
 - else
-  = render "page_tabs"
+  .main-page-tab
+    = render "page_tabs"
