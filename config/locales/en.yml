@@ -90,6 +90,7 @@ en:
         twitter_handle: Twitter Handle
         pinterest_handle: Pinterest Handle
         instagram_handle: Instagram Handle
+        donation_url: Donation URL
       user:
         email: Email
         encrypted_password: Encrypted Password
