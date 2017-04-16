@@ -1,11 +1,8 @@
-/* clear fix */
-.grid:after {
+.grid::after {
+  clear: both;
   content: '';
   display: block;
-  clear: both;
 }
-
-/* ---- .grid-item ---- */
 
 .grid-sizer,
 .grid-item {
@@ -14,9 +11,9 @@
 
 .grid-item {
   float: left;
-}
 
-.grid-item img {
-  display: block;
-  max-width: 100%;
+  img {
+    display: block;
+    max-width: 100%;
+  }
 }
