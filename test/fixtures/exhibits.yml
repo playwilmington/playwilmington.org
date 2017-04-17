@@ -14,4 +14,4 @@ two:
   description: MyString
   page: one
   order: 2
-  order: true
+  active: true
