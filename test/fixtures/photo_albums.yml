@@ -2,12 +2,12 @@
 
 one:
   title: MyString
-  page_id: one
+  page: one
   order: 1
   active: true
 
 two:
   title: MyString
-  page_id: two
+  page: one
   order: 1
   active: false

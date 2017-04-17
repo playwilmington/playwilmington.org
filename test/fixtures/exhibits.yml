@@ -4,8 +4,14 @@ one:
   title: MyString
   icon: MyString
   description: MyString
+  page: one
+  order: 1
+  active: true
 
 two:
   title: MyString
   icon: MyString
   description: MyString
+  page: one
+  order: 2
+  order: true
