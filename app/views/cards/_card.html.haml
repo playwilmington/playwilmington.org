@@ -17,7 +17,7 @@
               = card.title
               = material_icon.more_vert.css_class("right")
         %p= card.card_content.html_safe
-    - if card.btn_one_name.blank? || card.btn_two_name.blank?
+    - if !card.btn_one_name.blank? || !card.btn_two_name.blank?
       .card-action
         - unless card.btn_one_name.blank? && card.btn_one_url.blank?
           %a{ href:card.btn_one_full, target: "_Blank" }
