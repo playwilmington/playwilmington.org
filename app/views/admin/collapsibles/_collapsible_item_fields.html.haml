@@ -9,6 +9,4 @@
     = f.input :order, icon: "format_list_numbered",
       wrapper_html: { class: "m6 s12" }
     = f.input :active, wrapper_html: { class: "m6 s12" }
-    .col.s12.ckeditor-input
-      = f.label :body
-      = f.cktext_area :body
+    = f.input :body, as: :ckeditor, label: false

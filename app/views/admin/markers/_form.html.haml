@@ -12,8 +12,5 @@
       prompt: "Select a Type", wrapper_html: { class: "m6 s12" }
     = f.input :page_id, collection: Page.pages_tabs.map { |p| [p.title, p.id] },
       prompt: "Select a Page", wrapper_html: { class: "m6 s12" }
-    .row
-      .col.s12.ckeditor-input
-        = f.label :body
-        = f.cktext_area :body
+    = f.input :body, as: :ckeditor, label: false
     = f.button :submit, class: "right"
