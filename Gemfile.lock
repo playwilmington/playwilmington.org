@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/galetahub/ckeditor.git
+  revision: 11d3a5b905646c6fd397f7710f95fb9eb29f0865
+  specs:
+    ckeditor (4.2.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,21 +50,18 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     ast (2.3.0)
-    aws-sdk (2.9.7)
-      aws-sdk-resources (= 2.9.7)
-    aws-sdk-core (2.9.7)
+    aws-sdk (2.9.8)
+      aws-sdk-resources (= 2.9.8)
+    aws-sdk-core (2.9.8)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.9.7)
-      aws-sdk-core (= 2.9.7)
+    aws-sdk-resources (2.9.8)
+      aws-sdk-core (= 2.9.8)
     aws-sigv4 (1.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
     chartkick (2.2.3)
-    ckeditor (4.2.2)
-      cocaine
-      orm_adapter (~> 0.5.0)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -86,8 +91,8 @@ GEM
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
       momentjs-rails (>= 2.9.0)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -118,7 +123,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.0.4)
+    json (2.1.0)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.0.1)
@@ -145,7 +150,7 @@ GEM
       mime-types (>= 1.16, < 4)
     material_icons (2.2.1)
       railties (>= 3.2)
-    materialize-sass (0.98.1)
+    materialize-sass (0.98.2)
       sass (~> 3.3)
     method_source (0.8.2)
     mime-types (3.1)
@@ -301,7 +306,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   chartkick
-  ckeditor
+  ckeditor!
   cocoon
   coffee-rails
   devise

@@ -6,7 +6,7 @@ ruby "2.4.0"
 
 gem "aws-sdk"
 gem "chartkick"
-gem "ckeditor"
+gem "ckeditor", git: "https://github.com/galetahub/ckeditor.git"
 gem "cocoon"
 gem "coffee-rails"
 gem "devise"
