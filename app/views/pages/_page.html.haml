@@ -15,6 +15,9 @@
         = render @page.exhibits.is_active
       - elsif @page.show_testimonials?
         = render @testimonials
+      - elsif !@page.collections.is_active.empty?
+        %ul.collection.with-header
+          = render @page.collections.is_active
       - else
         - unless @page.content.blank?
           .col.s12

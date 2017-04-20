@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416205624) do
+ActiveRecord::Schema.define(version: 20170420012853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,19 @@ ActiveRecord::Schema.define(version: 20170416205624) do
     t.datetime "updated_at",                           null: false
     t.integer  "page_id"
     t.index ["page_id"], name: "index_collapsibles_on_page_id", using: :btree
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "order"
+    t.string   "icon"
+    t.string   "link"
+    t.boolean  "is_header"
+    t.boolean  "active"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_collections_on_page_id", using: :btree
   end
 
   create_table "contact_emails", force: :cascade do |t|
@@ -237,4 +250,5 @@ ActiveRecord::Schema.define(version: 20170416205624) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "collections", "pages"
 end

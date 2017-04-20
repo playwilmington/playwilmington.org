@@ -12,6 +12,7 @@ class Page < ApplicationRecord
 
   has_many :pages, foreign_key: :page_id
   has_many :collapsibles
+  has_many :collections
   has_many :markers
   has_many :card_groups
   has_many :contact_emails

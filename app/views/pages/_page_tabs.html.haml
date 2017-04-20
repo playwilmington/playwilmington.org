@@ -24,6 +24,9 @@
             = render "message_form", tab: tab
         - elsif !tab.photo_albums.empty?
           = render tab.photo_albums
+        - elsif !tab.collections.is_active.empty?
+          %ul.collection.with-header
+            = render tab.collections.is_active
         - else
           .col.s12
             .container

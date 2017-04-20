@@ -1,0 +1,57 @@
+- content_for :page_title do
+  Collections
+
+- content_for :page_button do
+  = link_to new_admin_collection_path,
+    class: "btn-floating btn-large halfway-fab waves-effect waves-light" do
+    = material_icon.add
+
+.page-wrapper
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @collections, entry_name: "Collection"
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: "col", data: { field: "Title" } }
+              = sort_link @q, :title
+            %th{ scope: "col", data: { field: "Page Name" } }
+              = sort_link @q, :page_id
+            %th{ scope: "col", data: { field: "Icon" } }
+              = sort_link @q, :icon
+            %th{ scope: "col", data: { field: "Order" } }
+              = sort_link @q, :order
+            %th{ scope: "col", data: { field: "Is Header" } }
+              = sort_link @q, :is_header
+            %th{ scope: "col", data: { field: "Active" } }
+              = sort_link @q, :active
+            %th{ scope: "col", colspan: "2" }
+          %tbody
+            - @collections.each do |collection|
+              %tr.table__row{ role: "link", tabindex: "0",
+                data: { url: admin_collection_path(collection) } }
+                %td= collection.title
+                %td= collection.page_name
+                %td= collection.icon
+                %td= collection.order
+                %td
+                  - if collection.is_header?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  - if collection.active?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  = link_to "Edit", edit_admin_collection_path(collection),
+                    class: "action-edit"
+                %td
+                  = link_to "Delete", admin_collection_path(collection),
+                    class: "action-destroy red-text", rel: "nofollow",
+                    data: { method: :delete, confirm: "Are You Sure?" }
+        .center.section
+          = paginate @collections

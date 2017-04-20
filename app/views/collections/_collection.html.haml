@@ -1,0 +1,10 @@
+- if collection.is_header?
+  %li.collection-header
+    %h4= collection.title
+- else
+  %li.collection-item
+    %div
+      = collection.title
+      - if !collection.link.blank? && !collection.icon.blank?
+        %a.secondary-content{ href: collection.link }
+          %i.material-icons= collection.icon

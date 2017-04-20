@@ -35,6 +35,14 @@ en:
         collapse_style: Collapse Style
         usage_type: Usage Type
         order: Order
+      collection:
+        title: Title
+        order: Order
+        page_id: Page Name
+        icon: Icon
+        link: Link
+        is_header: Is Header
+        active: Active
       collapsible_item:
         title: Title
         body: Body
