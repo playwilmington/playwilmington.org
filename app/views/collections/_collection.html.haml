@@ -6,5 +6,5 @@
     %div
       = collection.title
       - if !collection.link.blank? && !collection.icon.blank?
-        %a.secondary-content{ href: collection.link }
+        %a.secondary-content{ href: collection.link, target: "_Blank" }
           %i.material-icons= collection.icon
