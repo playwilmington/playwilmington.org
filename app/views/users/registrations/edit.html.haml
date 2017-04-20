@@ -15,7 +15,9 @@
               Currently waiting confirmation for:
               = resource.unconfirmed_email
           .form-inputs.row
-            = f.input :email, autofocus: true, wrapper_html: { class: "s12" }
+            = f.input :name, autofocus: true, icon: "title",
+              wrapper_html: { class: "s12" }
+            = f.input :email, wrapper_html: { class: "s12" }
             = f.input :password,
               label: "Password (Leave Blank if you don't want to change it)",
               autocomplete: "off",
