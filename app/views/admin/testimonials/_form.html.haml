@@ -8,6 +8,6 @@
               %li= msg
     = f.input :name, icon: "person", wrapper_html: { class: "s12" }
     = f.input :quote, icon: "format_quote", wrapper_html: { class: "s12" }
-    = f.input :status, collection: %w(New Pending Approved Rejected),
+    = f.input :status, collection: %w(New Pending Approved Rejected Archived),
       wrapper_html: { class: "s12" }, include_blank: false
     = f.button :submit, class: "right"
