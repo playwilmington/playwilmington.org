@@ -5,6 +5,10 @@ module ApplicationHelper
     controller.class.name.split("::").first == "Admin"
   end
 
+  def docs?
+    controller.class.name.split("::").first == "Docs"
+  end
+
   def date_picker(field)
     return if field.blank?
     field.to_formatted_s(:date_picker)

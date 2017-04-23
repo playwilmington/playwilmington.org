@@ -20,6 +20,23 @@ Rails.application.routes.draw do
     resources :users, only: %i[index destroy update]
   end
 
+  namespace :docs do
+    root "home#index"
+    get "alerts", to: "how_to_use#alerts"
+    get "card_groups", to: "how_to_use#card_groups"
+    get "collapsibles", to: "how_to_use#collapsibles"
+    get "collections", to: "how_to_use#ollections"
+    get "contacts", to: "how_to_use#contacts"
+    get "exhibits", to: "how_to_use#exhibits"
+    get "markers_maps", to: "how_to_use#markers_maps"
+    get "pages", to: "how_to_use#pages"
+    get "photo_albums", to: "how_to_use#photo_albums"
+    get "settings", to: "how_to_use#settings"
+    get "sliders", to: "how_to_use#sliders"
+    get "testimonials", to: "how_to_use#testimonials"
+    get "make_admin", to: "how_to_use#make_admin"
+  end
+
   devise_for :users
   root "home#index"
   post "pages/create_message", as: "create_message"

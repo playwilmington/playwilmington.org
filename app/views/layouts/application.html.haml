@@ -35,6 +35,8 @@
   %body.blue-grey.lighten-4{ class: controller_name }
     - if admin?
       = render "layouts/admin"
+    - elsif docs?
+      = render "layouts/docs"
     - elsif viewable?
       = render "layouts/login"
     - else
