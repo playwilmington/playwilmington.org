@@ -2,6 +2,10 @@
 
 module Admin
   class DashboardController < AdminController
-    def index; end
+    def index
+      @testimonials = Testimonial.dashboard.size
+      @alerts = Alert.dashboard.size
+      @pages = Page.dashboard.size
+    end
   end
 end

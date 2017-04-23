@@ -13,6 +13,13 @@ class Alert < ApplicationRecord
     )
   }
 
+  scope :dashboard, lambda {
+    where(
+      "start_date > :today AND end_date > :today AND active = :status",
+      today: Date.today, status: true
+    )
+  }
+
   def start_date_before_end_date
     return if end_date.nil? && start_date.nil?
     return unless end_date < start_date

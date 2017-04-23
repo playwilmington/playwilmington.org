@@ -25,6 +25,7 @@ class Page < ApplicationRecord
   scope :main, lambda {
     where("page_type = ? AND active = ?", "Page", true).order(:order)
   }
+  scope :dashboard, -> { where(active: false) }
 
   def parent_page
     return unless page_id
