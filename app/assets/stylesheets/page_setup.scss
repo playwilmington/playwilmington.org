@@ -45,7 +45,8 @@ main {
   flex: 1 0 auto;
   margin-bottom: -20px;
 
-  &.admin {
+  &.admin,
+  &.docs {
     margin-top: 125px;
   }
 
