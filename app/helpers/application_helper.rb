@@ -30,4 +30,14 @@ module ApplicationHelper
     resource_class.unlock_strategy_enabled?(:email) &&
     controller_name != "unlocks"
   end
+
+  def helper_fab(link, icon = "live_help", method: :get, id: nil)
+    content_tag :div, class: "fixed-action-btn" do
+      link_to link, method: method, id: id, class: "btn-floating btn-large" do
+        content_tag :i, class: "material-icons" do
+          icon
+        end
+      end
+    end
+  end
 end
