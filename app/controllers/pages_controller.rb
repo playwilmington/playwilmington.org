@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def show
     @page = Page.find_by_name(params[:name])
     @message = Message.new
-    @testimonials = Testimonial.visable
+    @testimonials = Testimonial.visible
   end
 
   def create_message

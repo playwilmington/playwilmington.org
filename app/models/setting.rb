@@ -22,22 +22,22 @@ class Setting < ApplicationRecord
   end
 
   def facebook_url
-    return unless facebook_handle
+    return unless facebook_handle.present?
     "https://www.facebook.com/" + facebook_handle
   end
 
   def twitter_url
-    return unless twitter_handle
+    return unless twitter_handle.present?
     "https://twitter.com/" + twitter_handle
   end
 
   def pinterest_url
-    return unless pinterest_handle
+    return unless pinterest_handle.present?
     "https://www.pinterest.com/" + pinterest_handle
   end
 
   def instagram_url
-    return unless instagram_handle
+    return unless instagram_handle.present?
     "https://instagram.com/" + instagram_handle
   end
 end

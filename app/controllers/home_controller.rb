@@ -2,7 +2,7 @@
 
 class HomeController < ApplicationController
   def index
-    @sliders = Slider.visable
+    @sliders = Slider.visible
     @collapsibles = Collapsible.usage_filtered("Home-Page")
   end
 end

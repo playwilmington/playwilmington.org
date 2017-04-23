@@ -6,5 +6,5 @@ class Slider < ApplicationRecord
     content_type: ["image/jpeg", "image/gif", "image/png", "image/jpg"]
   }
   validates :order, presence: true
-  scope :visable, -> { where(active: true).order(:order) }
+  scope :visible, -> { where(active: true).order(:order) }
 end

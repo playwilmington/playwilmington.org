@@ -21,7 +21,7 @@ class Page < ApplicationRecord
 
   scope :active, -> { where(active: true).order(:order) }
   scope :available_pages, -> { where(page_type: "Page").order(:order) }
-  scope :pages_tabs, -> { all.order(:order) }
+  scope :pages_tabs, -> { order(:order) }
   scope :main, lambda {
     where("page_type = ? AND active = ?", "Page", true).order(:order)
   }
@@ -38,7 +38,7 @@ class Page < ApplicationRecord
   end
 
   def page_check
-    return unless page_type == "Page" && (icon.nil? || icon == "")
+    return unless page_type == "Page" && icon.blank?
     errors.add(:icon, "Icon Required when page type is Page")
   end
 end
