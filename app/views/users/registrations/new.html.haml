@@ -11,7 +11,7 @@
               = devise_error_messages!
               = alert
           .form-inputs.row
-            = f.input :name, autofocus: true, required: true, icon: "title"
+            = f.input :name, autofocus: true, required: true, icon: "title",
               wrapper_html: { class: "s12" }
             = f.input :email, required: true, wrapper_html: { class: "s12" }
             = f.input :password, autocomplete: "off", required: true, icon: "lock",
