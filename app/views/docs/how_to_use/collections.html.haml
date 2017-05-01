@@ -1,2 +1,99 @@
 - content_for :page_title do
   How To Use Collections
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Collections all for you to show a fancy styled list of information with headers and links to display. A good example is for your wish list. See Figure 1 below for example
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/Collections_Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all collections used. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each collection.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each collection.
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the New Collection screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for collections.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/Collection_List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new alerts or update an already existing alert. a red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                %b Title -
+                this field is used to show a title information for the list item
+              %li
+                %b Page Name -
+                this field is used to link a collection record to the Page or Tab
+              %li
+                %b Order -
+                this field is used to indicate the order of the collection item in the page
+              %li
+                %b Icon -
+                this field is used to indicate the icon used to click to the link used.
+                Use
+                %a{ href: "http://fontawesome.io/icons/", target: "_Blank" } Font Awesome Icons
+                for a list of icons to use
+              %li
+                %b Link -
+                this field is used to capture the link. Always include either http:// or https://prior to rest or url.
+              %li
+                %b Is Header -
+                this indicates if it is just a header. If so link, icon are not applicable.
+              %li
+                %b Active -
+                this field is used to determine if visible to front end users.
+              %li
+                %b Create/Update Collection
+                this button allows for the data to be saved back to the database so that your change can take affect.
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/Collection_New_Edit_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+        .section.scrollspy#considerations
+          %h4 Considerations
+          %p
+            Its good to combine headers and items to make a nice understandable list.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record
+        %li
+          %a{ href: "#considerations" } Considerations
