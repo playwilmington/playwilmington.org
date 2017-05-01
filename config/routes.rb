@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     get "alerts", to: "how_to_use#alerts"
     get "card_groups", to: "how_to_use#card_groups"
     get "collapsibles", to: "how_to_use#collapsibles"
-    get "collections", to: "how_to_use#ollections"
+    get "collections", to: "how_to_use#collections"
     get "contacts", to: "how_to_use#contacts"
     get "exhibits", to: "how_to_use#exhibits"
     get "markers_maps", to: "how_to_use#markers_maps"
