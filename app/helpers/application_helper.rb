@@ -33,7 +33,8 @@ module ApplicationHelper
 
   def helper_fab(link, icon = "live_help", method: :get, id: nil)
     content_tag :div, class: "fixed-action-btn" do
-      link_to link, method: method, id: id, class: "btn-floating btn-large" do
+      link_to link, method: method, id: id, class: "btn-floating btn-large",
+                    target: "_Blank" do
         content_tag :i, class: "material-icons" do
           icon
         end
