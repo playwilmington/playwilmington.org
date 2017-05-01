@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require materialize-sprockets
 //= require cocoon
 //= require ckeditor/init
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/gcal
+//= require turbolinks
 //= require_tree ./initializers
 //= require_tree .

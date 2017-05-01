@@ -7,6 +7,9 @@ $(document).on 'page:load', ->
   return
 
 init_materialize =->
+  $('.toc-wrapper').pushpin
+    top: 240
+    offset: 150
   Materialize.updateTextFields()
   Waves.displayEffect()
   $('.materialboxed').materialbox()
@@ -31,3 +34,4 @@ init_materialize =->
       'data-hint', $value
     )
     return
+  $('.scrollspy').scrollSpy scrollOffset: 175
