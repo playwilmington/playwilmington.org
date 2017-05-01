@@ -1,2 +1,129 @@
 - content_for :page_title do
   How To Use Collapsibles
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Collapsible Groups comprise a group of collapisbles that can be added to any page including the Home Page. There are many difference settings for the collapsibles to make them have different interactions on each page. See Figure 1 below for example
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/Collapsible_Groups_Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all Collapsible Groups created. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each collapsible Group.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each collapsible Group.
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the New Collapsible Group screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for collapsible groups.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/Collapsible_Group_List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new alerts or update an already existing alert. a red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                Collapsible Group - Figure 3:
+                %ul.browser-default
+                  %li
+                    %b Name -
+                    this field is used to capture the name of the group, this allows you to differentiate there usage. Not visible to the front end users.
+                  %li
+                    %b Collapsible Style -
+                    this field is used to capture the style the collapsibles work
+                    %ul.browser-default
+                      %li accordian - only one collapsible item opens at a time.
+                      %li expandable - many collapsibles can be open at a time.
+                  %li
+                    %b Usage Type -
+                    this field is used to define the usage type.
+                    %ul.browser-default
+                      %li Home Page - makes visible on home page.
+                      %li Page/Tab - shows a page selection to pick a page to link to.
+                  %li
+                    %b Page
+                    this field is used to select the page to link to.
+                  %li
+                    %b Order -
+                    this field is used to define the order inwhich the collapsible groups show on a page if more than one.
+                  %li
+                    %b Is Popout -
+                    this field is used to indicate to use popout functionality to give a different style.
+                  %li
+                    %b Active -
+                    this field is used to indicate that the collapsible group is visible on the front end.
+                  %li
+                    %b Add Item -
+                    gives the ability to add collapsible items inside a group.
+                  %li
+                    %b Create/Update Collapsible
+                    this button allows for the data to be saved back to the database so that your change can take affect.
+              %li
+                Collapsible - Figure 4:
+                %ul.browser-default
+                  %li
+                    %b Title -
+                    this field is used to give each collapsible item a title that is visible to the front end users.
+                  %li
+                    %b Icon -
+                    this field is used to give a icon that shows as a prefix to the title.
+                  %li
+                    %b Order -
+                    this field is used to define the order of the collapsible items
+                  %li
+                    %b Active -
+                    this field is used to indicate that the collapsible is visible on the front end.
+                  %li
+                    %b Content -
+                    this field is used to collect in Rich Text format of details you want to defined when a collapsible item is expanded.
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/Collapsible_Group_New_Edit_View.png", width: "100%"
+            %small
+              %b Figure 4:
+            = image_tag "doc_images/Collapsible_New_Edit_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+        .section.scrollspy#considerations
+          %h4 Considerations
+          %p
+            You can have multiple groups show on a single page and have them ordered.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record
+        %li
+          %a{ href: "#considerations" } Considerations
