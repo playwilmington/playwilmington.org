@@ -1,2 +1,120 @@
 - content_for :page_title do
   How To Use Pages
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Pages is what drives the site. Adding pages or tabs will start to fill your site with new places to store content. With this you have the ability to drive how you websites looks and feels as well as the url used. See Figure 1 below for example.
+            %br
+            Here are some example combinations of items that can be used on a page or tab.
+            %ul.browser-default
+              %li
+                %b Page
+                %ul.browser-default
+                  %li Calendar Only
+                  %li Exhibits Only
+                  %li Testimonials Only
+                  %li Collections Only
+                  %li Page Content then Collapsibles then Card Groups
+              %li
+                %b Tab
+                %ul.browser-default
+                  %li Calendar Only
+                  %li Map Only
+                  %li Contact Section Only
+                  %li Photo Album Only
+                  %li Page Content then Collapsibles then Card Groups then Collections
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/Pages_Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all pages and tabs inside the site. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each page/tab.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each page/tab.
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the new page/tab screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for page/tabs.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/Pages_List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new page/tabs or update an already existing page/tab. a red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                %b Title -
+                this field is used to give the page a name and is visible to the users.
+              %li
+                %b Name -
+                this field is used to define a unique case of the page for url and tab purposes. Must be in all lowercase and underscores only, no spaces.
+              %li
+                %b Page Type -
+                this field is used to define if this is a Page or a Tab. This will drive an additional field to show up for each.
+                %ul.browser-default
+                  %li Page - This drives the left navigation list of links. Icon field will show up after selection.
+                  %li Tab - This drives the sub navs inside a page. Parent Page field will show up after selection to drive where the tab should appear.
+              %li
+                %b Order -
+                this field is used to define the order of the pages. It is best to increment the Pages by 10 and tabs by 1 to allow for easy addons of additional pages or tabs to the site in the future.
+              %li
+                %b Show Calendar -
+                this field is used in toggling if calendar shows up or not.
+              %li
+                %b Show Contact -
+                this field is used in toggling if contact form shows up or not.
+              %li
+                %b Show Testimonial -
+                this field is used in toggling if testimonials shows up or not.
+              %li
+                %b Hide Title -
+                this field is used in toggling if title is hidden or not.
+              %li
+                %b Active -
+                this field is used in toggling if page/tab shows on front end.
+              %li
+                %b Content -
+                this field is used to fill out in Rich Text format of what ever information you wish to use. If left blank, card will not show up.
+              %li
+                %b Create/Update Page -
+                this button allows for the data to be saved back to the database so that your change can take affect.
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/Pages_New_Edit_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record
