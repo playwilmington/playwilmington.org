@@ -22,9 +22,9 @@
           %li
             = link_to "/#{page.name}", class: "waves-effect waves-orange" do
               = icon page.icon, page.title, class: "fa-lg"
-        %li
-          .divider
         - if current_user
+          %li
+            .divider
           %li
             %a.subheader Admin Functions
           - if current_user.admin?
@@ -35,11 +35,6 @@
             = link_to destroy_user_session_path, method: :delete,
               class: "waves-effect waves-orange" do
               = icon "sign-out", "Log Out", class: "fa-lg"
-        - else
-          %li
-            = link_to new_user_session_path,
-              class: "waves-effect waves-orange" do
-              = icon "sign-in", "Log In", class: "fa-lg"
     = yield :tabs
 %main
   = yield

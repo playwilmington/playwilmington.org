@@ -78,6 +78,9 @@
           = link_to docs_root_path, class: "waves-effect waves-orange" do
             = icon "file-text", "Documentation", class: "fa-lg"
         %li
+          = link_to edit_user_registration_path, class: "waves-effect waves-orange" do
+            = icon "user", "Update Details", class: "fa-lg"
+        %li
           = link_to destroy_user_session_path, method: :delete,
             class: "waves-effect waves-orange" do
             = icon "sign-out", "Log Out", class: "fa-lg"

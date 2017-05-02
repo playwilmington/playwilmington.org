@@ -5,6 +5,7 @@ exclude:
   - 'app/assets/stylesheets/application.scss'
   - 'app/assets/stylesheets/plugins/**'
   - 'app/assets/stylesheets/table.scss'
+  - 'app/assets/stylesheets/forms.scss'
   - 'vendor/**'
 plugin_directories: ['.scss-linters']
 
