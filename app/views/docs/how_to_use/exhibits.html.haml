@@ -1,2 +1,89 @@
 - content_for :page_title do
   How To Use Exhibits
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Exhbitis leverages the card functionalityon materialize but only shows a title and icon. With the ability to show a description that is on reveal when you click the title on the card. See Figure 1 below for example.
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/Exhibits_Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all exhibits. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each exhibit.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each exhibit.
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the new exhibit screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for exhibits.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/Exhibits_List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new exhibits or update an already existing exhibit. A red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                %b Title -
+                this field is used to define the title of the exhibit.
+              %li
+                %b Icon -
+                this field is used define the icon that best depicts the exhibit.
+                Use
+                %a{ href: "http://fontawesome.io/icons/", target: "_Blank" } Font Awesome Icons
+                for a list of icons to use.
+              %li
+                %b Description -
+                this field is used to define more details about the exhibit.
+              %li
+                %b Page -
+                this field is used to link to a page/tab you wish to have the exhibits so=how up on.
+              %li
+                %b Order -
+                this field is used to define the order in which each exhibit shows on the page.
+              %li
+                %b Active -
+                this field is used to toggle visibility on the front end.
+              %li
+                %b Create/Update Exhibit -
+                this button allows for the data to be saved back to the database so that your change can take affect.
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/Exhibits_New_Edit_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record
