@@ -23,5 +23,6 @@
     = f.input :show_testimonials, wrapper_html: { class: "m3 s12" }
     = f.input :hide_title, wrapper_html: { class: "m2 s12" }
     = f.input :active, wrapper_html: { class: "m2 s12" }
-    = f.input :content, as: :ckeditor, label: false
+    .row
+      = f.input :content, as: :ckeditor, label: false, wrapper_html: { class: "s12" }
     = f.button :submit, class: "right"
