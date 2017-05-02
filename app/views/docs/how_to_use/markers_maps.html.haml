@@ -1,2 +1,84 @@
 - content_for :page_title do
   How To Use Markers and Maps
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Map markers enable you to add pins on a map to give eating recommendations and parking locations. All have the ability to give detailed information on each. See Figure 1 below for example.
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/Map_Markers_Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all map markers. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each map marker.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each map marker.
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the new map marker screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for map markers.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/Map_Markers_List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new alerts or update an already existing alert. a red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                %b Title -
+                this field is used show the name of the location.
+              %li
+                %b Address -
+                this field is used to capture the address of the location.
+              %li
+                %b Type -
+                this field is used to capture the type of marker.
+                %ul.browser-default
+                  %li Museum - used to show the museum logo as the pin icon.
+                  %li Parking - used to show a P for parking location.
+                  %li Food - used to show a Cutlery Icon for a Food location.
+              %li
+                %b Parent Page -
+                this field is used to indicate which page the marker is linked to, to show a map.
+              %li
+                %b Create/Update Marker -
+                this button allows for the data to be saved back to the database so that your change can take affect.
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/Map_Markers_New_Edit_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record
