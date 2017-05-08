@@ -8,8 +8,11 @@
               - card_group.errors.full_messages.each do |msg|
                 %li= msg
       .input-field.col.m6.s12
+        = f.select :usage_type, ["Home Page", "Page/Tab"], required: true
+        = f.label :usage_type, class: "isrequired"
+      .input-field.col.m6.s12.hide.coll_hiding#pages_tabs
         = f.select :page_id, Page.pages_tabs.collect{ |p| [p.title, p.id] },
-          prompt: "Select a Page/Tab", required: true
+          prompt: "Select a Page/Tab"
         = f.label :page_id, class: "isrequired"
       .input-field.col.m6.s12
         = f.select :grid, ["s12 m12 l12", "s12 m6 l4", "s12 m6", "s12 m4"],

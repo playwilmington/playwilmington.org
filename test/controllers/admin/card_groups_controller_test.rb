@@ -32,6 +32,7 @@ module Admin
       assert_difference "CardGroup.count" do
         post :create, params: {
           card_group: {
+            usage_type: "Page/Tab",
             page_id: @page.id, grid: "s12 m12 l12", active: true, order: 1,
             card: {
               title: "Title", card_content: "Data", card_reveal: "Data",
@@ -50,7 +51,7 @@ module Admin
       assert_no_difference "CardGroup.count" do
         post :create, params: {
           card_group: {
-            page_id: nil, grid: "s12 m12 l12", active: true, order: 1,
+            usage_type: nil, grid: "s12 m12 l12", active: true, order: 1,
             card: {
               title: "Title", card_content: "Data", card_reveal: "Data",
               order: 1, active: true, size: "medium", sticky_links: true,
@@ -72,6 +73,7 @@ module Admin
       patch :update, params: {
         id: @card_group.id,
         card_group: {
+          usage_type: "Page/Tab",
           page_id: @page.id, grid: "s12 m12 l12", active: true, order: 1,
           card: {
             title: "Title", card_content: "Data", card_reveal: "Data",
@@ -89,7 +91,7 @@ module Admin
       patch :update, params: {
         id: @card_group.id,
         card_group: {
-          page_id: nil, grid: "s12 m12 l12", active: true, order: nil,
+          usage_type: nil, grid: "s12 m12 l12", active: true, order: nil,
           card: {
             title: "Title", card_content: "Data", card_reveal: "Data", order: 1,
             active: true, size: "medium", sticky_links: true,

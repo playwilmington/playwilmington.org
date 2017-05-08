@@ -51,7 +51,7 @@ module Admin
 
     def card_group_params
       params.require(:card_group).permit(
-        :page_id, :grid, :active, :order,
+        :page_id, :grid, :active, :order, :usage_type,
         cards_attributes: %i[
           id title card_content card_reveal order active size
           sticky_links btn_one_name btn_one_url btn_two_name

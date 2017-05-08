@@ -15,6 +15,8 @@
             .right= page_entries_info @card_groups, entry_name: "Card Group"
         %table.bordered.highlight.table.responsive-table
           %thead
+            %th{ scope: "col", data: { field: "Type" } }
+              = sort_link @q, :usage_type
             %th{ scope: "col", data: { field: "Parent Page" } }
               = sort_link @q, :page_id
             %th{ scope: "col", data: { field: "Grid" } }
@@ -28,6 +30,7 @@
             - @card_groups.each do |card_group|
               %tr.table__row{ role: "link", tabindex: "0",
                 data: { url: admin_card_group_path(card_group) } }
+                %td= card_group.usage_type
                 %td= card_group.page_name
                 %td= card_group.grid
                 %td= card_group.order

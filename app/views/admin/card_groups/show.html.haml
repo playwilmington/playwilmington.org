@@ -6,6 +6,9 @@
     .card-panel.main-view
       .row
         .col.s12.m6.grid
+          %span.label Usage Type:
+          = @card_group.usage_type
+        .col.s12.m6.grid
           %span.label Parent Page:
           = @card_group.page_name
         .col.s12.m6.grid

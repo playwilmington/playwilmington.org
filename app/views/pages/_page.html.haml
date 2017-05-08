@@ -27,6 +27,6 @@
         - unless @page.collapsibles.is_active.empty?
           .col.s12
             = render @page.collapsibles.is_active
-        - unless @page.card_groups.is_active.empty?
-          - @page.card_groups.is_active.each do |card_group|
+        - unless @page.card_groups.page_active.empty?
+          - @page.card_groups.page_active.each do |card_group|
             = render card_group.cards.is_active

@@ -8,6 +8,10 @@
           .caption{ class: slider.position }
             %h3{ class: slider.color + "-text" }= slider.title
             %h5.light{ class: slider.color + "-text" }= slider.subtitle
+.row
+  .col.s12.offset-m1.m10
+    - @card_groups.each do |card_group|
+      = render card_group.cards.is_active
 
 .row
   .col.s12.offset-m1.m10

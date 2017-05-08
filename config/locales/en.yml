@@ -13,6 +13,7 @@ en:
         grid: Grid
         active: Active
         order: Order
+        usage_type: Usage Type
       card:
         title: Title
         card_content: Card Content

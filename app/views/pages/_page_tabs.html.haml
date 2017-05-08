@@ -37,8 +37,8 @@
                 - unless tab.collapsibles.is_active.empty?
                   .col.s12
                     = render tab.collapsibles.is_active
-                - unless tab.card_groups.is_active.empty?
-                  - tab.card_groups.is_active.each do |card_group|
+                - unless tab.card_groups.page_active.empty?
+                  - tab.card_groups.page_active.each do |card_group|
                     = render card_group.cards.is_active
                 - unless tab.collections.is_active.empty?
                   .col.s12
