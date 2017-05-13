@@ -23,7 +23,9 @@ init_materialize =->
   $('.collapsible').collapsible()
   $('#about').modal()
   $('#alert-modal').modal()
-  $('.slider').slider()
+  $('.slider').slider({
+    height: '600'
+    })
   $('.datepicker').pickadate
     selectMonths: true
     selectYears: 15
