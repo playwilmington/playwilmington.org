@@ -101,6 +101,7 @@ en:
         pinterest_handle: Pinterest Handle
         instagram_handle: Instagram Handle
         donation_url: Donation URL
+        calendar_help_text: Calendar Help Text
       user:
         email: Email
         encrypted_password: Encrypted Password

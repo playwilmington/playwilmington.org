@@ -29,7 +29,8 @@
             %a.subheader Admin Functions
           - if current_user.admin?
             %li
-              = link_to admin_root_path, class: "waves-effect waves-orange" do
+              = link_to admin_root_path, class: "waves-effect waves-orange",
+                target: "_Blank" do
                 = icon "tachometer", "Dashboard", class: "fa-lg"
           %li
             = link_to destroy_user_session_path, method: :delete,

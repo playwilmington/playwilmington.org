@@ -72,10 +72,12 @@
           = link_to root_path, class: "waves-effect waves-orange" do
             = icon "home", "Website Home", class: "fa-lg"
         %li
-          = link_to admin_root_path, class: "waves-effect waves-orange" do
+          = link_to admin_root_path, class: "waves-effect waves-orange",
+            target: "_Blank" do
             = icon "tachometer", "Dashboard", class: "fa-lg"
         %li
-          = link_to docs_root_path, class: "waves-effect waves-orange" do
+          = link_to docs_root_path, class: "waves-effect waves-orange",
+            target: "_Blank" do
             = icon "file-text", "Documentation", class: "fa-lg"
         %li
           = link_to edit_user_registration_path, class: "waves-effect waves-orange" do

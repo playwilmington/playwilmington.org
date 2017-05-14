@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507232749) do
+ActiveRecord::Schema.define(version: 20170513135730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,9 +195,10 @@ ActiveRecord::Schema.define(version: 20170507232749) do
     t.string   "twitter_handle"
     t.string   "pinterest_handle"
     t.string   "instagram_handle"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "donation_url"
+    t.text     "calendar_help_text"
   end
 
   create_table "sliders", force: :cascade do |t|
