@@ -199,6 +199,7 @@ Metrics/BlockLength:
   - config/initializers/devise.rb
   - config/initializers/simple_form_materialize.rb
   - config/routes.rb
+  - config/environments/production.rb
 Performance/Count:
   Description: Use `count` instead of `select...size`, `reject...size`, `select...count`,
     `reject...count`, `select...length`, and `reject...length`.
