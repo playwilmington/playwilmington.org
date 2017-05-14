@@ -15,10 +15,6 @@
         = render @page.exhibits.is_active
       - elsif @page.show_testimonials?
         = render @testimonials
-      - elsif !@page.collections.is_active.empty?
-        .col.s12
-          %ul.collection.with-header
-            = render @page.collections.is_active
       - else
         - unless @page.content.blank?
           .col.s12
@@ -30,3 +26,9 @@
         - unless @page.card_groups.page_active.empty?
           - @page.card_groups.page_active.each do |card_group|
             = render card_group.cards.is_active
+        - unless @page.collections.is_active.empty?
+          .col.s12
+            %ul.collection.with-header
+              = render @page.collections.is_active
+        - unless tab.photo_albums.empty?
+          = render tab.photo_albums
