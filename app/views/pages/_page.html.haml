@@ -30,5 +30,5 @@
           .col.s12
             %ul.collection.with-header
               = render @page.collections.is_active
-        - unless tab.photo_albums.empty?
-          = render tab.photo_albums
+        - unless @page.photo_albums.empty?
+          = render @page.photo_albums
