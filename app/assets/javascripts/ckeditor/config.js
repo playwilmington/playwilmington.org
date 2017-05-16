@@ -36,7 +36,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
 		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-		{ name: 'links', groups: [ 'links' ] },
+		{ name: 'links', groups: [ 'links', 'Iframe' ] },
 		{ name: 'colors', groups: [ 'colors' ] },
 		'/',
 		{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
@@ -47,7 +47,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'forms', groups: [ 'forms' ] }
 	];
 
-	config.removeButtons =  'NewPage,Save,Print,Templates,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Flash,Anchor,Iframe,ShowBlocks,About,Language';
+	config.removeButtons =  'NewPage,Save,Print,Templates,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Flash,Anchor,ShowBlocks,About,Language';
 
   // Plugins Configuration
   config.extraPlugins = 'autogrow'
