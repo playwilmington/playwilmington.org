@@ -19,7 +19,7 @@ test:
   post:
     - bundle exec rake rubocop
     - bundle exec rake scss_lint
-    - bundle exec rake haml_lint
+    # - bundle exec rake haml_lint
     - bundle exec rake yamllint
     - coffeelint app/assets/javascripts/ -f coffeelint.json
 
