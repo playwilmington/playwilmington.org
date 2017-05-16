@@ -30,24 +30,19 @@ CKEDITOR.editorConfig = function( config ) {
   // config.contentsCSS
 
   // Toolbar groups configuration.
-  config.toolbarGroups = [
-		{ name: 'tools', groups: [ 'tools' ] },
-		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-		{ name: 'links', groups: [ 'links', 'Iframe' ] },
-		{ name: 'colors', groups: [ 'colors' ] },
+  config.toolbar = [
+		{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+		{ name: 'document', items: [ 'Source', '-', 'Preview' ] },
+		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+		{ name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+		{ name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
 		'/',
-		{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'insert', groups: [ 'insert' ] },
-		{ name: 'others', groups: [ 'others' ] },
-		{ name: 'about', groups: [ 'about' ] },
-		{ name: 'forms', groups: [ 'forms' ] }
+		{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] }
 	];
-
-	config.removeButtons =  'NewPage,Save,Print,Templates,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Flash,Anchor,ShowBlocks,About,Language';
 
   // Plugins Configuration
   config.extraPlugins = 'autogrow'
