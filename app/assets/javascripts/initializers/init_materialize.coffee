@@ -24,7 +24,7 @@ init_materialize =->
   $('#about').modal()
   $('#alert-modal').modal()
   $('.slider').slider({
-    height: '600'
+    height: 600
     })
   $('.datepicker').pickadate
     selectMonths: true
