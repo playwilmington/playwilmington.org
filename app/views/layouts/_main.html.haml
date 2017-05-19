@@ -38,6 +38,7 @@
               = icon "sign-out", "Log Out", class: "fa-lg"
     = yield :tabs
 %main
+  = render "layouts/alert"
   = yield
 
 %footer.page-footer.grey.darken-2.hide-on-print
