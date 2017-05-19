@@ -12,20 +12,24 @@ class Card < ApplicationRecord
   scope :is_active, -> { where(active: true).order(:order) }
 
   def btn_one_full
-    if btn_one_url.include? "@"
+    if btn_one_url.include?("@")
       "mailto:" + btn_one_url
-    elsif !btn_one_url.blank?
+    elsif !btn_one_url.include?("https://") && !btn_one_url.include?("http://")
       "http://" + btn_one_url
+    elsif btn_one_url.include?("https://") || btn_one_url.include?("http://")
+      btn_one_url
     else
       ""
     end
   end
 
   def btn_two_full
-    if btn_two_url.include? "@"
-      "mailto:" + btn_two_url
-    elsif !btn_two_url.blank?
-      "http://" + btn_two_url
+    if btn_two_url.include?("@")
+      "mailto:" + btn_one_url
+    elsif !btn_two_url.include?("https://") && !btn_two_url.include?("http://")
+      "http://" + btn_one_url
+    elsif btn_two_url.include?("https://") || btn_two_url.include?("http://")
+      btn_two_url
     else
       ""
     end
