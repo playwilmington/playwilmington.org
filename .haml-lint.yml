@@ -22,6 +22,7 @@ linters:
 
   ConsecutiveComments:
     enabled: true
+    max_consecutive: 1
 
   ConsecutiveSilentScripts:
     enabled: true
@@ -46,6 +47,14 @@ linters:
 
   ImplicitDiv:
     enabled: true
+
+  Indentation:
+    enabled: true
+    character: space # or tab
+    width: 2 # ignored if character == tab
+
+  InlineStyles:
+    enabled: false
 
   InstanceVariables:
     enabled: false
@@ -97,7 +106,6 @@ linters:
       - Style/TrailingBlankLines
       - Style/TrailingWhitespace
       - Style/WhileUntilModifier
-      - Style/UnneededInterpolation
 
   RubyComments:
     enabled: true
@@ -108,10 +116,6 @@ linters:
   SpaceInsideHashAttributes:
     enabled: true
     style: space
-
-  Indentation:
-    enabled: true
-    character: space # or tab
 
   TagName:
     enabled: true
