@@ -8,7 +8,8 @@ class Alert < ApplicationRecord
                              only contain lowercase letters and underscores'
   scope :active_alerts, lambda {
     where(
-      'active = :status AND :todays_date BETWEEN start_date AND end_date', status: true, todays_date: Date.today
+      "active = :status AND :todays_date BETWEEN start_date AND end_date",
+      status: true, todays_date: Date.today
     )
   }
 
