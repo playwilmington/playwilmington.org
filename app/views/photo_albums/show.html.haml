@@ -1,0 +1,7 @@
+.row
+  .col.s12
+  - @photo_album.photos.each do |photo|
+    .col.s6.m4.l3
+      .card
+        .card-image
+          %img.materialboxed{ src: photo.image.url }

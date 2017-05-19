@@ -12,6 +12,14 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+public/system/*
+config/local.yml
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# ignore all coverage and linter files
+/coverage/*
+test/reports/
+rubocop-results.html
+scss-results.txt

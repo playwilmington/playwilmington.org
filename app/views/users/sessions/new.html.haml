@@ -1,12 +1,25 @@
-- content_for :header do
-  Log In
-
-= form_for resource, as: resource_name, url: session_path(resource_name), builder: FormBuilder, html: { class: 'login-form row' } do |f|
-  - if devise_error_messages? || alert
-    .errors.red
-      %span= devise_error_messages!
-      %span= alert
-  = f.email_field :email, icon: 'email', outer_class: 'margin'
-  = f.password_field :password, icon: 'lock', outer_class: 'margin'
-  = f.check_box :remember_me
-  = f.submit 'Log In Now', class: 'col s12'
+.row.login-form
+  .col.s12
+    .card.hoverable
+      .card-content
+        %span.card-title.center Log In
+        .divider
+        = simple_form_for resource, as: resource_name,
+          url: session_path(resource_name) do |f|
+          - if devise_error_messages? || alert
+            .form-errors.red.lighten-1
+              = devise_error_messages!
+              = alert
+          .form-inputs.row
+            = f.input :email, required: true, autofocus: true,
+              wrapper_html: { class: "s12" }
+            = f.input :password, required: true, autocomplete: "off",
+              icon: "lock", hint: false, wrapper_html: { class: "s12" }
+            - if devise_mapping.rememberable?
+              = f.input :remember_me, wrapper_html: { class: "s12" },
+                as: :boolean
+          .form-actions.center
+            = f.button :submit, "Log In"
+      .card-action
+        .devise-links
+          = render "users/shared/links"

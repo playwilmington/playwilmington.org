@@ -1,0 +1,9 @@
+- content_for :page_title do
+  Edit Collection
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      = render "form", collection: @collection
+
+= helper_fab(docs_collections_path)

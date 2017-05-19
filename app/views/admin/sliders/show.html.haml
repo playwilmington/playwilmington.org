@@ -1,0 +1,43 @@
+- content_for :page_title do
+  Slider
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @slider.title
+        .col.s12.m6.grid
+          %span.label Subtitle:
+          = @slider.subtitle
+        .col.s12.m6.grid
+          %span.label Color:
+          = @slider.color
+        .col.s12.m6.grid
+          %span.label Position:
+          = @slider.position
+        .col.s12.m6.grid
+          %span.label Order:
+          = @slider.order
+        .col.s12.m6.grid
+          %span.label Photo File Name:
+          = @slider.photo_file_name
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @slider.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+
+.fixed-action-btn.click-to-toggle.toolbar
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li.waves-effect.waves-light
+      = link_to admin_slider_path(@slider), class: "red" do
+        = material_icon.delete_forever
+    %li.waves-effect.waves-light
+      = link_to edit_admin_slider_path(@slider), class: "green" do
+        = material_icon.edit

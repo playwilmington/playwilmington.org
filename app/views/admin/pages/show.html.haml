@@ -1,0 +1,108 @@
+- content_for :page_title do
+  Page
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @page.title
+        .col.s12.m6.grid
+          %span.label Name:
+          = @page.name
+        .col.s12.m6.grid
+          %span.label Type:
+          = @page.page_type
+        .col.s12.m6.grid
+          %span.label Parent Page:
+          = @page.page_id ? @page.parent_page : "N/A"
+        .col.s12.m6.grid
+          %span.label Icon:
+          = @page.icon.blank? ? @page.icon : "N/A"
+        .col.s12.m6.grid
+          %span.label Order:
+          = @page.order
+        .col.s12.m6.grid
+          %span.label Show Calendar:
+          %span.icon
+            - if @page.show_calendar?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6.grid
+          %span.label Hide Title:
+          %span.icon
+            - if @page.hide_title?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6.grid
+          %span.label Show Contact:
+          %span.icon
+            - if @page.show_contact?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6.grid
+          %span.label Show Testimonials:
+          %span.icon
+            - if @page.show_testimonials?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @page.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+      .row
+        .col.s12
+          %span.label Content:
+          = @page.content.html_safe
+      - unless @page.pages.empty?
+        .row
+          .col.s12
+            %h5 Tabs
+            %table.bordered.highlight
+              %thead
+                %th Title
+                %th Name
+                %th Order
+                %th Show Calendar
+                %th Hide Title
+                %th Active
+              %tbody
+                - @page.pages.order(:order).each do |tab|
+                  %tr
+                    %td= tab.title
+                    %td= tab.name
+                    %td= tab.order
+                    %td
+                      - if tab.show_calendar?
+                        = material_icon.check_box
+                      - else
+                        = material_icon.check_box_outline_blank
+                    %td
+                      - if tab.hide_title?
+                        = material_icon.check_box
+                      - else
+                        = material_icon.check_box_outline_blank
+                    %td
+                      - if tab.active?
+                        = material_icon.check_box
+                      - else
+                        = material_icon.check_box_outline_blank
+
+.fixed-action-btn.click-to-toggle.toolbar
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li.waves-effect.waves-light
+      = link_to admin_page_path(@page), class: "red" do
+        = material_icon.delete_forever
+    %li.waves-effect.waves-light
+      = link_to edit_admin_page_path(@page), class: "green" do
+        = material_icon.edit

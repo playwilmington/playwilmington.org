@@ -1,0 +1,52 @@
+- content_for :page_title do
+  Photo Albums
+
+- content_for :page_button do
+  = link_to new_admin_photo_album_path,
+    class: "btn-floating btn-large halfway-fab waves-effect waves-light" do
+    = material_icon.add
+
+.page-wrapper
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @photo_albums, entry_name: "Photo Album"
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: "col", data: { field: "Title" } }
+              = sort_link @q, :title
+            %th{ scope: "col", data: { field: "Parent Page" } }
+              = sort_link @q, :page_id
+            %th{ scope: "col", data: { field: "Order" } }
+              = sort_link @q, :order
+            %th{ scope: "col", data: { field: "Active" } }
+              = sort_link @q, :active
+            %th{ scope: "col", colspan: "3" }
+          %tbody
+            - @photo_albums.each do |photo_album|
+              %tr.table__row{ role: "link", tabindex: "0",
+                data: { url: admin_photo_album_path(photo_album) } }
+                %td= photo_album.title
+                %td= photo_album.page_name
+                %td= photo_album.order
+                %td
+                  - if photo_album.active?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  = link_to "Upload", new_admin_photo_album_photos_path(photo_album),
+                    class: "action-edit"
+                %td
+                  = link_to "Edit", edit_admin_photo_album_path(photo_album),
+                    class: "action-edit"
+                %td
+                  = link_to "Delete", admin_photo_album_path(photo_album),
+                    class: "action-destroy red-text", rel: "nofollow",
+                    data: { method: :delete, confirm: "Are You Sure?" }
+        .center.section
+          = paginate @photo_albums
+
+= helper_fab(docs_photo_albums_path)

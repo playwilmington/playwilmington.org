@@ -1,0 +1,65 @@
+- content_for :page_title do
+  Card Group
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Usage Type:
+          = @card_group.usage_type
+        .col.s12.m6.grid
+          %span.label Parent Page:
+          = @card_group.page_name
+        .col.s12.m6.grid
+          %span.label Grid:
+          = @card_group.grid
+        .col.s12.m6.grid
+          %span.label Order:
+          = @card_group.order
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @card_group.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+      .row
+        .col.s12
+          %h5 Cards
+          %table.bordered.highlight
+            %thead
+              %th Title
+              %th Size
+              %th File Name
+              %th Order
+              %th Sticky Links
+              %th Active
+            %tbody
+              - @card_group.cards.order(:order).each do |card|
+                %tr
+                  %td= card.title
+                  %td= card.size
+                  %td= card.card_image_file_name
+                  %td= card.order
+                  %td
+                    - if card.sticky_links?
+                      = material_icon.check_box
+                    - else
+                      = material_icon.check_box_outline_blank
+                  %td
+                    - if card.active?
+                      = material_icon.check_box
+                    - else
+                      = material_icon.check_box_outline_blank
+
+.fixed-action-btn.click-to-toggle.toolbar
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li.waves-effect.waves-light
+      = link_to admin_card_group_path(@card_group), class: "red" do
+        = material_icon.delete_forever
+    %li.waves-effect.waves-light
+      = link_to edit_admin_card_group_path(@card_group), class: "green" do
+        = material_icon.edit

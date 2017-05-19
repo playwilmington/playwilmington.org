@@ -1,0 +1,30 @@
+.row.main-form
+  = simple_form_for [:admin, collapsible], html: { class: "col s12" } do |f|
+    .col.s12
+      - unless collapsible.errors.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - collapsible.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :name, maxlength: "100", icon: "title",
+      wrapper_html: { class: "s12" }
+    = f.input :collapse_style, collection: %w(accordion expandable),
+      prompt: "Select a Collapse Style", wrapper_html: { class: "m6 s12" }
+    = f.input :usage_type, collection: %w(Home-Page Page/Tab),
+      prompt: "Select a Usage Type", wrapper_html: { class: "m6 s12" }
+    = f.input :page_id, collection: Page.pages_tabs.map{ |p| [p.title, p.id] },
+      prompt: "Select a Page", wrapper_html: { class: "coll_hiding hide s12" }
+    = f.input :order, icon: "format_list_numbered",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :is_popout, wrapper_html: { class: "m6 s12" }
+    = f.input :active, wrapper_html: { class: "s12" }
+    .col.s12
+      %ul.collapsible#collapsible{ data: { collapsible: "accordion" } }
+        = f.simple_fields_for :collapsible_items do |ci|
+          = render "collapsible_item_fields", f: ci
+    .col.s12.center
+      = link_to_add_association "Add Item", f, :collapsible_items,
+        class: "btn waves-effect waves-light",
+        data: { "association-insertion-node": "ul#collapsible",
+        "association-insertion-method": "append" }
+    = f.button :submit, class: "right"

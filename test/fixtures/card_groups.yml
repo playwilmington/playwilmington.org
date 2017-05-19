@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usage_type: Page/Tab
+  page: one
+  grid: s12 m6 l4
+  active: true
+  order: 1
+
+two:
+  usage_type: Home Page
+  page: two
+  grid: s12 m6 l4
+  active: false
+  order: 1

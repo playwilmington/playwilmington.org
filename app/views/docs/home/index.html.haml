@@ -1,0 +1,44 @@
+- content_for :page_title do
+  Documentation
+
+.row
+  .col.s12
+    .card.light-blue
+      .card-content
+        %p
+          Hello, and welcome to the documentation Page.
+          %br
+          Here you will find all the How to Use Articles needed to build out your site.
+          Each article talks about the limitations, how to use in site, and required data points.
+          Also will include screen shots to help visibility. Each Feature will have a quick link to get to the How To Article for quick reference.
+  .col.s12
+    .card
+      .card-content
+        %span.card-title Reference Links
+        %ul.browser-default
+          %li
+            %b Site Resources
+          %li
+            %a{ href: "http://materializecss.com/", target: "_Blank" } Materialize
+            , This site is a good resource if you want to style your page content using same elements.
+          %li
+            %a{ href: "http://fontawesome.io/icons/", target: "_Blank" } Font Awesome Icons
+            , This site is a good resource to get the names of the Icons to use where called out in creating various records.
+          %li
+            %b Development Resources
+          %li
+            %a{ href: "https://github.com/playwilmington/playwilmington.org", target: "_Blank" } Github Repo
+            , Here is where the code for the website can be found. You can also log issues or enhancement requests for the site.
+          %li
+            %a{ href: "https://circleci.com/dashboard", target: "_Blank" } CircleCi
+            , Here is where you can see the continuous integration, this runs all tests and linters before deploying to the hosting site.
+          %li
+            %a{ href: "https://dashboard.heroku.com", target: "_Blank" } Heroku
+            , Here is where the site is hosted for both staging and production sites.
+            %ul.browser-default
+              %li
+                Staging -
+                %a{ href: "https://playwilmington-development.herokuapp.com", target: "_Blank" } https://playwilmington-development.herokuapp.com
+              %li
+                Production -
+                %a{ href: "https://www.playwilmington.org", target: "_Blank" } https://www.playwilmington.org

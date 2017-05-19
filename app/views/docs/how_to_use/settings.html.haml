@@ -1,0 +1,88 @@
+- content_for :page_title do
+  How To Use Settings
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Settings are used to drive a few different items that are present in the Footers and Headers of the site accross the board. See Figure 1 below for example.
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/settings/Front_End_View.png", width: "100%"
+
+        .section.scrollspy#recordview
+          %h4 Record View
+          %p
+            The record view shows all the details that will be shown in the footer and header of the site. See Figure 2 for exmaple view.
+            %ul.browser-default
+              %li
+                %b Blue Circle -
+                Edit button to edit all settings.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for settings.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/settings/Record_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 Edit Record
+          %p
+            Editing record will give you the ability to modify any data that is displayed see Figure 3 below for example view, and the list below for fields and what they do.
+
+            %ul.browser-default
+              %li
+                %b Company Name -
+                Drive what the name is on the site in the Header, Footer, and Tab in browser.
+              %li
+                %b Address -
+                Enter the address of the museum as you would enter it in google Maps. This will provide a hyperlink to google maps for directions nativly.
+              %li
+                %b Copyright -
+                Define the copy right line that shows at the foot of the website.
+              %li
+                %b Email -
+                Main email address used in the footer of the website.
+              %li
+                %b Phone -
+                Main phone number used in the footer of the website.
+              %li
+                %b Facebook Handle -
+                the user name used for Museum Facebook page. If not defined the Button does not appear in the footer.
+              %li
+                %b Twitter Handle -
+                the user name used for Museum Twitter page. If not defined the Button does not appear in the footer.
+              %li
+                %b Pinterest Handle -
+                the user name used for Museum Pinterest page. If not defined the Button does not appear in the footer.
+              %li
+                %b Instagram Handle -
+                the user name used for Museum Instagram page. If not defined the Button does not appear in the footer.
+              %li
+                %b Donation URL -
+                define the url used to the Altru form to send donations to the meuseum.
+              %li
+                %b Calendar Help Text
+                this field is used to capture the text for more details above a calendar.
+              %li
+                %b Update Setting
+                this button allows for the data to be saved back to the database so that your change can take affect.
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/settings/Edit_View.png", width: "100%"
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#recordview" } Record View
+        %li
+          %a{ href: "#newupdate" } Edit Record

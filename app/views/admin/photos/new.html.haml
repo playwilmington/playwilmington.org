@@ -1,0 +1,25 @@
+- content_for :page_title do
+  New Photo Album
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      .row.main_form
+        = form_for [:admin, @photo_album, @photo],
+          html: { multipart: true, class: "col s12" } do |f|
+          .col.s12
+            - unless @photo.errors.empty?
+              .form-errors.red.lighten-1
+                %ul
+                  - @photo.errors.full_messages.each do |msg|
+                    %li= msg
+          .file-field.input-field
+            .btn
+              %span Photo
+              = f.file_field :image
+            .file-path-wrapper
+              %input.file-path{ type: "text",
+                placeholder: "Upload A Photo for the Album" }
+          = f.submit nil, class: "btn waves-effect waves-light right"
+
+= helper_fab(docs_photo_albums_path)

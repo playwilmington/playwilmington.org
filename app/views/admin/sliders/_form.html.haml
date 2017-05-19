@@ -1,0 +1,38 @@
+.row.main-form
+  = form_for [:admin, slider], html: { class: "col s12" } do |f|
+    .col.s12
+      - unless slider.errors.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - slider.errors.full_messages.each do |msg|
+              %li= msg
+    .input-field.col.s12
+      %i.material-icons.prefix title
+      = f.text_field :title, maxlength: "75"
+      = f.label :title
+    .input-field.col.m6.s12
+      %i.material-icons.prefix subtitles
+      = f.text_field :subtitle, maxlength: "125"
+      = f.label :subtitle
+    .input-field.col.m6.s12
+      = f.select :color, %w(white black blue light-blue green)
+      = f.label :color
+    .input-field.col.m6.s12
+      = f.select :position, %w(center-align right-align left-align),
+      prompt: "Select a Position"
+    .input-field.col.m6.s12
+      %i.material-icons.prefix format_list_numbered
+      = f.number_field :order, required: true
+      = f.label :order
+    .file-field.input-field.col.m6.s12
+      .btn
+        %span Photo
+        = f.file_field :photo
+      .file-path-wrapper
+        %input.file-path{ type: "text",
+          placeholder: "Upload A Photo for the Slider" }
+    .input-field.col.m6.s12
+      = f.check_box :active
+      = f.label :active
+    .col.s12
+      = f.submit nil, class: "btn waves-effect waves-light right"

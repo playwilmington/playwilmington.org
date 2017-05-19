@@ -1,0 +1,30 @@
+- content_for :page_title do
+  Marker
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @marker.title
+        .col.s12.m6.grid
+          %span.label Address:
+          = link_to @marker.address, @marker.address_url
+        .col.s12.m6.grid
+          %span.label Marker Type:
+          = @marker.marker_type
+        .col.s12
+          %span.label Body:
+          = @marker.body.html_safe
+
+.fixed-action-btn.click-to-toggle.toolbar
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li.waves-effect.waves-light
+      = link_to admin_marker_path(@marker), class: "red" do
+        = material_icon.delete_forever
+    %li.waves-effect.waves-light
+      = link_to edit_admin_marker_path(@marker), class: "green" do
+        = material_icon.edit

@@ -1,0 +1,9 @@
+- content_for :page_title do
+  Edit Marker
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      = render "form", marker: @marker
+
+= helper_fab(docs_markers_maps_path)

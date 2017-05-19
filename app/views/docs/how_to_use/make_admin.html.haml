@@ -1,0 +1,45 @@
+- content_for :page_title do
+  How To Make an Admin
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Users section allows other admins to designate users to have admin access.
+            URL to loggin from Staging Site and the Production Site, Users will need this to login and sign up to have access to administrate the site.
+            %ul.browser-default
+              %li
+                %a{ href: "https://playwilmington-development.herokuapp.com/user/sign_in" } https://playwilmington-development.herokuapp.com/user/sign_in
+              %li
+                %a{ href: "https://www.playwilmington.org/user/sign_in" } https://www.playwilmington.org/user/sign_in
+
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all users that exist in the site. All columns are sortable by clicking on the column name. See Figure 1 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Circle -
+                Click to toggle admin access for that individal user.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each alert.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for Users.
+            %br/
+            %small
+              %b Figure 1:
+            = image_tag "doc_images/users/List_View.png", width: "100%"
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View

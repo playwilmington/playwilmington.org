@@ -1,0 +1,92 @@
+- content_for :page_title do
+  How To Use Testimonials
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Testimonial allows your users / consumer post there own quotes about the museum. This requires a admin to change the status of a testimonial to approved to make visible on the front end. Users will see a add button on the testimonial tab to add a quote. Testimonials are driven to be visible on a page from the page record. See Figure 1 below for example.
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/testimonials/Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all testimonials created by admins or by users. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each testimonial.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each testimonial.
+              %li
+                %b Green Circle -
+                Check Button, shows for each row if not in the status of "Approved".
+              %li
+                %b Red Circle -
+                Close Button, shows for each row if not in the status of "Rejected".
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the new testimonial screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for testimonials.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/testimonials/List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new testimonials or update an already existing testimonial. You also have the ability to create a new Testimonial from a user prospective not just Admin. A red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                %b Name -
+                this field is used to capture the name of the person giving the quote.
+              %li
+                %b Qupte -
+                this field is used fto capture the quote from the person.
+              %li
+                %b Status - Only visible to Admins.
+                this field is used to indicate status of the testimonial.
+                %ul.browser-default
+                  %li New - Defaulted value.
+                  %li Pending - A status if you have recognized a testimonal but are still reviewing.
+                  %li Approved - If set to approved will now show on the main site.
+                  %li Rejected - Testimonial is not worthy of website
+                  %li Archived - Take down a testimonial that is really old.
+              %li
+                %b Create/Update Testimonial -
+                this button allows for the data to be saved back to the database so that your change can take affect.
+            %small
+              %b Figure 3: Admin View
+            = image_tag "doc_images/testimonials/New_Edit_Admin_View.png", width: "100%"
+            %small
+              %b Figure 4: User Front End View
+            = image_tag "doc_images/testimonials/New_User_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record

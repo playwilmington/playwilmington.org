@@ -1,0 +1,32 @@
+$(document).on 'turbolinks:load', ->
+  init_calendar()
+  $('#calendar').fullCalendar('render')
+  return
+
+$(document).load ->
+  init_calendar()
+  $('#calendar').fullCalendar('render')
+  return
+
+init_calendar =->
+  $('#calendarModal').modal()
+  $('#calendar').fullCalendar
+    header:
+      left: 'prev,next today'
+      center: 'title'
+      right: 'month,agendaWeek,agendaDay'
+    eventRender: (event, element) ->
+      element.attr 'href', 'javascript:void(0);'
+      element.click ->
+        $('#eventTimeStart').html moment(event.start).format('MMM Do h:mm A')
+        $('#eventTimeEnd').html moment(event.end).format('MMM Do h:mm A')
+        $('#eventDescription').html event.description
+        $('#eventLink').attr 'href', event.url
+        $('#eventTitle').html event.title
+        $('#eventLocation').html event.location
+        $('#calendarModal').modal('open')
+        return
+      return
+    googleCalendarApiKey: "<%= GoogleCalendar::api_key %>"
+    events:
+      'playwilmington.org_h5hqikqrrhrl8kepf5m8u8u6hs@group.calendar.google.com'

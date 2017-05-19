@@ -1,0 +1,100 @@
+- content_for :page_title do
+  How To Use Sliders
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Sliders can be used to show off important images or different diagrams. This is only visible on the Home Page of the website See Figure 1 below for example.
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/sliders/Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all sliders created for usage. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each slider.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each slider.
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the New Slider screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for sliders.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/sliders/List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new sliders or update an already existing slider. A red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                %b Title -
+                this field is used to give a title that shows over the picture.
+              %li
+                %b Subtitle -
+                this field is used for a subtitle appearing below the subtitle.
+              %li
+                %b Color -
+                this field is used to indicate the color of the title and subtitle to fit with the background of the picture and not clash.
+              %li
+                %b Position -
+                this field is used to indicate the position to the title and subtitle on the picture.
+                %ul.browser-default
+                  %li center-align - shift the data to the center.
+                  %li right-align - shift the data to the right.
+                  %li left-align - shift the data to the left.
+              %li
+                %b Order -
+                this field is used to define the order of the image in the slider.
+              %li
+                %b Photo -
+                Use this field to upload an image. [jpeg, jpg, png, gif] are accepted. (When editing the photo will not show up. To replace just upload a new one. Saving will not delete photo on update).
+              %li
+                %b Active -
+                Used to defien if a slider photo should be live on the site or not.
+              %li
+                %b Create/Update Slider
+                this button allows for the data to be saved back to the database so that your change can take affect.
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/sliders/New_Edit_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+        .section.scrollspy#considerations
+          %h4 Considerations
+          %p
+            Photos are meant to be just for desktop view and not on the phone.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record
+        %li
+          %a{ href: "#considerations" } Considerations

@@ -1,0 +1,12 @@
+%li.nested-fields
+  .collapsible-header
+    #{f.object.title.blank? ? 'New Item' : f.object.title}
+  .collapsible-body.row{ style: "padding: 20px 0;" }
+    .col.s12
+      = link_to_remove_association "<i class='material-icons'>delete</i>".html_safe, f, data: { confirm: "Are You Sure?" }, class: "waves-effect waves-light red-text right"
+    = f.input :title, icon: "title", wrapper_html: { class: "m6 s12" }
+    = f.input :icon, icon: "fingerprint", wrapper_html: { class: "m6 s12" }
+    = f.input :order, icon: "format_list_numbered",
+      wrapper_html: { class: "m6 s12" }
+    = f.input :active, wrapper_html: { class: "m6 s12" }
+    = f.input :body, as: :ckeditor, label: false, wrapper_html: { class: "s12" }

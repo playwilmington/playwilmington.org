@@ -2,6 +2,7 @@ if ENV['RAILS_ENV'] != 'production'
   require 'rubocop/rake_task'
   require 'scss_lint/rake_task'
   require 'haml_lint/rake_task'
+  require 'yamllint/rake_task'
   require 'rake/testtask'
 
   task default: [:test, :rubocop, :scss_lint, :haml_lint]
@@ -17,8 +18,7 @@ if ENV['RAILS_ENV'] != 'production'
                  end
     RuboCop::RakeTask.new do |t|
       t.options = [
-        '-c', '.rubocop.yml', '-f', 'html',
-        '-o', outputpath, '-D'
+        '-c', '.rubocop.yml', '-f', 'html', '-o', outputpath
       ]
       t.fail_on_error = true
     end
@@ -45,6 +45,14 @@ if ENV['RAILS_ENV'] != 'production'
       t.args = ['-f', 'JSON', '-o', outputpath]
       t.files = Dir.glob(['app/assets'])
     end
+  end
+
+  desc 'yaml lint task'
+  YamlLint::RakeTask.new do |t|
+    t.paths = %w(
+      config/**/*.yml .haml-lint.yml .rubocop.yml .scss-lint.yml circle.yml
+      test/**/*.yml
+    )
   end
 end
 

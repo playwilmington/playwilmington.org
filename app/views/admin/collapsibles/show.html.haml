@@ -1,0 +1,64 @@
+- content_for :page_title do
+  Collapsible Group
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Name:
+          = @collapsible.name
+        .col.s12.m6.grid
+          %span.label Collapse Style:
+          = @collapsible.collapse_style
+        .col.s12.m6.grid
+          %span.label Usage Type:
+          = @collapsible.usage_type
+        .col.s12.m6.grid
+          %span.label Order:
+          = @collapsible.order
+        .col.s12.m6
+          %span.label Is Popout:
+          %span.icon
+            - if @collapsible.is_popout?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @collapsible.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+      .row
+        .col.s12
+          %h5 Collapsible Items
+          %table.bordered.highlight
+            %thead
+              %th Title
+              %th Icon
+              %th Order
+              %th Active
+            %tbody
+              - @collapsible.collapsible_items.order(:order).each do |item|
+                %tr
+                  %td= item.title
+                  %td= item.icon
+                  %td= item.order
+                  %td
+                    - if item.active
+                      = material_icon.check_box
+                    - else
+                      = material_icon.check_box_outline_blank
+
+.fixed-action-btn.click-to-toggle.toolbar
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li.waves-effect.waves-light
+      = link_to admin_collapsible_path(@collapsible), class: "red" do
+        = material_icon.delete_forever
+    %li.waves-effect.waves-light
+      = link_to edit_admin_collapsible_path(@collapsible), class: "green" do
+        = material_icon.edit

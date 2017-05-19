@@ -1,0 +1,82 @@
+- if notice
+  :coffee
+    Materialize.toast("#{notice}", 4000)
+%header.navbar-fixed
+  %nav.nav-extended
+    .nav-wrapper
+      %a.button-collapse{ href: "#", data: { activates: "slide-out" } }
+        %i.material-icons menu
+      = link_to @settings.company_name, root_path,
+        class: "brand-logo", style: "margin-left: 10px;"
+      %ul.side-nav.fixed#slide-out
+        %li
+          .userView.header
+            .background.center
+              = image_tag "cmowlogo.gif"
+        %li
+          .divider
+        %li
+          = link_to root_path, class: "waves-effect waves-orange" do
+            = icon "home", "Home", class: "fa-lg"
+        - @pages.each do |page|
+          %li
+            = link_to "/#{page.name}", class: "waves-effect waves-orange" do
+              = icon page.icon, page.title, class: "fa-lg"
+        - if current_user
+          %li
+            .divider
+          %li
+            %a.subheader Admin Functions
+          - if current_user.admin?
+            %li
+              = link_to admin_root_path, class: "waves-effect waves-orange",
+                target: "_Blank" do
+                = icon "tachometer", "Dashboard", class: "fa-lg"
+          %li
+            = link_to destroy_user_session_path, method: :delete,
+              class: "waves-effect waves-orange" do
+              = icon "sign-out", "Log Out", class: "fa-lg"
+    = yield :tabs
+%main
+  = yield
+
+%footer.page-footer.grey.darken-2.hide-on-print
+  .row
+    .col.s12.center
+      %h5.white-text= @settings.company_name
+    - unless @settings.address.blank?
+      .col.s12.center
+        = link_to @settings.address, @settings.map_url, target: "_Blank"
+    - unless @settings.email.blank?
+      .col.s12.center
+        = link_to @settings.email, @settings.email_url, target: "_Blank"
+    - unless @settings.phone.blank?
+      .col.s12.center
+        = link_to @settings.tel_format, @settings.tel_url, target: "_Blank"
+  .row
+    .col.s12.center
+      = link_to "Donate Now", @settings.donation_url,
+        class: "btn waves-effect waves-light deep-orange darken-2"
+  .row
+    .col.s12.center
+      - unless @settings.facebook_handle.blank?
+        = link_to @settings.facebook_url, target: "_Blank",
+          class: "btn-floating waves-effect waves-light" do
+          = icon "facebook"
+      - unless @settings.twitter_handle.blank?
+        = link_to @settings.twitter_url, target: "_Blank",
+          class: "btn-floating waves-effect waves-light" do
+          = icon "twitter"
+      - unless @settings.pinterest_handle.blank?
+        = link_to @settings.pinterest_url, target: "_Blank",
+          class: "btn-floating waves-effect waves-light" do
+          = icon "pinterest-p"
+      - unless @settings.instagram_handle.blank?
+        = link_to @settings.instagram_url, target: "_Blank",
+          class: "btn-floating waves-effect waves-light" do
+          = icon "instagram"
+  .row
+    .col.s12.center.white-text
+      Designed &amp; Developed by
+      %a{ href: "http://www.chris-pezza.com" } Christopher Pezza
+  .footer-copyright= @settings.copyright.html_safe

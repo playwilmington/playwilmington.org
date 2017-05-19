@@ -1,0 +1,17 @@
+.row
+  - unless photo_album.photos.empty?
+    .col.s12.m6.l4
+      .card
+        .card-image
+          %img{ src: photo_album.photos.first.image.url }
+          = link_to photo_album,
+            class: "btn-floating halfway-fab waves-effect waves-light red tooltipped",
+            data: { position: "left", delay: "50",
+                    tooltip: "Click to View Photos" } do
+            %i.material-icons photo_library
+        .card-content
+          %span.card-title
+            = photo_album.title
+            (
+            = photo_album.photos.size
+            )

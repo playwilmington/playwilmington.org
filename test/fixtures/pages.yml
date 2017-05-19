@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Page One
+  name: page_one
+  page_type: Page
+  icon: MyString
+  order: 10
+  content: MyText
+  show_calendar: false
+  show_contact: false
+  hide_title: false
+  active: true
+
+two:
+  title: Page Two
+  name: page_two
+  page_type: Tab
+  icon: icon
+  order: 11
+  content: MyText2
+  show_calendar: true
+  show_contact: false
+  hide_title: false
+  active: true
+
+three:
+  title: Page Three
+  name: page_three
+  page_type: Tab
+  icon: icon
+  order: 12
+  content: MyText2
+  show_calendar: false
+  show_contact: true
+  hide_title: false
+  active: true

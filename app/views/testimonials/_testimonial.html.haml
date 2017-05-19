@@ -1,0 +1,8 @@
+.col.s12.m6.l4
+  .card
+    .card-content
+      %p "#{testimonial.quote}"
+      %span.btn-floating.halfway-fab.white{ style: "bottom: 35px !important;" }
+        = material_icon.format_quote.css_class("grey-text")
+    .card-action.blue
+      %span - #{testimonial.name}

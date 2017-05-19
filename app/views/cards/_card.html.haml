@@ -1,0 +1,33 @@
+.col{ class: card.card_group.grid }
+  .card{ class: card_class(card.sticky_links, card.size) }
+    - if card.card_image.file?
+      .card-image
+        = image_tag card.card_image.url,
+          class: activator(card.card_reveal.blank?)
+        - if !card.card_content.blank? && !card.toggle_title
+          %span.card-title= card.title
+    - unless card.card_content.blank?
+      .card-content
+        - unless card.card_image.file? && !card.toggle_title
+          - if card.card_reveal.blank?
+            %span.card-title
+              = card.title
+          - else
+            %span.card-title{ class: activator(card.card_reveal.blank?) }
+              = card.title
+              = material_icon.more_vert.css_class("right")
+        %p= card.card_content.html_safe
+    - if !card.btn_one_name.blank? || !card.btn_two_name.blank?
+      .card-action
+        - unless card.btn_one_name.blank? && card.btn_one_url.blank?
+          %a{ href: card.btn_one_full, target: "_Blank" }
+            = card.btn_one_name
+        - unless card.btn_two_name.blank? && card.btn_two_url.blank?
+          %a{ href: card.btn_two_full, target: "_Blank" }
+            = card.btn_two_name
+    - unless card.card_reveal.blank?
+      .card-reveal
+        %span.card-title
+          = card.title
+          = material_icon.close.css_class("right")
+        %p= card.card_reveal.html_safe

@@ -1,0 +1,9 @@
+- content_for :page_title do
+  Edit Testimonial
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      = render "form", testimonial: @testimonial
+
+= helper_fab(docs_testimonials_path)

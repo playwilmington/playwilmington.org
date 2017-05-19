@@ -1,0 +1,9 @@
+- content_for :page_title do
+  Edit Settings
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel
+      = render "form", setting: @setting
+
+= helper_fab(docs_settings_path)

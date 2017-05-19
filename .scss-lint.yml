@@ -4,6 +4,8 @@ scss_files:
 exclude:
   - 'app/assets/stylesheets/application.scss'
   - 'app/assets/stylesheets/plugins/**'
+  - 'app/assets/stylesheets/table.scss'
+  - 'app/assets/stylesheets/forms.scss'
   - 'vendor/**'
 plugin_directories: ['.scss-linters']
 
@@ -108,7 +110,7 @@ linters:
     force_nesting: true
 
   NameFormat:
-    enabled: true
+    enabled: false
     allow_leading_underscore: true
     convention: hyphenated_lowercase # or 'camel_case', or 'snake_case', or a regex pattern
 

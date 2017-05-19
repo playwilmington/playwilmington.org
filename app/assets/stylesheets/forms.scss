@@ -1,0 +1,49 @@
+$color-red: #f00;
+$color-black: #000;
+
+.main-form {
+  .form-errors {
+    background-color: $color-red;
+    margin-bottom: 10px;
+    padding: 15px;
+
+    ul {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  .isrequired::before {
+    color: $color-red;
+    content: '* ';
+  }
+
+  abbr {
+    border-bottom: 0 !important;
+    color: $color-red;
+  }
+
+  label {
+    &.active::after {
+      color: $color-black;
+      content: attr(data-hint);
+      opacity: 1;
+    }
+  }
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  box-shadow: none !important;
+}

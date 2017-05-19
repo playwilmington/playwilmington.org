@@ -1,0 +1,41 @@
+- content_for :page_title do
+  Alert
+
+.row
+  .col.s12.offset-m1.m10
+    .card-panel.main-view
+      .row
+        .col.s12.m6.grid
+          %span.label Title:
+          = @alert.title
+        .col.s12.m6.grid
+          %span.label Name:
+          = @alert.name
+        .col.s12.m6.grid
+          %span.label Start Date:
+          = @alert.strd_start
+        .col.s12.m6.grid
+          %span.label End Date:
+          = @alert.strd_end
+        .col.s12.m6
+          %span.label Active:
+          %span.icon
+            - if @alert.active?
+              = material_icon.check_box
+            - else
+              = material_icon.check_box_outline_blank
+      .row
+        .col.s12
+          %span.label Content:
+          = @alert.content.html_safe
+
+.fixed-action-btn.click-to-toggle.toolbar
+  %a.btn-floating.btn-large.waves-effect.waves-light
+    = material_icon.menu
+  %ul
+    %li.waves-effect.waves-light
+      = link_to admin_alert_path(@alert), class: "red" do
+        = material_icon.delete_forever
+    %li.waves-effect.waves-light
+      = link_to edit_admin_alert_path(@alert), class: "green" do
+        = material_icon.edit

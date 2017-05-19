@@ -1,0 +1,17 @@
+.card-panel.main-form
+  = simple_form_for @message, url: create_message_path,
+    html: { class: "row" } do |f|
+    .col.s12
+      - unless @message.errors.full_messages.empty?
+        .form-errors.red.lighten-1
+          %ul
+            - @message.errors.full_messages.each do |msg|
+              %li= msg
+    = f.input :email_to, prompt: "Select an Email",
+      wrapper_html: { class: "s12" },
+      collection: tab.contact_emails.is_active.map{ |p| [p.title, p.email_address] }
+    = f.input :name, icon: "title", wrapper_html: { class: "m6 s12" }
+    = f.input :email, wrapper_html: { class: "m6 s12" }
+    = f.input :message, icon: "message", wrapper_html: { class: "s12" },
+      as: :text
+    = f.button :submit, "Send Message", class: "right"

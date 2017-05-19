@@ -1,0 +1,98 @@
+- content_for :page_title do
+  How To Use Photo Albums
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Photo Albums allow you to show off those nice images for various events. The first photo in the album is the cover photo of the album. Note, you are only able to upload one photo at a time due to a defect in the application. You will see hovering over the photo icon will give you a tooltip that indicates "Clickto View Photos" inside the album. See Figure 1 below for example.
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/photo_albums/Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all Photo Albums. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Yellow Square -
+                Upload Button, navigates user to upload screen to upload an image for designated album.
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each photo album.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each photo album.
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the new photo album screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for photo albums.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/photo_albums/List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new photo albums or update an already existing photo album. a red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                Photo Album - Figure 3:
+                %ul.browser-default
+                  %li
+                    %b Title -
+                    this field is used to give the album a title.
+                  %li
+                    %b Parent Page -
+                    this field is used to link the album to show albums on.
+                  %li
+                    %b Order -
+                    this field is used to define the order the albums show on a page.
+                  %li
+                    %b Active -
+                    this field is used to toggle visibility of album on page/tab.
+                  %li
+                    %b Create/Update Photo Album -
+                    this button allows for the data to be saved back to the database so that your change can take affect.
+              %li
+                Photo - Figure 4:
+                %ul.browser-default
+                  %li
+                    %b Photo -
+                    upload a photo that is either jpeg, jpg, png, or gif.
+                  %li
+                    %b Create Photo -
+                    this button allows for the photo to upload to the server.
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/photo_albums/New_Edit_View.png", width: "100%"
+            %small
+              %b Figure 4:
+            = image_tag "doc_images/photo_albums/photos/New_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record

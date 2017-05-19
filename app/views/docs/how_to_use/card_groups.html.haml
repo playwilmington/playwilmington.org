@@ -1,0 +1,154 @@
+- content_for :page_title do
+  How To Use Card Groups
+
+.row
+  .col.s12.m9.l10
+    .card
+      .card-content
+        .section.scrollspy#overview
+          %h4 Overview
+          %p
+            Card Groups are used for a variety of use cases. Some example uses are a Blog post, team members, sponsor list, and many more. Card Groups allows you to define a group of cards and how they will be presented on the page in a grid style format. The website is setup in a 12 column grid format. This allows you to define an items usage for different screen sizes. We also have a vaiety of card options that we can use. Check out
+            %a{ href: "http://materializecss.com/cards.html", target: "_Blank" } Materialize
+            for example usages and looks to determine which one you want to use. See Figure 1 below for example.
+
+          %br/
+          %small
+            %b Figure 1:
+          = image_tag "doc_images/card_groups/Front_End_View.png", width: "100%"
+
+        .section.scrollspy#listview
+          %h4 List View
+          %p
+            The List View allows you to see all card groups created. All columns are sortable by clicking on the column name. See Figure 2 below for example view and callouts for buttons to click.
+            %ul.browser-default
+              %li
+                %b Green Square -
+                Edit Button, shows for each row and allows you to navigate to edit screen for each card group.
+              %li
+                %b Red Square -
+                Delete Button, shows for each row and allows you to delete for each card group.
+              %li
+                %b Blue Circle -
+                Add Button, allows a user to navigate to the new card group screen.
+              %li
+                %b Purple Circle -
+                Help Button, navigates to the documentation page for card groups.
+            %br/
+            %small
+              %b Figure 2:
+            = image_tag "doc_images/card_groups/List_View.png", width: "100%"
+
+        .section.scrollspy#newupdate
+          %h4 New / Update Record
+          %p
+            New and Update allows you to create new card groups or update an already existing card group. A red astrick indicates the field is required before saving.
+            Please see Figure 3 below for example view.
+
+            %ul.browser-default
+              %li
+                Card Group - See Figure 3
+                %ul.browser-default
+                  %li
+                    %b Usage Type -
+                    this field is used to define where to use the Card Group.
+                    %ul.browser-default
+                      %li Home Page - Classify on Home Page
+                      %li Page/Tab - Classify on Page/Tab and will show Page Dropdown
+                  %li
+                    %b Parent Page -
+                    this field is used to select a page/tab you want the Card Group to show up on.
+                  %li
+                    %b Grid -
+                    this field is used to define the sizes of the cards in the groups for small, medium, or large screens.
+                    %ul.browser-default
+                      %li s12 m12 l12 - shows as full screen width on all screen sizes.
+                      %li s12 m6 l4 - shows as 3 cards in a row on large screen, or shows as 2 cards in a row on medium screen, or 1 card in a row on small screens.
+                      %li s12 m6 - shows as 2 cards in a row on medium screen and large screen, or 1 card in a row on small screens.
+                      %li s12 m4 - shows as 3 cards in a row on medium screen and large screen, or 1 card in a row on small screens.
+                  %li
+                    %b Order -
+                    this field is used to define the order of the card groups mainly if you have more than one group on a single page/tab.
+                  %li
+                    %b Active -
+                    this field is used to define if a card group is active or not. If not active then will not show up.
+                  %li
+                    %b New Card / Title of Card -
+                    Click to expand and see details for each card.
+                  %li
+                    %b Add Card -
+                    Click to add new card in group.
+                  %li
+                    %b Create/Update Card Group
+                    this button allows for the data to be saved back to the database so that your change can take affect as well for the card created. If you click delete on a card. It will not delete till this button is clicked.
+              %li
+                Card - See Figure 4
+                %ul.browser-default
+                  %li
+                    %b Title -
+                    this field is used to define the title that shows on the card.
+                  %li
+                    %b Order -
+                    this field is used to define the order of the cards.
+                  %li
+                    %b Button Name (1) -
+                    this field is used to show a button in the card action section if a name and link not defiend a button will not show.
+                  %li
+                    %b Button Link (1) -
+                    this field is used to show a button in the card action section if a name and link not defiend a button will not show.
+                  %li
+                    %b Button Name (2) -
+                    this field is used to show a button in the card action section if a name and link not defiend a button will not show.
+                  %li
+                    %b Button Link (2) -
+                    this field is used to show a button in the card action section if a name and link not defiend a button will not show.
+                  %li
+                    %b Size -
+                    this field is used to define the size of the card height.
+                    %ul.browser-default
+                      %li blank - card content section will adjust to size of details.
+                      %li small - card content section is fixed at one size small.
+                      %li medium - card content section is fixed at one size medium.
+                      %li large - card content section is fixed at one size large.
+                  %li
+                    %b Card Image -
+                    this field is used to define an Image in the card image section on a card.
+                  %li
+                    %b Sticky Links -
+                    this field indicates if sticky links are to be used if Card reveal is filled out.
+                  %li
+                    %b Show Title Outside Image -
+                    this field is used to indicate if the title should appear in card content section or inside the card image. Only if a card image is used.
+                  %li
+                    %b Active -
+                    this field is used to indicate if a card is active or not inside a group.
+                  %li
+                    %b Card Content -
+                    this field is used to capture in Rich Text format details in a card content section.
+                  %li
+                    %b Card Reveal -
+                    this field is used if you want to defined more details that may not fit in card content section. If not defiend with information. This is not shown on the site. This allows if a image is defiend it is clickable to show the reveal.
+
+            %small
+              %b Figure 3:
+            = image_tag "doc_images/card_groups/New_Edit_View.png", width: "100%"
+
+            %small
+              %b Figure 4:
+            = image_tag "doc_images/card_groups/cards/New_Update_View.png", width: "100%"
+        .section.scrollspy#recordview
+          %h4 View a Record
+          %p
+            After clicking on the row from the table you will be able to see full details and everyfield in actual view from a user.
+
+  .col.m3.l2.hide-on-small-only
+    .toc-wrapper
+      %ul.section.table-of-contents
+        %li
+          %a{ href: "#overview" } Overview
+        %li
+          %a{ href: "#listview" } List View
+        %li
+          %a{ href: "#newupdate" } New / Update Record
+        %li
+          %a{ href: "#recordview" } View a Record

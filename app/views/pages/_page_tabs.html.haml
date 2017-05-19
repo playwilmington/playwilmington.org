@@ -1,0 +1,46 @@
+- content_for :tabs do
+  .nav-content
+    %ul.tabs.tabs-transparent
+      - @page.pages.active.each do |tab|
+        %li.tab
+          %a{ href: "##{tab.name}" }= tab.title
+.page-tab
+  = render "layouts/alert"
+  .row
+    - @page.pages.active.each do |tab|
+      %div{ id: "#{tab.name}" }
+        - if tab.show_calendar?
+          .col.s12
+            = render "calendar"
+        - elsif !tab.markers.empty?
+          .col.s12.fix-padding
+            .map#map
+            .hide
+              = render tab.markers
+        - elsif tab.show_contact?
+          .col.s12.fix-padding
+            %iframe.contact-map{ src: "//www.google.com/maps/embed/v1/place?q=#{@settings.company_name.to_param}&zoom=13&attribution_source=Google+Maps+Embed+API&attribution_web_url=https://developers.google.com/maps/documentation/embed/&key=#{ENV['CALENDAR_API_KEY']}", allowfullscreen: true }
+          .col.s12.offset-m2.m8
+            = render "message_form", tab: tab
+        - else
+          .col.s12
+            .container
+              - unless tab.hide_title
+                %h4.center= tab.title
+              .row
+                - unless tab.content.blank?
+                  .col.s12
+                    .card-panel
+                      = tab.content.html_safe
+                - unless tab.card_groups.page_active.empty?
+                  - tab.card_groups.page_active.each do |card_group|
+                    = render card_group.cards.is_active
+                - unless tab.collapsibles.is_active.empty?
+                  .col.s12
+                    = render tab.collapsibles.is_active
+                - unless tab.collections.is_active.empty?
+                  .col.s12
+                    %ul.collection.with-header
+                      = render tab.collections.is_active
+                - unless tab.photo_albums.empty?
+                  = render tab.photo_albums

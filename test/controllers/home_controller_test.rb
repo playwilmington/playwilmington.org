@@ -1,9 +1,12 @@
-require 'test_helper'
+# frozen_string_literal: true
 
-class HomeControllerTest < ActionDispatch::IntegrationTest
+require "test_helper"
+
+class HomeControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
   test "should get index" do
-    get home_index_url
+    get :index
     assert_response :success
   end
-
 end

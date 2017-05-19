@@ -1,0 +1,19 @@
+.grid::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+
+.grid-item {
+  float: left;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}

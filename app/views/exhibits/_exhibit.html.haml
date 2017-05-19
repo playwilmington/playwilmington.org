@@ -1,0 +1,13 @@
+.col.s12.m6
+  .card.small
+    .card-content
+      %span.card-title.activator
+        = exhibit.title
+        = material_icon.info_outline.css_class("right")
+      .center{ style: "padding-top: 30px;" }
+        %i.fa{ class: "fa-#{exhibit.icon}", style: "font-size: 150px;" }
+    .card-reveal
+      %span.card-title.activator
+        = exhibit.title
+        = material_icon.close.css_class("right")
+      %p= exhibit.description

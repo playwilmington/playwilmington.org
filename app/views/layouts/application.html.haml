@@ -1,43 +1,45 @@
 !!!
-%html
+%html{ lang: "en" }
   %head
-    %title Children's Museum of Wilmington
+    %title= @settings.company_name
     = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{ class: controller_name + action_name }
-    - if controller_name == 'sessions' || (controller_name == 'registrations' && action_name != 'edit') || controller_name == 'passwords' || controller_name == 'confirmations' || controller_name == 'unlocks'
-      .card-panel
-        .row.col.s12.center
-          %h4= yield :header
-        .row
-          .col.s12
-            = yield
-            .col.s12.section.center
-              = render 'users/shared/links'
-    - else
-      - if notice
-        :coffee
-          Materialize.toast("#{notice}", 4000)
-      %header
-        %nav
-          .nav-wrapper
-            = link_to "The Children's Museum of Wilmington", root_path, class: 'brand-logo'
-            %ul.right.hide-on-med-and-down
-              - if current_user
-                %li
-                  = link_to 'Dashboard', dashboard_index_path, class: 'btn waves-effect waves-light'
-              - else
-                %li
-                  = link_to 'Login', new_user_session_path
-      %main
-        = yield
+    = stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload"
+    = javascript_include_tag "application",
+      "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&libraries=places",
+      "data-turbolinks-track": "reload"
 
-      %footer.page-footer
-        .row
-          .col.s12.m4
-            %h5.white-text The Children's Museum of Wimington
-            %p.grey-text.text-lighten-4 A Simple Easy way to track and share you Movies, TV Shows, CDs, and Video Games with everyone
-        .footer-copyright{ style: 'padding-left: 10px; padding-right:10px;' }
-          &copy; 2017 Copyright Entertainment Tracker
-          %a.grey-text.text-lighten-4.right{ href: '#!' } v1.0.0
+    %meta{ charset: "utf-8" }/
+    %meta{ content: "IE=edge", "http-equiv": "X-UA-Compatible" }/
+    %meta{ content: "width=device-width, initial-scale=1", name: "viewport" }/
+    %link{ href: "https://fonts.googleapis.com/css?family=Indie+Flower",
+      rel: "stylesheet", type: "text/css" }/
+    -# Add to homescreen for Chrome on Android
+    %meta{ content: "yes", name: "mobile-web-app-capable" }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: "icon",
+      sizes: "192x192" }/
+    -# Add to homescreen for Safari on iOS
+    %meta{ content: "yes", name: "apple-mobile-web-app-capable" }/
+    %meta{ content: "#ff6e40", name: "apple-mobile-web-app-status-bar-style" }/
+    %meta{ content: "#{@settings.company_name}",
+      name: "apple-mobile-web-app-title" }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}",
+      rel: "apple-touch-icon-precomposed" }/
+    -# Tile icon for Win8 (144x144 + tile color)
+    %meta{ content: "#{asset_path 'cmowlogo.gif'}",
+      name: "msapplication-TileImage" }/
+    %meta{ content: "#ff6e40", name: "msapplication-TileColor" }/
+    -# Add to homescreen for Chrome on Android
+    %meta{ content: "yes", name: "mobile-web-app-capable" }/
+    %link{ href: "#{asset_path 'cmowlogo.gif'}", rel: "icon",
+      sizes: "192x192" }/
+
+  %body.blue-grey.lighten-4{ class: controller_name }
+    - if admin?
+      = render "layouts/admin"
+    - elsif docs?
+      = render "layouts/docs"
+    - elsif viewable?
+      = render "layouts/login"
+    - else
+      = render "layouts/main"

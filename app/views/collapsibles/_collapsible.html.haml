@@ -1,0 +1,10 @@
+%ul{ class: class_def(collapsible.is_popout),
+     data: { collapsible: collapsible.collapse_style } }
+  - collapsible.collapsible_items.is_active.each do |item|
+    %li
+      .collapsible-header
+        - if item.icon.blank?
+          = item.title
+        - else
+          = icon item.icon, item.title
+      .collapsible-body.white= item.body.html_safe

@@ -1,0 +1,16 @@
+- unless @alert.nil?
+  %nav.teal
+    .nav-wrapper.container
+      .left
+        %b.yellow-text NEWS:
+        = @alert.title
+      - unless @alert.content == ""
+        .right
+          %button.btn.deep-orange{ data: { target: "alert-modal" } } More Info
+- unless @alert.nil? || @alert.content == ""
+  .modal#alert-modal
+    .modal-content
+      %h4
+        NEWS: More Information
+        %i.material-icons.right.modal-close close
+      %p= @alert.content.html_safe

@@ -1,23 +1,124 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      alert:
+        title: Title
+        name: Name
+        content: Content
+        start_date: Start Date
+        end_date: End Date
+        active: Active
+      card_group:
+        page_id: Parent Page
+        grid: Grid
+        active: Active
+        order: Order
+        usage_type: Usage Type
+      card:
+        title: Title
+        card_content: Card Content
+        card_reveal: Card Reveal
+        order: Order
+        active: Active
+        size: Size
+        sticky_links: Sticky Links
+        btn_one_name: Button Name (1)
+        btn_one_url: Button URL (1)
+        btn_two_name: Button Name (2)
+        btn_two_url: Button URL (2)
+        card_group_id: Card Group
+        card_image_file_name: Card Image File Name
+        toggle_title: Show Title Outside Image
+      collapsible:
+        name: Name
+        active: Active
+        is_popout: Is Popout
+        collapse_style: Collapse Style
+        usage_type: Usage Type
+        order: Order
+      collection:
+        title: Title
+        order: Order
+        page_id: Page Name
+        icon: Icon
+        link: Link
+        is_header: Is Header
+        active: Active
+      collapsible_item:
+        title: Title
+        body: Body
+        active: Active
+        icon: Icon
+        order: Order
+        collapsible_id: Collapsible Group
+      contact_email:
+        title: Title
+        email_address: Email Address
+        page_id: Parent Page
+        order: Order
+        active: Active
+      marker:
+        title: Title
+        address: Address
+        body: Body
+        marker_type: Type
+        page_id: Parent Page
+      page:
+        page_id: Parent Page
+        title: Title
+        icon: Icon
+        order: Order
+        page_type: Page Type
+        content: Page Content
+        show_calendar: Show Calendar
+        show_testimonials: Show Testimonials
+        hide_title: Hide Title
+        show_contact: Show Contact
+        active: Active
+      photo_album:
+        title: Title
+        page_id: Parent Page
+        order: Order
+        active: Active
+      Photo:
+        photo_album: Photo Album
+        photo_file_name: Photo File Name
+      slider:
+        title: Title
+        subtitle: Subtitle
+        order: Order
+        position: Position
+        photo_file_name: Photo File Name
+        active: Active
+      setting:
+        address: Address
+        company_name: Company Name
+        copyright: Copyright
+        email: Email
+        phone: Phone
+        facebook_handle: Facebook Handle
+        twitter_handle: Twitter Handle
+        pinterest_handle: Pinterest Handle
+        instagram_handle: Instagram Handle
+        donation_url: Donation URL
+        calendar_help_text: Calendar Help Text
+      user:
+        email: Email
+        encrypted_password: Encrypted Password
+        reset_password_token: Reset Password Token
+        reset_password_sent_at: Reset Password Sent at
+        remember_created_at: Remember Created at
+        sign_in_count: Sign in Count
+        current_sign_in_at: Current Sign in at
+        last_sign_in_at: Last Sign in at
+        current_sign_in_ip: Current Sign in IP
+        last_sign_in_ip: Last Sign in IP
+        confirmation_token: Confirmation Token
+        confirmed_at: Confirmed At
+        confirmation_sent_at: Confirmation Send At
+        unconfirmed_email: Unclonfirmed Email
+        failed_attempts: Failed Attempts
+        unlock_token: Unlock Token
+        locked_at: Locked At
+        admin: Admin
+        name: Name

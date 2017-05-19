@@ -1,0 +1,58 @@
+- content_for :page_title do
+  Pages
+
+- content_for :page_button do
+  = link_to new_admin_page_path,
+    class: "btn-floating btn-large halfway-fab waves-effect waves-light" do
+    = material_icon.add
+
+.page-wrapper
+  .row
+    .col.s12
+      .card-panel
+        .row
+          .col.s12
+            .right= page_entries_info @pages, entry_name: "Page"
+        %table.bordered.highlight.table.responsive-table
+          %thead
+            %th{ scope: "col", data: { field: "Title" } }
+              = sort_link @q, :title
+            %th{ scope: "col", data: { field: "Name" } }
+              = sort_link @q, :name
+            %th{ scope: "col", data: { field: "Page Type" } }
+              = sort_link @q, :page_type
+            %th{ scope: "col", data: { field: "Parent Page" } }
+              = sort_link @q, :page_id
+            %th{ scope: "col", data: { field: "Icon" } }
+              = sort_link @q, :icon
+            %th{ scope: "col", data: { field: "Order" } }
+              = sort_link @q, :order
+            %th{ scope: "col", data: { field: "Active" } }
+              = sort_link @q, :active
+            %th{ scope: "col", colspan: "2" }
+          %tbody
+            - @pages.each do |page|
+              %tr.table__row{ role: "link", tabindex: "0",
+                data: { url: admin_page_path(page) } }
+                %td= page.title
+                %td= page.name
+                %td= page.page_type
+                %td= page.page_id ? page.parent_page : ""
+                %td= page.icon
+                %td= page.order
+                %td
+                  - if page.active?
+                    = material_icon.check_box
+                  - else
+                    = material_icon.check_box_outline_blank
+                %td
+                  = link_to "Edit", edit_admin_page_path(page),
+                    class: "action-edit"
+                %td
+                  = link_to "Delete", admin_page_path(page),
+                    class: "action-destroy red-text", rel: "nofollow",
+                    data: { method: :delete, confirm: "Are You Sure?" }
+        .center.section
+          = paginate @pages
+
+= helper_fab(docs_pages_path)

@@ -8,8 +8,11 @@
 skip_frontmatter: false
 
 linters:
-  AltText:
+  AlignmentTabs:
     enabled: true
+
+  AltText:
+    enabled: false
 
   ClassAttributeWithStaticValue:
     enabled: true
@@ -19,6 +22,7 @@ linters:
 
   ConsecutiveComments:
     enabled: true
+    max_consecutive: 1
 
   ConsecutiveSilentScripts:
     enabled: true
@@ -37,8 +41,27 @@ linters:
   HtmlAttributes:
     enabled: true
 
+  IdNames:
+    enabled: false
+    style: lisp_case
+
   ImplicitDiv:
     enabled: true
+
+  Indentation:
+    enabled: true
+    character: space # or tab
+    width: 2 # ignored if character == tab
+
+  InlineStyles:
+    enabled: false
+
+  InstanceVariables:
+    enabled: false
+    file_types: partials
+    matchers:
+      all: .*
+      partials: \A_.*\.haml\z
 
   LeadingCommentSpace:
     enabled: true
@@ -56,6 +79,10 @@ linters:
   ObjectReferenceAttributes:
     enabled: true
 
+  RepeatedId:
+    enabled: true
+    severity: error
+
   RuboCop:
     enabled: true
     # These cops are incredibly noisy when it comes to HAML templates, so we
@@ -69,6 +96,7 @@ linters:
       - Style/AlignParameters
       - Style/BlockNesting
       - Style/ElseAlignment
+      - Style/EndOfLine
       - Style/FileName
       - Style/FinalNewline
       - Style/FrozenStringLiteralComment
@@ -78,7 +106,6 @@ linters:
       - Style/TrailingBlankLines
       - Style/TrailingWhitespace
       - Style/WhileUntilModifier
-      - Style/UnneededInterpolation
 
   RubyComments:
     enabled: true
@@ -89,10 +116,6 @@ linters:
   SpaceInsideHashAttributes:
     enabled: true
     style: space
-
-  Indentation:
-    enabled: true
-    character: space # or tab
 
   TagName:
     enabled: true
