@@ -19,7 +19,7 @@
           = @page.page_id ? @page.parent_page : "N/A"
         .col.s12.m6.grid
           %span.label Icon:
-          = @page.icon.blank? ? @page.icon : "N/A"
+          = @page.icon.blank? ? "N/A" : @page.icon
         .col.s12.m6.grid
           %span.label Order:
           = @page.order
