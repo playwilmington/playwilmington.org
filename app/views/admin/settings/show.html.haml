@@ -21,25 +21,32 @@
           = @setting.copyright.html_safe
         .col.s12.m6.grid
           %span.label Email:
-          = link_to @setting.email, @setting.email_url
+          - unless @setting.email.blank?
+            = link_to @setting.email, @setting.email_url
         .col.s12.m6.grid
           %span.label Phone:
-          = link_to @setting.tel_format, @setting.tel_url
+          - unless @setting.phone.blank?
+            = link_to @setting.tel_format, @setting.tel_url
         .col.s12.m6.grid
           %span.label Facebook Handle:
-          = link_to @setting.facebook_handle, @setting.facebook_url
+          - unless @setting.facebook_handle.blank?
+            = link_to @setting.facebook_handle, @setting.facebook_url
         .col.s12.m6.grid
           %span.label Twiiter Handle:
-          = link_to @setting.twitter_handle, @setting.twitter_url
+          - unless @setting.twitter_handle.blank?
+            = link_to @setting.twitter_handle, @setting.twitter_url
         .col.s12.m6.grid
           %span.label Pinterest Handle:
-          = link_to @setting.pinterest_handle, @setting.pinterest_url
+          - unless @setting.pinterest_handle.blank?
+            = link_to @setting.pinterest_handle, @setting.pinterest_url
         .col.s12.m6.grid
           %span.label Instagram Handle:
-          = link_to @setting.instagram_handle, @setting.instagram_url
+          - unless @setting.instagram_handle.blank?
+            = link_to @setting.instagram_handle, @setting.instagram_url
         .col.s12.m6.grid
           %span.label Donation URL:
-          = link_to @setting.donation_url, @setting.donation_url
+          - unless @setting.donation_url.blank?
+            = link_to @setting.donation_url, @setting.donation_url
         .col.s12.grid
           %span.label Calendar Help Text:
           = @setting.calendar_help_text

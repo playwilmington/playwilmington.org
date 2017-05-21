@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Page < ApplicationRecord
-  validates :title, :page_type, presence: true
+  validates :title, :page_type, :order, :name, presence: true
   validates :name, uniqueness: true
   validate :tab_page_check, :page_check
   validates_inclusion_of :page_type,

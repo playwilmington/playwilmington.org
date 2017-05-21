@@ -21,6 +21,7 @@ $color-black: #000;
   abbr {
     border-bottom: 0 !important;
     color: $color-red;
+    text-decoration: none !important;
   }
 
   label {
@@ -30,6 +31,10 @@ $color-black: #000;
       opacity: 1;
     }
   }
+}
+
+abbr {
+  text-decoration: none !important;
 }
 
 input:not([type]):focus:not([readonly]),

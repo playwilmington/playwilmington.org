@@ -16,6 +16,12 @@
   }
 }
 
+img {
+  &.activator {
+    cursor: pointer !important;
+  }
+}
+
 .truncate {
   width: 250px;
 }
