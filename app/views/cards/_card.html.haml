@@ -15,7 +15,7 @@
           - else
             %span.card-title{ class: activator(card.card_reveal.blank?) }
               = card.title
-              = material_icon.more_vert.css_class("right")
+              = material_icon.info_outline.css_class("right")
         %p= card.card_content.html_safe
     - if !card.btn_one_name.blank? || !card.btn_two_name.blank?
       .card-action
