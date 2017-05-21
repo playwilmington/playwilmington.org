@@ -33,3 +33,11 @@ deployment:
       - heroku run rake db:migrate --app playwilmington-development
       - heroku run rake db:seed --app playwilmington-development
       - heroku maintenance:off --app playwilmington-development
+  production:
+    branch: master
+    commands:
+      - heroku maintenance:on --app childrensmuseumofwilmington
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - git push git@heroku.com:childrensmuseumofwilmington.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app childrensmuseumofwilmington
+      - heroku maintenance:off --app childrensmuseumofwilmington
