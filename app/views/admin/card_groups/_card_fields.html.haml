@@ -10,8 +10,8 @@
       = f.label :title
     .input-field.col.m6.s12
       %i.material-icons.prefix format_list_numbered
-      = f.text_field :order
-      = f.label :order
+      = f.text_field :order, required: true
+      = f.label :order, class: "isrequired"
     .input-field.col.m6.s12
       %i.material-icons.prefix exit_to_app
       = f.text_field :btn_one_name
@@ -51,7 +51,7 @@
         = f.label :active
     .row
       .col.s12.ckeditor-input
-        = f.label :card_content
+        = f.label :card_content, class: "isrequired"
         = f.cktext_area :card_content
     .row
       .col.s12.ckeditor-input
