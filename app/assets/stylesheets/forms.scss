@@ -33,6 +33,10 @@ $color-black: #000;
   }
 }
 
+abbr {
+  text-decoration: none !important;
+}
+
 input:not([type]):focus:not([readonly]),
 input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
