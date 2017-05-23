@@ -22,6 +22,15 @@
           %li
             = link_to "/#{page.name}", class: "waves-effect waves-orange" do
               = icon page.icon, page.title, class: "fa-lg"
+        - if !current_user && @settings.sign_in_registration_url
+          %li
+            .divider
+          %li
+            %a.subheader Log In
+          %li
+            = link_to @settings.sign_in_registration_url,
+              class: "waves-effect waves-orange", target: "_Blank" do
+              = icon "sign-in", "Sign In/Register", class: "fa-lg"
         - if current_user
           %li
             .divider

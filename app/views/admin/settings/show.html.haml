@@ -50,5 +50,10 @@
         .col.s12.grid
           %span.label Calendar Help Text:
           = @setting.calendar_help_text
+        .col.s12.grid
+          %span.label Sign In/Registration URL:
+          - unless @setting.sign_in_registration_url.blank?
+            = link_to @setting.sign_in_registration_url,
+              @setting.sign_in_registration_url
 
 = helper_fab(docs_settings_path)
