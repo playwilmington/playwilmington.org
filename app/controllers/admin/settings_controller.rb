@@ -27,7 +27,7 @@ module Admin
       params.require(:setting).permit(
         :address, :company_name, :copyright, :email, :phone, :facebook_handle,
         :twitter_handle, :pinterest_handle, :instagram_handle, :donation_url,
-        :calendar_help_text
+        :calendar_help_text, :sign_in_registration_url
       )
     end
   end

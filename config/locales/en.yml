@@ -102,6 +102,7 @@ en:
         instagram_handle: Instagram Handle
         donation_url: Donation URL
         calendar_help_text: Calendar Help Text
+        sign_in_registration_url: Sign In/Registration URL
       user:
         email: Email
         encrypted_password: Encrypted Password
