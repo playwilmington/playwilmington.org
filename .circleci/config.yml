@@ -1,0 +1,60 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.1-node
+        environment:
+          RAILS_ENV: test
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: circle_test
+
+    working_directory: ~/playwilmington.org
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Install Gems
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      # Database setup
+      - run:
+          name: Build Database
+          command: |
+            ./bin/rake db:create
+      - run:
+          name: Load Schema
+          command: |
+            ./bin/rake db:schema:load
+
+      # Run Tests!
+      - run: mkdir ~/reports
+
+      - run: mkdir ~/coverage
+
+      - run:
+          name: Run Tests
+          command: |
+            ./bin/rails test TESTOPT="--ci-dir=./reports"
+          when: always
+
+      # Collect Reports
+      - store_artifacts:
+          path: coverage
+          destination: coverage
+
+      - store_test_results:
+          path: ~/reports
