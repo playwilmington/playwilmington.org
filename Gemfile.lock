@@ -93,6 +93,7 @@ GEM
       momentjs-rails (>= 2.9.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    google-analytics-rails (1.1.1)
     haml (5.0.1)
       temple (>= 0.8.0)
       tilt
@@ -316,6 +317,7 @@ DEPENDENCIES
   devise
   font-awesome-sass
   fullcalendar-rails
+  google-analytics-rails
   haml
   haml-rails
   haml_lint
