@@ -107,4 +107,6 @@ Rails.application.configure do
     password: ENV["SENDGRID_PASSWORD"],
     domain: ENV["SENDGRID_DOMAIN"]
   }
+
+  GA.tracker = "UA-103569329-1"
 end

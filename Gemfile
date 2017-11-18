@@ -4,6 +4,7 @@ source "https://rubygems.org"
 
 ruby "2.4.1"
 
+gem "google-analytics-rails"
 gem "aws-sdk"
 gem "chartkick"
 gem "ckeditor", git: "https://github.com/galetahub/ckeditor.git"
